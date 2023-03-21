@@ -1,5 +1,9 @@
 # ERP
 
+## Diagrama de Classes UML
+
+![](erp.jpg)
+
 ## 5W2H
 
 **1. What?**
