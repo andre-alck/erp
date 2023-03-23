@@ -1,4 +1,4 @@
-public class Terceirizado extends Participante {
+public class ParticipanteExterno extends Participante {
     @Override
     public boolean participar() {
         return false;

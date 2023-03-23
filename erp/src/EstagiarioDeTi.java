@@ -1,16 +1,6 @@
-public class EstagiarioDeTi extends Funcionario implements Estagiario {
+public class EstagiarioDeTi extends Funcionario {
     @Override
     public boolean acessarSistema(Perfil perfil) {
         return false;
-    }
-
-    @Override
-    public boolean participar() {
-        return false;
-    }
-
-    @Override
-    public String documentar() {
-        return "EstagiarioDeTi.java - documentar()";
     }
 }
