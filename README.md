@@ -2,7 +2,7 @@
 
 ## Diagrama de Classes UML
 
-![](erp.jpg)
+![](erp.png)
 
 ## 5W2H
 
