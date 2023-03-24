@@ -1,3 +1,5 @@
+package com.me.erp;
+
 public abstract class Participante {
     private String id;
     private String ocupacao;

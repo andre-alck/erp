@@ -1,7 +1,8 @@
+package com.me.erp;
+
 public abstract class Funcionario extends ParticipanteInterno {
     private double cargaHorariaSemanal;
     private double pausa;
-    private Perfil perfil;
 
     public double getCargaHorariaSemanal() {
         return cargaHorariaSemanal;
@@ -18,14 +19,4 @@ public abstract class Funcionario extends ParticipanteInterno {
     public void setPausa(double pausa) {
         this.pausa = pausa;
     }
-
-    public Perfil getPerfil() {
-        return perfil;
-    }
-
-    public void setPerfil(Perfil perfil) {
-        this.perfil = perfil;
-    }
-
-    public abstract boolean acessarSistema(Perfil perfil);
 }

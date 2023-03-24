@@ -1,6 +1,9 @@
+package com.me.erp;
+
 public class Desenvolvedor extends Funcionario {
+
     @Override
-    public boolean acessarSistema(Perfil perfil) {
+    public boolean participar() {
         return false;
     }
 }
