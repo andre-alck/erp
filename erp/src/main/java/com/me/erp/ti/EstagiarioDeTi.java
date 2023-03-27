@@ -1,11 +1,8 @@
-package com.me.erp;
+package com.me.erp.ti;
 
-public class Desenvolvedor extends Clt implements TiPleno {
+import com.me.erp.Estagiario;
 
-    @Override
-    public void participarDeReuniao() {
-    }
-
+public class EstagiarioDeTi extends Estagiario implements TiJunior {
     @Override
     public String documentar(String documento) {
         return null;
@@ -19,10 +16,5 @@ public class Desenvolvedor extends Clt implements TiPleno {
     @Override
     public String programar() {
         return null;
-    }
-
-    @Override
-    public void resolverChamados() {
-
     }
 }

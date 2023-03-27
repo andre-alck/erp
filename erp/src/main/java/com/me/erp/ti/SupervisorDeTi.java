@@ -1,4 +1,7 @@
-package com.me.erp;
+package com.me.erp.ti;
+
+import com.me.erp.Funcionario;
+import com.me.erp.Supervisor;
 
 public class SupervisorDeTi extends Supervisor implements TiSenior{
     @Override

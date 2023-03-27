@@ -1,4 +1,4 @@
-package com.me.erp;
+package com.me.erp.ti;
 
 public interface TiPleno extends TiJunior {
     void resolverChamados();
