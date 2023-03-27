@@ -3,18 +3,20 @@ package com.me.erp.ti;
 import com.me.erp.Estagiario;
 
 public class EstagiarioDeTi extends Estagiario implements TiJunior {
+
     @Override
-    public String documentar(String documento) {
-        return null;
+    public String documentar(String documentacao) {
+        return "Documentação Nível JR.";
     }
 
     @Override
     public boolean participar() {
         return false;
+        // TODO: 📚
     }
 
     @Override
     public String programar() {
-        return null;
+        return "Programação Nível JR.";
     }
 }

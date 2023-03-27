@@ -6,17 +6,18 @@ import com.me.erp.Supervisor;
 public class SupervisorDeTi extends Supervisor implements TiSenior{
     @Override
     public void participarDeReuniao() {
-
+        // TODO: 📚
     }
 
     @Override
-    public String documentar(String documento) {
-        return null;
+    public String documentar(String documentacao) {
+        return "Documentação Nível SR.";
     }
 
     @Override
     public boolean participar() {
         return false;
+        // TODO: 📚
     }
 
     @Override
@@ -31,16 +32,35 @@ public class SupervisorDeTi extends Supervisor implements TiSenior{
 
     @Override
     public String programar() {
-        return null;
-    }
-
-    @Override
-    public void resolverChamados() {
-
+        return "Programação Nível SR.";
     }
 
     @Override
     public String gerarRelatorio(String relatorio) {
-        return null;
+        if(relatorio.length() < 10) {
+            return "Por favor, acrescente detalhes ao seu relatório.";
+        }
+
+        String relatorioGerado = this.getId() + ": " + relatorio;
+        return relatorioGerado;
+    }
+
+    @Override
+    public int resolverChamados(int quantidadeDeChamados) {
+        int quantidadeDeChamadosResolvidos;
+
+        if(quantidadeDeChamados <= 0) {
+            quantidadeDeChamadosResolvidos = 0;
+            return quantidadeDeChamadosResolvidos;
+        }
+
+        if(quantidadeDeChamados >= 20) {
+            quantidadeDeChamadosResolvidos = 20;
+            quantidadeDeChamadosResolvidos = 20;
+            return quantidadeDeChamadosResolvidos;
+        }
+
+        quantidadeDeChamadosResolvidos = quantidadeDeChamados;
+        return quantidadeDeChamadosResolvidos;
     }
 }
