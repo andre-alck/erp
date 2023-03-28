@@ -1,4 +1,4 @@
-package com.me.erp;
+package com.me.erp.participanteexterno;
 
 
 import com.me.erp.participanteexterno.ParticipanteExterno;
