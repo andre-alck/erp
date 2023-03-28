@@ -46,3 +46,21 @@ Utilizando as competências listadas na seção "2. Why?".
 **7. How Much?**
 
 Custo variável, dependendo da tabela de preços atual do Google App Engine para hospedagem da aplicação. Para mais informações, [verificar documentação das cotas](https://cloud.google.com/1ppengine/docs/standard/quotashl=pt-br).
+
+## Regras de Negócio
+
+### Participante Externo
+
+-   Ao **trabalhar**, deve **retornar** Status Do Trabalho Do Participante Externo, como consta Fluxograma abaixo.
+
+    ![](regras.de.negocio/ParticipanteExterno/ParticipanteExternoTrabalhar.png)
+
+    Onde:
+
+    -   Status Da Documentação Do Participante Externo:
+        1. Regular.
+        2. Aguardando Envio Por Parte do Participante Externo.
+        3. Aguardando Análise Interna.
+    -   Status Do Trabalho Do Participante Externo:
+        1. Regular.
+        2. Irregular.
