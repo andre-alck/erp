@@ -1,65 +1,48 @@
 package com.me.erp;
 
-import org.junit.jupiter.api.BeforeEach;
+
+import com.me.erp.participanteexterno.ParticipanteExterno;
+import com.me.erp.participanteexterno.StatusDaDocumentacaoDoParticipanteExterno;
+import com.me.erp.participanteexterno.StatusDoTrabalhoDoParticipanteExterno;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import static org.junit.jupiter.api.Assertions.*;
 
 class ParticipanteExternoTest {
-    ParticipanteExterno participanteExterno;
 
-    @BeforeEach
-    void setup() {
-        participanteExterno = new ParticipanteExterno();
+    @Test
+    public void dadoParticipanteExternoComStatusDaDocumentacaoRegularQuandoTrabalharEntaoDeveRetornarStatusDoTrabalhoRegular() {
+        // preparacao
+        ParticipanteExterno participanteExterno = new ParticipanteExterno.ParticipanteExternoBuilder().comStatusDaDocumentacaoDoParticipanteExterno(StatusDaDocumentacaoDoParticipanteExterno.REGULAR).agora();
+
+        // acao
+        StatusDoTrabalhoDoParticipanteExterno statusDoTrabalhoDoParticipanteExterno =  participanteExterno.trabalhar();
+
+        // verificacao
+        assertEquals(statusDoTrabalhoDoParticipanteExterno, StatusDoTrabalhoDoParticipanteExterno.REGULAR);
     }
 
     @Test
-    void dadoParticipanteExternoComStatusDaDocumentacaoRegularQuandoTestadoMetodoParticiparDeveRetornarVerdadeiro() {
+    public void dadoParticipanteExternoComStatusDaDocumentacaoEmAguardoDoEnvioDaDocumentacaoQuandoTrabalharEntaoDeveRetornarStatusDoTrabalhoIrregular() {
         // preparacao
-        participanteExterno.setStatusDaDocumentacao(StatusDaDocumentacao.REGULAR);
+        ParticipanteExterno participanteExterno = new ParticipanteExterno.ParticipanteExternoBuilder().comStatusDaDocumentacaoDoParticipanteExterno(StatusDaDocumentacaoDoParticipanteExterno.EM_AGUARDO_DO_ENVIO_DA_DOCUMENTACAO).agora();
 
         // acao
-        boolean participou = participanteExterno.participar();
+        StatusDoTrabalhoDoParticipanteExterno statusDoTrabalhoDoParticipanteExterno =  participanteExterno.trabalhar();
 
         // verificacao
-        assertTrue(participou);
+        assertEquals(statusDoTrabalhoDoParticipanteExterno, StatusDoTrabalhoDoParticipanteExterno.IRREGULAR);
     }
 
     @Test
-    void dadoParticipanteExternoComStatusDaDocumentacaoIrregularQuandoTestadoMetodoParticiparDeveRetornarFalso() {
+    public void dadoParticipanteExternoComStatusDaDocumentacaoEmAnaliseInternaQuandoTrabalharEntaoDeveRetornarStatusDoTrabalhoIrregular() {
         // preparacao
-        participanteExterno.setStatusDaDocumentacao(StatusDaDocumentacao.IRREGULAR);
+        ParticipanteExterno participanteExterno = new ParticipanteExterno.ParticipanteExternoBuilder().comStatusDaDocumentacaoDoParticipanteExterno(StatusDaDocumentacaoDoParticipanteExterno.EM_ANALISE_INTERNA).agora();
 
         // acao
-        boolean participou = participanteExterno.participar();
+        StatusDoTrabalhoDoParticipanteExterno statusDoTrabalhoDoParticipanteExterno =  participanteExterno.trabalhar();
 
         // verificacao
-        assertFalse(participou);
-    }
-
-    @Test
-    void dadoParticipanteExternoComStatusDaDocumentacaoEmAnaliseQuandoTestadoMetodoParticiparDeveRetornarFalso() {
-        // preparacao
-        participanteExterno.setStatusDaDocumentacao(StatusDaDocumentacao.EM_ANALISE);
-
-        // acao
-        boolean participou = participanteExterno.participar();
-
-        // verificacao
-        assertFalse(participou);
-    }
-
-    @Test
-    void dadoParticipanteExternoComStatusDaDocumentacaoAguardandoEnvioQuandoTestadoMetodoParticiparDeveRetornarFalso() {
-        // preparacao
-        participanteExterno.setStatusDaDocumentacao(StatusDaDocumentacao.AGUARDANDO_ENVIO);
-
-        // acao
-        boolean participou = participanteExterno.participar();
-
-        // verificacao
-        assertFalse(participou);
+        assertEquals(statusDoTrabalhoDoParticipanteExterno, StatusDoTrabalhoDoParticipanteExterno.IRREGULAR);
     }
 }
