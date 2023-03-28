@@ -15,12 +15,6 @@ public class SupervisorDeTi extends Supervisor implements TiSenior{
     }
 
     @Override
-    public boolean participar() {
-        return false;
-        // TODO: 📚
-    }
-
-    @Override
     public boolean promover(Funcionario funcionarioASerPromovido) {
         return false;
     }

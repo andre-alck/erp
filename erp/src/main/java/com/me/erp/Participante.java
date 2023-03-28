@@ -28,6 +28,4 @@ public abstract class Participante {
     public void setVencimento(double vencimento) {
         this.vencimento = vencimento;
     }
-
-    public abstract boolean participar();
 }

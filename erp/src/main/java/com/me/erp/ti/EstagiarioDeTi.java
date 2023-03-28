@@ -9,11 +9,7 @@ public class EstagiarioDeTi extends Estagiario implements TiJunior {
         return "Documentação Nível JR.";
     }
 
-    @Override
-    public boolean participar() {
-        return false;
-        // TODO: 📚
-    }
+
 
     @Override
     public String programar() {

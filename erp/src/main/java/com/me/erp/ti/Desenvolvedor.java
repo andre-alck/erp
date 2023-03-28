@@ -14,11 +14,7 @@ public class Desenvolvedor extends Clt implements TiPleno {
         return "Documentação Nível PL.";
     }
 
-    @Override
-    public boolean participar() {
-        return false;
-        // TODO: 📚
-    }
+
 
     @Override
     public String programar() {
