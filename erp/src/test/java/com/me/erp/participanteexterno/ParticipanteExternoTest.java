@@ -1,48 +1,46 @@
 package com.me.erp.participanteexterno;
 
-
-import com.me.erp.participanteexterno.ParticipanteExterno;
-import com.me.erp.participanteexterno.StatusDaDocumentacaoDoParticipanteExterno;
-import com.me.erp.participanteexterno.StatusDoTrabalhoDoParticipanteExterno;
+import com.me.erp.StatusDoTrabalho;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static com.me.erp.builders.ParticipanteExternoBuilder.umParticipanteExterno;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParticipanteExternoTest {
 
     @Test
-    public void dadoParticipanteExternoComStatusDaDocumentacaoRegularQuandoTrabalharEntaoDeveRetornarStatusDoTrabalhoRegular() {
+    public void dadoParticipanteExternoComStatusDaRegulamentacaoRegularQuandoTrabalharEntaoDeveRetornarStatusDoTrabalhoRegular() {
         // preparacao
-        ParticipanteExterno participanteExterno = new ParticipanteExterno.ParticipanteExternoBuilder().comStatusDaDocumentacaoDoParticipanteExterno(StatusDaDocumentacaoDoParticipanteExterno.REGULAR).agora();
+       ParticipanteExterno participanteExterno = umParticipanteExterno().comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.REGULAR).agora();
 
         // acao
-        StatusDoTrabalhoDoParticipanteExterno statusDoTrabalhoDoParticipanteExterno =  participanteExterno.trabalhar();
+        StatusDoTrabalho statusDoTrabalho =  participanteExterno.trabalhar();
 
         // verificacao
-        assertEquals(statusDoTrabalhoDoParticipanteExterno, StatusDoTrabalhoDoParticipanteExterno.REGULAR);
+        assertEquals(statusDoTrabalho, StatusDoTrabalho.REGULAR);
     }
 
     @Test
-    public void dadoParticipanteExternoComStatusDaDocumentacaoEmAguardoDoEnvioDaDocumentacaoQuandoTrabalharEntaoDeveRetornarStatusDoTrabalhoIrregular() {
+    public void dadoParticipanteExternoComStatusDaRegulamentacaoEmAguardoDoEnvioDaDocumentacaoQuandoTrabalharEntaoDeveRetornarStatusDoTrabalhoIrregular() {
         // preparacao
-        ParticipanteExterno participanteExterno = new ParticipanteExterno.ParticipanteExternoBuilder().comStatusDaDocumentacaoDoParticipanteExterno(StatusDaDocumentacaoDoParticipanteExterno.EM_AGUARDO_DO_ENVIO_DA_DOCUMENTACAO).agora();
+        ParticipanteExterno participanteExterno = umParticipanteExterno().comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.EM_AGUARDO_DO_ENVIO_DA_DOCUMENTACAO).agora();
 
         // acao
-        StatusDoTrabalhoDoParticipanteExterno statusDoTrabalhoDoParticipanteExterno =  participanteExterno.trabalhar();
+        StatusDoTrabalho statusDoTrabalho =  participanteExterno.trabalhar();
 
         // verificacao
-        assertEquals(statusDoTrabalhoDoParticipanteExterno, StatusDoTrabalhoDoParticipanteExterno.IRREGULAR);
+        assertEquals(statusDoTrabalho, StatusDoTrabalho.IRREGULAR);
     }
 
     @Test
-    public void dadoParticipanteExternoComStatusDaDocumentacaoEmAnaliseInternaQuandoTrabalharEntaoDeveRetornarStatusDoTrabalhoIrregular() {
+    public void dadoParticipanteExternoComStatusDaRegulamentacaoEmAnaliseInternaQuandoTrabalharEntaoDeveRetornarStatusDoTrabalhoIrregular() {
         // preparacao
-        ParticipanteExterno participanteExterno = new ParticipanteExterno.ParticipanteExternoBuilder().comStatusDaDocumentacaoDoParticipanteExterno(StatusDaDocumentacaoDoParticipanteExterno.EM_ANALISE_INTERNA).agora();
+        ParticipanteExterno participanteExterno = umParticipanteExterno().comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.EM_ANALISE_INTERNA).agora();
 
         // acao
-        StatusDoTrabalhoDoParticipanteExterno statusDoTrabalhoDoParticipanteExterno =  participanteExterno.trabalhar();
+        StatusDoTrabalho statusDoTrabalho =  participanteExterno.trabalhar();
 
         // verificacao
-        assertEquals(statusDoTrabalhoDoParticipanteExterno, StatusDoTrabalhoDoParticipanteExterno.IRREGULAR);
+        assertEquals(statusDoTrabalho, StatusDoTrabalho.IRREGULAR);
     }
 }
