@@ -51,16 +51,30 @@ Custo variável, dependendo da tabela de preços atual do Google App Engine para
 
 ### Participante Externo
 
--   Ao **trabalhar**, deve **retornar** Status Do Trabalho Do Participante Externo, como consta Fluxograma abaixo.
+-   Ao **trabalhar**, deve **retornar** Status Do Trabalho, como consta Fluxograma abaixo.
 
     ![](regras.de.negocio/ParticipanteExterno/ParticipanteExternoTrabalhar.png)
 
     Onde:
 
-    -   Status Da Documentação Do Participante Externo:
+    -   Status Da Regulamentação Do Participante Externo:
         1. Regular.
         2. Aguardando Envio Por Parte do Participante Externo.
         3. Aguardando Análise Interna.
-    -   Status Do Trabalho Do Participante Externo:
+    -   Status Do Trabalho:
         1. Regular.
         2. Irregular.
+
+### Estagiário
+
+-   Ao **documentar**, deve **retornar** Status Do Trabalho, como consta Fluxograma abaixo.
+
+    ![](regras.de.negocio/Estagiario/EstagiarioDocumentar.png)
+
+    Onde:
+
+    -   Todo Estagiário segue as mesmas regras para documentação (independentemente se é, de fato, única e exclusivamente um Estagiário).
+
+## Design Pattern
+
+-   Builders
