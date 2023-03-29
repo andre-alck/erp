@@ -1,48 +1,29 @@
 package com.me.erp.participanteexterno;
 
 import com.me.erp.Participante;
+import com.me.erp.StatusDoTrabalho;
 
 public class ParticipanteExterno extends Participante {
+    private StatusDaRegulamentacaoDoParticipanteExterno statusDaRegulamentacaoDoParticipanteExterno;
 
-    private StatusDaDocumentacaoDoParticipanteExterno statusDaDocumentacaoDoParticipanteExterno;
-
-    public ParticipanteExterno(StatusDaDocumentacaoDoParticipanteExterno statusDaDocumentacaoDoParticipanteExterno) {
-        this.statusDaDocumentacaoDoParticipanteExterno = statusDaDocumentacaoDoParticipanteExterno;
+    public StatusDaRegulamentacaoDoParticipanteExterno getStatusDaDocumentacaoDoParticipanteExterno() {
+        return statusDaRegulamentacaoDoParticipanteExterno;
     }
 
-    public StatusDaDocumentacaoDoParticipanteExterno getStatusDaDocumentacaoDoParticipanteExterno() {
-        return statusDaDocumentacaoDoParticipanteExterno;
+    public void setStatusDaDocumentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno statusDaRegulamentacaoDoParticipanteExterno) {
+        this.statusDaRegulamentacaoDoParticipanteExterno = statusDaRegulamentacaoDoParticipanteExterno;
     }
 
-    public void setStatusDaDocumentacaoDoParticipanteExterno(StatusDaDocumentacaoDoParticipanteExterno statusDaDocumentacaoDoParticipanteExterno) {
-        this.statusDaDocumentacaoDoParticipanteExterno = statusDaDocumentacaoDoParticipanteExterno;
-    }
+    public StatusDoTrabalho trabalhar() {
+        StatusDoTrabalho statusDoTrabalho;
 
-    public StatusDoTrabalhoDoParticipanteExterno trabalhar() {
-        StatusDoTrabalhoDoParticipanteExterno statusDoTrabalhoDoParticipanteExterno;
-
-        if(statusDaDocumentacaoDoParticipanteExterno != StatusDaDocumentacaoDoParticipanteExterno.REGULAR) {
-            statusDoTrabalhoDoParticipanteExterno  = StatusDoTrabalhoDoParticipanteExterno.IRREGULAR;
-            return statusDoTrabalhoDoParticipanteExterno;
+        if(statusDaRegulamentacaoDoParticipanteExterno != StatusDaRegulamentacaoDoParticipanteExterno.REGULAR) {
+            statusDoTrabalho = StatusDoTrabalho.IRREGULAR;
+            return statusDoTrabalho;
         }
 
-        statusDoTrabalhoDoParticipanteExterno  = StatusDoTrabalhoDoParticipanteExterno.REGULAR;
-        return statusDoTrabalhoDoParticipanteExterno;
+        statusDoTrabalho = StatusDoTrabalho.REGULAR;
+        return statusDoTrabalho;
     }
-
-    public static class ParticipanteExternoBuilder {
-        private StatusDaDocumentacaoDoParticipanteExterno statusDaDocumentacaoDoParticipanteExterno;
-
-        public ParticipanteExternoBuilder comStatusDaDocumentacaoDoParticipanteExterno(StatusDaDocumentacaoDoParticipanteExterno statusDaDocumentacaoDoParticipanteExterno) {
-            this.statusDaDocumentacaoDoParticipanteExterno = statusDaDocumentacaoDoParticipanteExterno;
-            return this;
-        }
-
-        public ParticipanteExterno agora() {
-            return new ParticipanteExterno(statusDaDocumentacaoDoParticipanteExterno);
-        }
-    }
-
-
 }
 
