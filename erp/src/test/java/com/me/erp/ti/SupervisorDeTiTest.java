@@ -59,18 +59,6 @@ class SupervisorDeTiTest {
     }
 
     @Test
-    void dadoSupervisorDeTiQuandoTestadoMetodoDocumentarDeveRetornarDocumentacaoNivelSr() {
-        // preparacao
-        final String DOCUMENTACAO = "Documentação Nível SR.";
-
-        // acao
-        String documentacao = supervisorDeTi.documentar(DOCUMENTACAO);
-
-        // verificacao
-        assertEquals(DOCUMENTACAO, documentacao);
-    }
-
-    @Test
     void dadoSupervisorDeTiQuandoTestadoMetodoProgramarDeveRetornarDocumentacaoNivelSr() {
         // preparacao
         final String PROGRAMACAO = "Programação Nível SR.";

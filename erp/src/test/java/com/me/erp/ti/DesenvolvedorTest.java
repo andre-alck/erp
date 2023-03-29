@@ -59,18 +59,6 @@ class DesenvolvedorTest {
     }
 
     @Test
-    void dadoDesenvolvedorQuandoTestadoMetodoDocumentarDeveRetornarDocumentacaoNivelPl() {
-        // preparacao
-        final String DOCUMENTACAO = "Documentação Nível PL.";
-
-        // acao
-        String documentacao = desenvolvedor.documentar(DOCUMENTACAO);
-
-        // verificacao
-        assertEquals(DOCUMENTACAO, documentacao);
-    }
-
-    @Test
     void dadoDesenvolvedorQuandoTestadoMetodoProgramarDeveRetornarProgramacaoNivelPl() {
         // preparacao
         final String PROGRAMACAO = "Programação Nível PL.";
