@@ -1,9 +1,16 @@
 package com.me.erp;
 
+import jdk.jshell.Snippet;
+
 import java.time.LocalDateTime;
 
 public abstract class Estagiario extends Funcionario {
     public StatusDoTrabalho documentar(Documentacao documentacao) {
+        StatusDoTrabalho statusDoTrabalho = isDocumentacaoValida(documentacao);
+        return statusDoTrabalho;
+    }
+
+    private StatusDoTrabalho isDocumentacaoValida(Documentacao documentacao) {
         StatusDoTrabalho statusDoTrabalho;
 
         if(documentacao.getId() == null) {
