@@ -1,7 +1,7 @@
 package com.me.erp.builders;
 
-import com.me.erp.participanteexterno.ParticipanteExterno;
-import com.me.erp.participanteexterno.StatusDaRegulamentacaoDoParticipanteExterno;
+import com.me.erp.participante.externo.ParticipanteExterno;
+import com.me.erp.participante.externo.StatusDaRegulamentacaoDoParticipanteExterno;
 
 public class ParticipanteExternoBuilder {
     private ParticipanteExterno participanteExterno;

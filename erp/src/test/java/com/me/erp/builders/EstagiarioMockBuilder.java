@@ -1,7 +1,7 @@
 package com.me.erp.builders;
 
-import com.me.erp.Perfil;
 import com.me.erp.mocks.EstagiarioMock;
+import com.me.erp.participante.interno.Perfil;
 
 public class EstagiarioMockBuilder {
     private EstagiarioMock estagiarioMock;

@@ -1,6 +1,6 @@
 package com.me.erp.builders;
 
-import com.me.erp.Documentacao;
+import com.me.erp.participante.interno.funcionario.estagiario.Documentacao;
 
 import java.time.LocalDateTime;
 
