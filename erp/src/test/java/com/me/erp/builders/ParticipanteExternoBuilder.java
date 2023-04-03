@@ -14,8 +14,20 @@ public class ParticipanteExternoBuilder {
         return participanteExternoBuilder;
     }
 
+    public ParticipanteExternoBuilder comId(String id) {
+        participanteExterno.setId(id);
+        return this;
+    }
+    public ParticipanteExternoBuilder comOcupacao(String ocupacao) {
+        participanteExterno.setOcupacao(ocupacao);
+        return this;
+    }
+    public ParticipanteExternoBuilder comVencimento(double vencimento) {
+        participanteExterno.setVencimento(vencimento);
+        return this;
+    }
     public ParticipanteExternoBuilder comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno statusDaRegulamentacaoDoParticipanteExterno) {
-        participanteExterno.setStatusDaDocumentacaoDoParticipanteExterno(statusDaRegulamentacaoDoParticipanteExterno);
+        participanteExterno.setStatusDaRegulamentacaoDoParticipanteExterno(statusDaRegulamentacaoDoParticipanteExterno);
         return this;
     }
 

@@ -10,7 +10,7 @@ public class ParticipanteExterno extends Participante {
         return statusDaRegulamentacaoDoParticipanteExterno;
     }
 
-    public void setStatusDaDocumentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno statusDaRegulamentacaoDoParticipanteExterno) {
+    public void setStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno statusDaRegulamentacaoDoParticipanteExterno) {
         this.statusDaRegulamentacaoDoParticipanteExterno = statusDaRegulamentacaoDoParticipanteExterno;
     }
 
