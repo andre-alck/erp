@@ -2,15 +2,15 @@ package com.me.erp;
 
 public abstract class Clt extends Estagiario {
     public StatusDaContribuicao participarDeReuniao(Contribuicao contribuicao) {
-        if(contribuicao.getQuantidadeDePerguntas() < 1) {
+        if (contribuicao.getQuantidadeDePerguntas() < 1) {
             return StatusDaContribuicao.INSUFICIENTE;
         }
 
-        if(contribuicao.getQuantidadeDeRespostas() < 1) {
+        if (contribuicao.getQuantidadeDeRespostas() < 1) {
             return StatusDaContribuicao.INSUFICIENTE;
         }
 
-        if(contribuicao.getPontuacao() < 5) {
+        if (contribuicao.getPontuacao() < 5) {
             return StatusDaContribuicao.INSUFICIENTE;
         }
 

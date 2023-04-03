@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 import static com.me.erp.builders.DocumentacaoBuilder.umDocumentacao;
 import static com.me.erp.builders.EstagiarioMockBuilder.umEstagiarioMock;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class EstagiarioTest {
     EstagiarioMockBuilder builder;
@@ -20,7 +20,7 @@ class EstagiarioTest {
     }
 
     @Test
-    void dadoEstagiarioMockQuandoTestadoMetodoDocumentarComIdNuloDeveRetornarStatusDoTrabalhoIrregular() {
+    void dadoEstagiarioQuandoTestadoMetodoDocumentarComIdNuloDeveRetornarStatusDoTrabalhoIrregular() {
         // preparacao
         EstagiarioMock estagiario = builder.comId(null).agora();
 
@@ -36,7 +36,7 @@ class EstagiarioTest {
     }
 
     @Test
-    void dadoEstagiarioDeTiQuandoTestadoMetodoDocumentarComIdEmBrancoDeveRetornarStatusDoTrabalhoIrregular() {
+    void dadoEstagiarioQuandoTestadoMetodoDocumentarComIdEmBrancoDeveRetornarStatusDoTrabalhoIrregular() {
         // preparacao
         String emBranco = "";
         EstagiarioMock estagiario = builder.comId(emBranco).agora();
@@ -53,7 +53,7 @@ class EstagiarioTest {
     }
 
     @Test
-    void dadoEstagiarioDeTiQuandoTestadoMetodoDocumentarComIdSomenteComEspacosDeveRetornarStatusDoTrabalhoIrregular() {
+    void dadoEstagiarioQuandoTestadoMetodoDocumentarComIdSomenteComEspacosDeveRetornarStatusDoTrabalhoIrregular() {
         // preparacao
         String sendoSomenteEspacos = "     ";
         EstagiarioMock estagiario = builder.comId(sendoSomenteEspacos).agora();
@@ -70,7 +70,7 @@ class EstagiarioTest {
     }
 
     @Test
-    void dadoEstagiarioDeTiQuandoTestadoMetodoDocumentarComQuantidadeDePaginasMenorDoQueUmDeveRetornarStatusDoTrabalhoIrregular() {
+    void dadoEstagiarioQuandoTestadoMetodoDocumentarComQuantidadeDePaginasMenorDoQueUmDeveRetornarStatusDoTrabalhoIrregular() {
         // preparacao
         String regular = "408.529.908-55";
         EstagiarioMock estagiario = builder.comId(regular).agora();
@@ -88,7 +88,7 @@ class EstagiarioTest {
     }
 
     @Test
-    void dadoEstagiarioDeTiQuandoTestadoMetodoDocumentarComDataPosteriorAAgoraDeveRetornarStatusDoTrabalhoIrregular() {
+    void dadoEstagiarioQuandoTestadoMetodoDocumentarComDataPosteriorAAgoraDeveRetornarStatusDoTrabalhoIrregular() {
         // preparacao
         String regular = "69.534.723/0001-77";
         EstagiarioMock estagiario = builder.comId(regular).agora();

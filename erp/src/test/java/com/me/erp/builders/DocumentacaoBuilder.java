@@ -3,12 +3,12 @@ package com.me.erp.builders;
 import com.me.erp.Documentacao;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class DocumentacaoBuilder {
     private Documentacao documentacao;
 
-    private DocumentacaoBuilder() {};
+    private DocumentacaoBuilder() {
+    }
 
     public static DocumentacaoBuilder umDocumentacao() {
         DocumentacaoBuilder builder = new DocumentacaoBuilder();

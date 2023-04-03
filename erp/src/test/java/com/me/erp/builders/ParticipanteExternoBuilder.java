@@ -6,7 +6,8 @@ import com.me.erp.participanteexterno.StatusDaRegulamentacaoDoParticipanteExtern
 public class ParticipanteExternoBuilder {
     private ParticipanteExterno participanteExterno;
 
-    private ParticipanteExternoBuilder() {};
+    private ParticipanteExternoBuilder() {
+    }
 
     public static ParticipanteExternoBuilder umParticipanteExterno() {
         ParticipanteExternoBuilder participanteExternoBuilder = new ParticipanteExternoBuilder();
@@ -18,14 +19,17 @@ public class ParticipanteExternoBuilder {
         participanteExterno.setId(id);
         return this;
     }
+
     public ParticipanteExternoBuilder comOcupacao(String ocupacao) {
         participanteExterno.setOcupacao(ocupacao);
         return this;
     }
+
     public ParticipanteExternoBuilder comVencimento(double vencimento) {
         participanteExterno.setVencimento(vencimento);
         return this;
     }
+
     public ParticipanteExternoBuilder comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno statusDaRegulamentacaoDoParticipanteExterno) {
         participanteExterno.setStatusDaRegulamentacaoDoParticipanteExterno(statusDaRegulamentacaoDoParticipanteExterno);
         return this;

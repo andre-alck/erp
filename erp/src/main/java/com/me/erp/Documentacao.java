@@ -1,7 +1,6 @@
 package com.me.erp;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class Documentacao {
     private String id;

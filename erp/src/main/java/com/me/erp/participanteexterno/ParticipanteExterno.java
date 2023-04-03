@@ -17,7 +17,7 @@ public class ParticipanteExterno extends Participante {
     public StatusDoTrabalho trabalhar() {
         StatusDoTrabalho statusDoTrabalho;
 
-        if(statusDaRegulamentacaoDoParticipanteExterno != StatusDaRegulamentacaoDoParticipanteExterno.REGULAR) {
+        if (statusDaRegulamentacaoDoParticipanteExterno != StatusDaRegulamentacaoDoParticipanteExterno.REGULAR) {
             statusDoTrabalho = StatusDoTrabalho.IRREGULAR;
             return statusDoTrabalho;
         }

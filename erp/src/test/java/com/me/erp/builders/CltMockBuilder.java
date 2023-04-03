@@ -6,7 +6,8 @@ import com.me.erp.mocks.CltMock;
 public class CltMockBuilder {
     private CltMock clt;
 
-    private CltMockBuilder() {};
+    private CltMockBuilder() {
+    }
 
     public static CltMockBuilder umClt() {
         CltMockBuilder builder = new CltMockBuilder();

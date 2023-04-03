@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SupervisorDeTiTest {
     SupervisorDeTi supervisorDeTi;
@@ -41,7 +41,8 @@ class SupervisorDeTiTest {
         // verificacao
         assertEquals(quantidadeEsperada, quantidadeDeChamadosResolvidos);
     }
-//
+
+    //
     @Test
     void dadoSupervisorDeTiQuandoTestadoMetodoResolverChamadosComQuantidadesAceitaveisDeveRetornarTalQuantidade() {
         // preparacao
@@ -87,7 +88,7 @@ class SupervisorDeTiTest {
     void dadoSupervisorDeTiQuandoTestadoMetodoGerarRelatorioComDezLetrasDeveRetornarRelatorio() {
         // preparacao
         final String relatorio = "..........";
-        final String resultadoEsperado = supervisorDeTi.getId() + ": " +  relatorio;
+        final String resultadoEsperado = supervisorDeTi.getId() + ": " + relatorio;
 
         // acao
         String resultado = supervisorDeTi.gerarRelatorio(relatorio);
@@ -100,7 +101,7 @@ class SupervisorDeTiTest {
     void dadoSupervisorDeTiQuandoTestadoMetodoGerarRelatorioComOnzeLetrasDeveRetornarRelatorio() {
         // preparacao
         final String relatorio = "...........";
-        final String resultadoEsperado = supervisorDeTi.getId() + ": " +  relatorio;
+        final String resultadoEsperado = supervisorDeTi.getId() + ": " + relatorio;
 
         // acao
         String resultado = supervisorDeTi.gerarRelatorio(relatorio);

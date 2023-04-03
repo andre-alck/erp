@@ -19,10 +19,10 @@ class ParticipanteExternoTest {
     @Test
     public void dadoParticipanteExternoComStatusDaRegulamentacaoRegularQuandoTrabalharEntaoDeveRetornarStatusDoTrabalhoRegular() {
         // preparacao
-       ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.REGULAR).agora();
+        ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.REGULAR).agora();
 
         // acao
-        StatusDoTrabalho statusDoTrabalho =  participanteExterno.trabalhar();
+        StatusDoTrabalho statusDoTrabalho = participanteExterno.trabalhar();
 
         // verificacao
         assertEquals(statusDoTrabalho, StatusDoTrabalho.REGULAR);
@@ -34,7 +34,7 @@ class ParticipanteExternoTest {
         ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.EM_AGUARDO_DO_ENVIO_DA_DOCUMENTACAO).agora();
 
         // acao
-        StatusDoTrabalho statusDoTrabalho =  participanteExterno.trabalhar();
+        StatusDoTrabalho statusDoTrabalho = participanteExterno.trabalhar();
 
         // verificacao
         assertEquals(statusDoTrabalho, StatusDoTrabalho.IRREGULAR);
@@ -46,7 +46,7 @@ class ParticipanteExternoTest {
         ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.EM_ANALISE_INTERNA).agora();
 
         // acao
-        StatusDoTrabalho statusDoTrabalho =  participanteExterno.trabalhar();
+        StatusDoTrabalho statusDoTrabalho = participanteExterno.trabalhar();
 
         // verificacao
         assertEquals(statusDoTrabalho, StatusDoTrabalho.IRREGULAR);

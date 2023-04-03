@@ -1,8 +1,11 @@
 package com.me.erp.ti;
 
-import com.me.erp.*;
+import com.me.erp.Documentacao;
+import com.me.erp.Funcionario;
+import com.me.erp.StatusDoTrabalho;
+import com.me.erp.Supervisor;
 
-public class SupervisorDeTi extends Supervisor implements TiSenior{
+public class SupervisorDeTi extends Supervisor implements TiSenior {
 
 
     @Override
@@ -22,7 +25,7 @@ public class SupervisorDeTi extends Supervisor implements TiSenior{
 
     @Override
     public String gerarRelatorio(String relatorio) {
-        if(relatorio.length() < 10) {
+        if (relatorio.length() < 10) {
             return "Por favor, acrescente detalhes ao seu relatório.";
         }
 
@@ -34,12 +37,12 @@ public class SupervisorDeTi extends Supervisor implements TiSenior{
     public int resolverChamados(int quantidadeDeChamados) {
         int quantidadeDeChamadosResolvidos;
 
-        if(quantidadeDeChamados <= 0) {
+        if (quantidadeDeChamados <= 0) {
             quantidadeDeChamadosResolvidos = 0;
             return quantidadeDeChamadosResolvidos;
         }
 
-        if(quantidadeDeChamados >= 20) {
+        if (quantidadeDeChamados >= 20) {
             quantidadeDeChamadosResolvidos = 20;
             quantidadeDeChamadosResolvidos = 20;
             return quantidadeDeChamadosResolvidos;

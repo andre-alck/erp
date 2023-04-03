@@ -1,6 +1,7 @@
 package com.me.erp;
 
 public interface RecursosDoSistema {
-    public boolean logon(ParticipanteInterno participanteInterno);
-    public boolean login(ParticipanteInterno participanteInterno);
+    boolean logon(ParticipanteInterno participanteInterno);
+
+    boolean login(ParticipanteInterno participanteInterno);
 }

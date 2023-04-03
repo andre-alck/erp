@@ -1,17 +1,11 @@
 package com.me.erp;
 
-import com.me.erp.builders.CltMockBuilder;
 import com.me.erp.mocks.CltMock;
-import com.me.erp.mocks.EstagiarioMock;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDateTime;
-
 import static com.me.erp.builders.CltMockBuilder.umClt;
-import static com.me.erp.builders.DocumentacaoBuilder.umDocumentacao;
-import static com.me.erp.builders.EstagiarioMockBuilder.umEstagiarioMock;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CltTest {
     CltMock clt;

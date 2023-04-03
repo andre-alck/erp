@@ -1,7 +1,5 @@
 package com.me.erp;
 
-import jdk.jshell.Snippet;
-
 import java.time.LocalDateTime;
 
 public abstract class Estagiario extends Funcionario {
@@ -13,27 +11,27 @@ public abstract class Estagiario extends Funcionario {
     private StatusDoTrabalho isDocumentacaoValida(Documentacao documentacao) {
         StatusDoTrabalho statusDoTrabalho;
 
-        if(documentacao.getId() == null) {
+        if (documentacao.getId() == null) {
             statusDoTrabalho = StatusDoTrabalho.IRREGULAR;
             return statusDoTrabalho;
         }
 
-        if(documentacao.getId().isBlank()) {
+        if (documentacao.getId().isBlank()) {
             statusDoTrabalho = StatusDoTrabalho.IRREGULAR;
             return statusDoTrabalho;
         }
 
-        if(documentacao.getQuantidadeDePaginas() < 1) {
+        if (documentacao.getQuantidadeDePaginas() < 1) {
             statusDoTrabalho = StatusDoTrabalho.IRREGULAR;
             return statusDoTrabalho;
         }
 
-        if(documentacao.getCriacao() == null) {
+        if (documentacao.getCriacao() == null) {
             statusDoTrabalho = StatusDoTrabalho.IRREGULAR;
             return statusDoTrabalho;
         }
 
-        if(documentacao.getCriacao().isAfter(LocalDateTime.now())) {
+        if (documentacao.getCriacao().isAfter(LocalDateTime.now())) {
             statusDoTrabalho = StatusDoTrabalho.IRREGULAR;
             return statusDoTrabalho;
         }
