@@ -1,16 +1,11 @@
 package com.me.erp.ti;
 
 import com.me.erp.Clt;
+import com.me.erp.Contribuicao;
 import com.me.erp.Documentacao;
 import com.me.erp.StatusDoTrabalho;
 
 public class Desenvolvedor extends Clt implements TiPleno {
-
-    @Override
-    public void participarDeReuniao() {
-        // TODO: 📚
-    }
-
     @Override
     public String programar() {
         return "Programação Nível PL.";
@@ -38,5 +33,10 @@ public class Desenvolvedor extends Clt implements TiPleno {
     @Override
     public StatusDoTrabalho documentar(Documentacao documentacao) {
         return null;
+    }
+
+    @Override
+    public void participarDeReuniao(Contribuicao contribuicao) {
+
     }
 }

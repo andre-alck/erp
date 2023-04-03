@@ -1,14 +1,11 @@
 package com.me.erp.ti;
 
-import com.me.erp.Documentacao;
-import com.me.erp.Funcionario;
-import com.me.erp.StatusDoTrabalho;
-import com.me.erp.Supervisor;
+import com.me.erp.*;
 
 public class SupervisorDeTi extends Supervisor implements TiSenior{
     @Override
-    public void participarDeReuniao() {
-        // TODO: 📚
+    public void participarDeReuniao(Contribuicao contribuicao) {
+
     }
 
     @Override
@@ -59,4 +56,6 @@ public class SupervisorDeTi extends Supervisor implements TiSenior{
     public StatusDoTrabalho documentar(Documentacao documentacao) {
         return null;
     }
+
+
 }
