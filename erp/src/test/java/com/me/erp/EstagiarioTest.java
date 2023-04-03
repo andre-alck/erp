@@ -1,6 +1,8 @@
 package com.me.erp;
 
+import com.me.erp.builders.EstagiarioMockBuilder;
 import com.me.erp.mocks.EstagiarioMock;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -10,68 +12,95 @@ import static com.me.erp.builders.EstagiarioMockBuilder.umEstagiarioMock;
 import static org.junit.jupiter.api.Assertions.*;
 
 class EstagiarioTest {
+    EstagiarioMockBuilder builder;
+
+    @BeforeEach
+    void setup() {
+        builder = umEstagiarioMock().comOcupacao("Ocupação").comVencimento(1000).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(30);
+    }
+
     @Test
     void dadoEstagiarioMockQuandoTestadoMetodoDocumentarComIdNuloDeveRetornarStatusDoTrabalhoIrregular() {
         // preparacao
-        EstagiarioMock estagiarioMock = umEstagiarioMock().comId(null).comOcupacao("Ocupação").comVencimento(1000).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(30).agora();
-        Documentacao documentacao = umDocumentacao().comId(estagiarioMock.getId()).comQuantidadeDePaginas(5).comCriacao(LocalDateTime.now()).agora();
+        EstagiarioMock estagiario = builder.comId(null).agora();
+
+        String doEstagiario = estagiario.getId();
+        LocalDateTime agora = LocalDateTime.now();
+        Documentacao documentacao = umDocumentacao().comId(doEstagiario).comQuantidadeDePaginas(5).comCriacao(agora).agora();
 
         // acao
-        StatusDoTrabalho statusDoTrabalho = estagiarioMock.documentar(documentacao);
+        StatusDoTrabalho status = estagiario.documentar(documentacao);
 
         // verificacao
-        assertEquals(StatusDoTrabalho.IRREGULAR, statusDoTrabalho);
+        assertEquals(StatusDoTrabalho.IRREGULAR, status);
     }
 
     @Test
     void dadoEstagiarioDeTiQuandoTestadoMetodoDocumentarComIdEmBrancoDeveRetornarStatusDoTrabalhoIrregular() {
         // preparacao
-        EstagiarioMock estagiarioMock = umEstagiarioMock().comId("").comOcupacao("Ocupação").comVencimento(1000).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(30).agora();
-        Documentacao documentacao = umDocumentacao().comId(estagiarioMock.getId()).comQuantidadeDePaginas(5).comCriacao(LocalDateTime.now()).agora();
+        String emBranco = "";
+        EstagiarioMock estagiario = builder.comId(emBranco).agora();
+
+        String doEstagiario = estagiario.getId();
+        LocalDateTime agora = LocalDateTime.now();
+        Documentacao documentacao = umDocumentacao().comId(doEstagiario).comQuantidadeDePaginas(5).comCriacao(agora).agora();
 
         // acao
-        StatusDoTrabalho statusDoTrabalho = estagiarioMock.documentar(documentacao);
+        StatusDoTrabalho status = estagiario.documentar(documentacao);
 
         // verificacao
-        assertEquals(StatusDoTrabalho.IRREGULAR, statusDoTrabalho);
+        assertEquals(StatusDoTrabalho.IRREGULAR, status);
     }
 
     @Test
     void dadoEstagiarioDeTiQuandoTestadoMetodoDocumentarComIdSomenteComEspacosDeveRetornarStatusDoTrabalhoIrregular() {
         // preparacao
-        EstagiarioMock estagiarioMock = umEstagiarioMock().comId("     ").comOcupacao("Ocupação").comVencimento(1000).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(30).agora();
-        Documentacao documentacao = umDocumentacao().comId(estagiarioMock.getId()).comQuantidadeDePaginas(5).comCriacao(LocalDateTime.now()).agora();
+        String sendoSomenteEspacos = "     ";
+        EstagiarioMock estagiario = builder.comId(sendoSomenteEspacos).agora();
+
+        String doEstagiario = estagiario.getId();
+        LocalDateTime agora = LocalDateTime.now();
+        Documentacao documentacao = umDocumentacao().comId(doEstagiario).comQuantidadeDePaginas(5).comCriacao(agora).agora();
 
         // acao
-        StatusDoTrabalho statusDoTrabalho = estagiarioMock.documentar(documentacao);
+        StatusDoTrabalho status = estagiario.documentar(documentacao);
 
         // verificacao
-        assertEquals(StatusDoTrabalho.IRREGULAR, statusDoTrabalho);
+        assertEquals(StatusDoTrabalho.IRREGULAR, status);
     }
 
     @Test
     void dadoEstagiarioDeTiQuandoTestadoMetodoDocumentarComQuantidadeDePaginasMenorDoQueUmDeveRetornarStatusDoTrabalhoIrregular() {
         // preparacao
-        EstagiarioMock estagiarioMock = umEstagiarioMock().comId("111.222.333-44").comOcupacao("Ocupação").comVencimento(1000).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(30).agora();
-        Documentacao documentacao = umDocumentacao().comId(estagiarioMock.getId()).comQuantidadeDePaginas(0).comCriacao(LocalDateTime.now()).agora();
+        String regular = "408.529.908-55";
+        EstagiarioMock estagiario = builder.comId(regular).agora();
+
+        String doEstagiario = estagiario.getId();
+        int nenhuma = 0;
+        LocalDateTime agora = LocalDateTime.now();
+        Documentacao documentacao = umDocumentacao().comId(doEstagiario).comQuantidadeDePaginas(nenhuma).comCriacao(agora).agora();
 
         // acao
-        StatusDoTrabalho statusDoTrabalho = estagiarioMock.documentar(documentacao);
+        StatusDoTrabalho status = estagiario.documentar(documentacao);
 
         // verificacao
-        assertEquals(StatusDoTrabalho.IRREGULAR, statusDoTrabalho);
+        assertEquals(StatusDoTrabalho.IRREGULAR, status);
     }
 
     @Test
     void dadoEstagiarioDeTiQuandoTestadoMetodoDocumentarComDataPosteriorAAgoraDeveRetornarStatusDoTrabalhoIrregular() {
         // preparacao
-        EstagiarioMock estagiarioMock = umEstagiarioMock().comId("111.222.333-44").comOcupacao("Ocupação").comVencimento(1000).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(30).agora();
-        Documentacao documentacao = umDocumentacao().comId(estagiarioMock.getId()).comQuantidadeDePaginas(1).comCriacao(LocalDateTime.now().plusDays(1)).agora();
+        String regular = "69.534.723/0001-77";
+        EstagiarioMock estagiario = builder.comId(regular).agora();
+
+        String doEstagiario = estagiario.getId();
+        LocalDateTime daquiAPouco = LocalDateTime.now().plusMinutes(1);
+        Documentacao documentacao = umDocumentacao().comId(doEstagiario).comQuantidadeDePaginas(5).comCriacao(daquiAPouco).agora();
 
         // acao
-        StatusDoTrabalho statusDoTrabalho = estagiarioMock.documentar(documentacao);
+        StatusDoTrabalho status = estagiario.documentar(documentacao);
 
         // verificacao
-        assertEquals(StatusDoTrabalho.IRREGULAR, statusDoTrabalho);
+        assertEquals(StatusDoTrabalho.IRREGULAR, status);
     }
 }
