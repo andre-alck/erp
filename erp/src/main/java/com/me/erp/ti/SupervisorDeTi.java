@@ -3,10 +3,7 @@ package com.me.erp.ti;
 import com.me.erp.*;
 
 public class SupervisorDeTi extends Supervisor implements TiSenior{
-    @Override
-    public void participarDeReuniao(Contribuicao contribuicao) {
 
-    }
 
     @Override
     public boolean promover(Funcionario funcionarioASerPromovido) {

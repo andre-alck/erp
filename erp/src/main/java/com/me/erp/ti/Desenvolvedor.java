@@ -34,9 +34,4 @@ public class Desenvolvedor extends Clt implements TiPleno {
     public StatusDoTrabalho documentar(Documentacao documentacao) {
         return null;
     }
-
-    @Override
-    public void participarDeReuniao(Contribuicao contribuicao) {
-
-    }
 }
