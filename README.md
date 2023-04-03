@@ -53,7 +53,7 @@ Custo variável, dependendo da tabela de preços atual do Google App Engine para
 
 -   Ao **trabalhar**, deve **retornar** Status Do Trabalho, como consta Fluxograma abaixo.
 
-    ![](regras.de.negocio/ParticipanteExterno/ParticipanteExternoTrabalhar.png)
+    ![](regras.de.negocio\participante\externo\trabalhar.png)
 
     Onde:
 
@@ -69,7 +69,7 @@ Custo variável, dependendo da tabela de preços atual do Google App Engine para
 
 -   Ao **documentar**, deve **retornar** Status Do Trabalho, como consta Fluxograma abaixo.
 
-    ![](regras.de.negocio/Estagiario/EstagiarioDocumentar.png)
+    ![](regras.de.negocio\participante\interno\funcionario\estagiario\documentar.png)
 
     Onde:
 
