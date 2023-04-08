@@ -4,12 +4,7 @@ import com.me.erp.participante.interno.funcionario.Funcionario;
 import com.me.erp.participante.interno.funcionario.clt.Clt;
 
 public abstract class Supervisor extends Clt {
-    public boolean promover(Funcionario funcionarioASerPromovido) {
-        return true;
-    }
+    public abstract boolean promover(Funcionario funcionarioASerPromovido);
 
-
-    public boolean demitirFuncionario(Funcionario funcionarioASerDemitido) {
-        return true;
-    }
+    public abstract boolean demitir(Funcionario funcionarioASerDemitido);
 }

@@ -1,20 +1,16 @@
 package com.me.erp.participante.interno.funcionario.ti;
 
-import com.me.erp.participante.StatusDoTrabalho;
 import com.me.erp.participante.interno.funcionario.Funcionario;
-import com.me.erp.participante.interno.funcionario.estagiario.Documentacao;
 import com.me.erp.participante.interno.funcionario.supervisor.Supervisor;
 
 public class SupervisorDeTi extends Supervisor implements TiSenior {
-
-
     @Override
     public boolean promover(Funcionario funcionarioASerPromovido) {
         return false;
     }
 
     @Override
-    public boolean demitirFuncionario(Funcionario funcionarioASerDemitido) {
+    public boolean demitir(Funcionario funcionarioASerDemitido) {
         return false;
     }
 
@@ -51,11 +47,4 @@ public class SupervisorDeTi extends Supervisor implements TiSenior {
         quantidadeDeChamadosResolvidos = quantidadeDeChamados;
         return quantidadeDeChamadosResolvidos;
     }
-
-    @Override
-    public StatusDoTrabalho documentar(Documentacao documentacao) {
-        return null;
-    }
-
-
 }
