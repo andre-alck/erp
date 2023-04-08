@@ -1,0 +1,53 @@
+package com.me.erp.builders;
+
+import com.me.erp.participante.interno.Perfil;
+import com.me.erp.participante.interno.funcionario.ti.SupervisorDeTi;
+
+public class SupervisorDeTiBuilder {
+    private SupervisorDeTi supervisorDeTi;
+
+    public static SupervisorDeTiBuilder umSupervisorDeTi() {
+        SupervisorDeTiBuilder builder = new SupervisorDeTiBuilder();
+        builder.supervisorDeTi = new SupervisorDeTi();
+        return builder;
+    }
+
+    public SupervisorDeTiBuilder comId(String id) {
+        supervisorDeTi.setId(id);
+        return this;
+    }
+
+    public SupervisorDeTiBuilder comOcupacao(String ocupacao) {
+        supervisorDeTi.setOcupacao(ocupacao);
+        return this;
+    }
+
+    public SupervisorDeTiBuilder comVencimento(double vencimento) {
+        supervisorDeTi.setVencimento(vencimento);
+        return this;
+    }
+
+    public SupervisorDeTiBuilder comSenha(String senha) {
+        supervisorDeTi.setSenha(senha);
+        return this;
+    }
+
+    public SupervisorDeTiBuilder comPerfil(Perfil perfil) {
+        supervisorDeTi.setPerfil(perfil);
+        return this;
+    }
+
+    public SupervisorDeTiBuilder comCargaHorariaSemanal(double cargaHorariaSemanal) {
+        supervisorDeTi.setCargaHorariaSemanal(cargaHorariaSemanal);
+        return this;
+    }
+
+    public SupervisorDeTiBuilder comPausa(double pausa) {
+        supervisorDeTi.setPausa(pausa);
+        return this;
+    }
+
+    public SupervisorDeTi agora() {
+        return supervisorDeTi;
+    }
+}
