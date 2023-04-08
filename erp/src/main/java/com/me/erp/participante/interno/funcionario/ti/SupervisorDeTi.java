@@ -3,10 +3,15 @@ package com.me.erp.participante.interno.funcionario.ti;
 import com.me.erp.participante.interno.funcionario.Funcionario;
 import com.me.erp.participante.interno.funcionario.supervisor.Supervisor;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class SupervisorDeTi extends Supervisor implements TiSenior {
     @Override
     public boolean promover(Funcionario funcionarioASerPromovido) {
-        return false;
+        List<Class<?>> classes = Arrays.asList(funcionarioASerPromovido.getClass().getInterfaces());
+        boolean isPromovivel = classes.contains(TiJunior.class);
+        return isPromovivel;
     }
 
     @Override
