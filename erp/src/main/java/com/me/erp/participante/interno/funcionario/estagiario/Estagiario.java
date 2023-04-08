@@ -12,34 +12,26 @@ public abstract class Estagiario extends Funcionario {
     }
 
     private StatusDoTrabalho isDocumentacaoValida(Documentacao documentacao) {
-        StatusDoTrabalho statusDoTrabalho;
-
         if (documentacao.getId() == null) {
-            statusDoTrabalho = StatusDoTrabalho.IRREGULAR;
-            return statusDoTrabalho;
+            return StatusDoTrabalho.IRREGULAR;
         }
 
         if (documentacao.getId().isBlank()) {
-            statusDoTrabalho = StatusDoTrabalho.IRREGULAR;
-            return statusDoTrabalho;
+            return StatusDoTrabalho.IRREGULAR;
         }
 
         if (documentacao.getQuantidadeDePaginas() < 1) {
-            statusDoTrabalho = StatusDoTrabalho.IRREGULAR;
-            return statusDoTrabalho;
+            return StatusDoTrabalho.IRREGULAR;
         }
 
         if (documentacao.getCriacao() == null) {
-            statusDoTrabalho = StatusDoTrabalho.IRREGULAR;
-            return statusDoTrabalho;
+            return StatusDoTrabalho.IRREGULAR;
         }
 
         if (documentacao.getCriacao().isAfter(LocalDateTime.now())) {
-            statusDoTrabalho = StatusDoTrabalho.IRREGULAR;
-            return statusDoTrabalho;
+            return StatusDoTrabalho.IRREGULAR;
         }
 
-        statusDoTrabalho = StatusDoTrabalho.REGULAR;
-        return statusDoTrabalho;
+        return StatusDoTrabalho.REGULAR;
     }
 }
