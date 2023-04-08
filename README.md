@@ -53,7 +53,7 @@ Custo variável, dependendo da tabela de preços atual do Google App Engine para
 
 -   Ao **trabalhar**, deve retornar Status Do Trabalho, como consta Fluxograma abaixo.
 
-    ![](regras.de.negocio\participante\externo\trabalhar.png)
+    ![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/externo/trabalhar.png)
 
     Onde:
 
@@ -69,7 +69,7 @@ Custo variável, dependendo da tabela de preços atual do Google App Engine para
 
 -   Ao **documentar**, deve retornar Status Do Trabalho, como consta Fluxograma abaixo.
 
-    ![](regras.de.negocio\participante\interno\funcionario\estagiario\documentar.png)
+    ![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/interno/funcionario/estagiario/documentar.png)
 
     Onde:
 
@@ -79,7 +79,7 @@ Custo variável, dependendo da tabela de preços atual do Google App Engine para
 
 -   Ao **promover**, deve retornar É Promovível, como consta Fluxograma abaixo.
 
-    ![](regras.de.negocio\participante\interno\funcionario\ti\supervisordeti\promover.png)
+    ![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/interno/funcionario/ti/supervisordeti/promover.png)
 
     Onde:
 
