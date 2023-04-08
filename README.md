@@ -51,7 +51,7 @@ Custo variável, dependendo da tabela de preços atual do Google App Engine para
 
 ### Participante Externo
 
--   Ao **trabalhar**, deve **retornar** Status Do Trabalho, como consta Fluxograma abaixo.
+-   Ao **trabalhar**, deve retornar Status Do Trabalho, como consta Fluxograma abaixo.
 
     ![](regras.de.negocio\participante\externo\trabalhar.png)
 
@@ -67,9 +67,19 @@ Custo variável, dependendo da tabela de preços atual do Google App Engine para
 
 ### Estagiário
 
--   Ao **documentar**, deve **retornar** Status Do Trabalho, como consta Fluxograma abaixo.
+-   Ao **documentar**, deve retornar Status Do Trabalho, como consta Fluxograma abaixo.
 
     ![](regras.de.negocio\participante\interno\funcionario\estagiario\documentar.png)
+
+    Onde:
+
+    -   Todo Estagiário segue as mesmas regras para documentação (independentemente se é, de fato, única e exclusivamente um Estagiário).
+
+### Supervisor de TI
+
+-   Ao **promover**, deve retornar É Promovível, como consta Fluxograma abaixo.
+
+    ![](regras.de.negocio\participante\interno\funcionario\ti\supervisordeti\promover.png)
 
     Onde:
 
