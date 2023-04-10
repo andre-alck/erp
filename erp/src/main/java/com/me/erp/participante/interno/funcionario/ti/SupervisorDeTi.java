@@ -9,8 +9,12 @@ import java.util.List;
 public class SupervisorDeTi extends Supervisor implements TiSenior {
     @Override
     public boolean promover(Funcionario funcionarioASerPromovido) {
-        List<Class<?>> classes = Arrays.asList(funcionarioASerPromovido.getClass().getInterfaces());
-        boolean isPromovivel = classes.contains(TiJunior.class);
+        return isTiJunior(funcionarioASerPromovido);
+    }
+
+    private boolean isTiJunior(Funcionario funcionarioASerPromovido) {
+        List<Class<?>> interfacesImplementadas = Arrays.asList(funcionarioASerPromovido.getClass().getInterfaces());
+        boolean isPromovivel = interfacesImplementadas.contains(TiJunior.class);
         return isPromovivel;
     }
 
