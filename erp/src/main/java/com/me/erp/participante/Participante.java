@@ -1,9 +1,12 @@
 package com.me.erp.participante;
 
+import java.util.List;
+
 public abstract class Participante {
     private String id;
     private String ocupacao;
     private double vencimento;
+    private List<String> tarefasConcluidas;
 
     public String getId() {
         return id;
@@ -27,5 +30,13 @@ public abstract class Participante {
 
     public void setVencimento(double vencimento) {
         this.vencimento = vencimento;
+    }
+
+    public List<String> getTarefasConcluidas() {
+        return tarefasConcluidas;
+    }
+
+    public void setTarefasConcluidas(List<String> tarefasConcluidas) {
+        this.tarefasConcluidas = tarefasConcluidas;
     }
 }
