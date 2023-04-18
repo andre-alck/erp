@@ -1,7 +1,8 @@
 package com.me.erp.participante.externo;
 
 import com.me.erp.participante.Participante;
-import com.me.erp.participante.StatusDoTrabalho;
+
+import java.util.List;
 
 public class ParticipanteExterno extends Participante {
     private StatusDaRegulamentacaoDoParticipanteExterno statusDaRegulamentacaoDoParticipanteExterno;
@@ -14,16 +15,16 @@ public class ParticipanteExterno extends Participante {
         this.statusDaRegulamentacaoDoParticipanteExterno = statusDaRegulamentacaoDoParticipanteExterno;
     }
 
-    public StatusDoTrabalho trabalhar() {
-        StatusDoTrabalho statusDoTrabalho;
-
+    public void trabalhar(List<String> tarefasConcluidas) throws StatusDoTrabalhoIrregularException {
         if (statusDaRegulamentacaoDoParticipanteExterno != StatusDaRegulamentacaoDoParticipanteExterno.REGULAR) {
-            statusDoTrabalho = StatusDoTrabalho.IRREGULAR;
-            return statusDoTrabalho;
+            throw new StatusDoTrabalhoIrregularException("Status da Regulamentação do Participante Externo é diferente de Regular.");
         }
 
-        statusDoTrabalho = StatusDoTrabalho.REGULAR;
-        return statusDoTrabalho;
+        if (tarefasConcluidas.isEmpty()) {
+            throw new StatusDoTrabalhoIrregularException("Quantidade de tarefas concluídas é zero.");
+        }
+
+        this.setTarefasConcluidas(tarefasConcluidas);
     }
 }
 

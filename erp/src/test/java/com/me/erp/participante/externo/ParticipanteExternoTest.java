@@ -1,12 +1,16 @@
 package com.me.erp.participante.externo;
 
 import com.me.erp.builders.ParticipanteExternoBuilder;
-import com.me.erp.participante.StatusDoTrabalho;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static com.me.erp.builders.ParticipanteExternoBuilder.umParticipanteExterno;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ParticipanteExternoTest {
     ParticipanteExternoBuilder builder;
@@ -17,38 +21,54 @@ class ParticipanteExternoTest {
     }
 
     @Test
-    public void dadoParticipanteExternoComStatusDaRegulamentacaoRegularQuandoTrabalharEntaoDeveRetornarStatusDoTrabalhoRegular() {
+    public void dadoParticipanteExternoComStatusDaRegulamentacaoRegularQuandoTrabalharEntaoDeveRetornarStatusDoTrabalhoRegular() throws StatusDoTrabalhoIrregularException {
         // preparacao
         ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.REGULAR).agora();
+        List<String> tarefasConcluidas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
 
         // acao
-        StatusDoTrabalho statusDoTrabalho = participanteExterno.trabalhar();
+        participanteExterno.trabalhar(tarefasConcluidas);
 
         // verificacao
-        assertEquals(statusDoTrabalho, StatusDoTrabalho.REGULAR);
+        assertEquals(participanteExterno.getTarefasConcluidas(), tarefasConcluidas);
     }
 
-    @Test
-    public void dadoParticipanteExternoComStatusDaRegulamentacaoEmAguardoDoEnvioDaDocumentacaoQuandoTrabalharEntaoDeveRetornarStatusDoTrabalhoIrregular() {
+    @Test()
+    public void dadoParticipanteExternoComStatusDaRegulamentacaoEmAguardoDoEnvioDaDocumentacaoQuandoTrabalharEntaoDeveRetornarStatusDoTrabalhoIrregular() throws StatusDoTrabalhoIrregularException {
         // preparacao
         ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.EM_AGUARDO_DO_ENVIO_DA_DOCUMENTACAO).agora();
+        List<String> tarefasConcluidas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
 
         // acao
-        StatusDoTrabalho statusDoTrabalho = participanteExterno.trabalhar();
+        StatusDoTrabalhoIrregularException exception = assertThrows(StatusDoTrabalhoIrregularException.class, () -> participanteExterno.trabalhar(tarefasConcluidas));
 
         // verificacao
-        assertEquals(statusDoTrabalho, StatusDoTrabalho.IRREGULAR);
+        assertEquals("Status da Regulamentação do Participante Externo é diferente de Regular.", exception.getMessage());
     }
 
-    @Test
-    public void dadoParticipanteExternoComStatusDaRegulamentacaoEmAnaliseInternaQuandoTrabalharEntaoDeveRetornarStatusDoTrabalhoIrregular() {
+    @Test()
+    public void dadoParticipanteExternoComStatusDaRegulamentacaoEmAnaliseInternaQuandoTrabalharEntaoDeveRetornarStatusDoTrabalhoIrregular() throws StatusDoTrabalhoIrregularException {
         // preparacao
         ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.EM_ANALISE_INTERNA).agora();
+        List<String> tarefasConcluidas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
 
         // acao
-        StatusDoTrabalho statusDoTrabalho = participanteExterno.trabalhar();
+        StatusDoTrabalhoIrregularException exception = assertThrows(StatusDoTrabalhoIrregularException.class, () -> participanteExterno.trabalhar(tarefasConcluidas));
 
         // verificacao
-        assertEquals(statusDoTrabalho, StatusDoTrabalho.IRREGULAR);
+        assertEquals("Status da Regulamentação do Participante Externo é diferente de Regular.", exception.getMessage());
+    }
+
+    @Test()
+    public void dadoParticipanteExternoComStatusDaRegulamentacaoRegularEZeroTarefasConcluidasQuandoTrabalharEntaoDeveRetornarStatusDoTrabalhoIrregular() throws StatusDoTrabalhoIrregularException {
+        // preparacao
+        ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.REGULAR).agora();
+        List<String> tarefasConcluidas = new ArrayList<>();
+
+        // acao
+        StatusDoTrabalhoIrregularException exception = assertThrows(StatusDoTrabalhoIrregularException.class, () -> participanteExterno.trabalhar(tarefasConcluidas));
+
+        // verificacao
+        assertEquals("Quantidade de tarefas concluídas é zero.", exception.getMessage());
     }
 }
