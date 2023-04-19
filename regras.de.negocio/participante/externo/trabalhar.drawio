@@ -1,1 +1,57 @@
-<mxfile host="Electron" modified="2023-03-28T00:08:33.939Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/20.8.16 Chrome/106.0.5249.199 Electron/21.4.0 Safari/537.36" etag="mDeEwHnMNnna_U3HALt9" version="20.8.16" type="device"><diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">5ZhJd5swEIB/Dcf0gbGJc/SepOkWp3FylEEBYiFRIWzTX9+REQYK8ZJ6yXu98JjRoGVmvmFAM3vBcsRR6H1hDiZaQ3eWmtnXGo1204KrVCSp4qqtFC73nVRl5Iqx/xsrpa60se/gqGQoGCPCD8tKm1GKbVHSIc7Zomz2wkh51RC5uKIY24hUtRPfEZ46VuMy119j3/WylQ3rKh0JUGasThJ5yGGLgsocaGaPMybSu2DZw0T6LvPL5CaZkLuZNbr9Ef1CP7ufH74+XqSTDfd5ZH0Ejqk47NSNdOo5IrHylzqrSDIHchZTB8tJdM3seiIgcGvA7SsWIlEBR7FgoGJceMxlFJE7xkJl98KoUGaGlDF1OjKwIE8Js2epaugTotYASdm3QYoEZ7N17OQE60BIY4KmmHSRPXNXG+0xwjgMUUaxnMqBZFBnyTc3yLXdHX2rYhCxmNt4g52pUhxxF2+aT0Ek91fIUxW5EWYBFjwBA44JEv68nMxIMeGu7fK4w40K/R5pYFbS4IGjKSIe4hvyQcZi4fkCj0O0csoCKkg5R4qxh+N1XYKiSEVuS2D3C8wcc4GXG12pRluNT630mUVeD4wMcq9QC5r6v7v7aUJvH0Wfh2w+aF9RIyDhooa6r1rP1Domq3h7ewKX+awlsIbUQowOTIBVJaDWCfq5CKjdTZWAsR/8R9EwPlQ9sqrREEjEEej6SF6YHQfgILTC5nINDwzA5Tviwrf9EFGBQRwsBeZUDqzs4PWu32M3JlDbzGG1vHksmMJKW0tbqVjJOjdEgU9kl3SNyRzDDlBNAUTEdykINuwe8/oqCEv61AXJyqWHVfpcNI9RGJOsY2tX6iKUy2pdNNoHKIwd7741eRWk9a0ziq4f6Q16GWeF8bTEgRt58lQUnuVk8JZQYn+5bkyklGTS0hdPuSVIz9kkcJ8/JIXsmVrK3of7pqJaxL3W0Xp9Jpym1upv0+1ITFXvsQfPN5wrojd3r1uQPlbLYWadREaaVSWttgOxjgWaUXHUKUErsPVcQqsetGNDk32WfmhosqQ7HDT3HxmZvEtXzDQzPs7GTLMSgfP1hweB4e0k3wEG80QwbNpkIRT3WDBOZaa/D4u/ArlT1leyedcw7J71lnHurK9+GA1rPoz2+ilwMu+19eN5D8T8199qrPD/1Bz8AQ==</diagram></mxfile>
+<mxfile host="Electron" modified="2023-04-19T02:00:35.393Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.1.2 Chrome/106.0.5249.199 Electron/21.4.3 Safari/537.36" etag="KoRBiqj8iHQCwKIWMTXN" version="21.1.2" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="1969" dy="1005" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-2" value="" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-3" target="WIyWlLk6GJQsqaUBKTNV-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-3" value="Trabalhar" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="75" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XWnJVtDrpovE89n1mlpw-2" value="Não" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-6" target="XWnJVtDrpovE89n1mlpw-0" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XWnJVtDrpovE89n1mlpw-3" value="Sim" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="135" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-6" value="Status Da Regulamentação Do Participante Externo é Regular?" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="22.5" y="108" width="225" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="5FJIqlLlnwEMkhJyhBu--8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="XWnJVtDrpovE89n1mlpw-0" target="AhR5Wjtl5OAGsHVnIafS-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XWnJVtDrpovE89n1mlpw-0" value="Lance exceção&amp;nbsp;StatusDoTrabalhoIrregularException(&quot;Status da Regulamentação do Participante Externo é diferente de Regular.&quot;)" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="362.5" y="168" width="360" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AhR5Wjtl5OAGsHVnIafS-3" value="Fim" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="76.25" y="800" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5FJIqlLlnwEMkhJyhBu--2" value="Não" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="5FJIqlLlnwEMkhJyhBu--0" target="5FJIqlLlnwEMkhJyhBu--1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5FJIqlLlnwEMkhJyhBu--4" value="Sim" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="5FJIqlLlnwEMkhJyhBu--0" target="5FJIqlLlnwEMkhJyhBu--3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5FJIqlLlnwEMkhJyhBu--0" value="Quantidade de tarefas concluídas é maior do que zero?" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="45" y="410" width="180" height="144" as="geometry" />
+        </mxCell>
+        <mxCell id="5FJIqlLlnwEMkhJyhBu--9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="5FJIqlLlnwEMkhJyhBu--1" target="AhR5Wjtl5OAGsHVnIafS-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5FJIqlLlnwEMkhJyhBu--1" value="Lance exceção&amp;nbsp;StatusDoTrabalhoIrregularException(&quot;Quantidade de tarefas concluídas é zero.&quot;)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="362.5" y="452" width="360" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5FJIqlLlnwEMkhJyhBu--7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="5FJIqlLlnwEMkhJyhBu--3" target="AhR5Wjtl5OAGsHVnIafS-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5FJIqlLlnwEMkhJyhBu--3" value="Atribua tarefas concluídas ao Participante Externo" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry y="660" width="272.5" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
