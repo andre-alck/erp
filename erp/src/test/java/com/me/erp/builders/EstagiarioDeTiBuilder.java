@@ -3,6 +3,8 @@ package com.me.erp.builders;
 import com.me.erp.participante.interno.Perfil;
 import com.me.erp.participante.interno.funcionario.ti.EstagiarioDeTi;
 
+import java.util.List;
+
 public class EstagiarioDeTiBuilder {
     private EstagiarioDeTi estagiarioDeTi;
 
@@ -24,6 +26,11 @@ public class EstagiarioDeTiBuilder {
 
     public EstagiarioDeTiBuilder comVencimento(double vencimento) {
         estagiarioDeTi.setVencimento(vencimento);
+        return this;
+    }
+
+    public EstagiarioDeTiBuilder comTarefasConcluidas(List<String> tarefasConcluidas) {
+        estagiarioDeTi.setTarefasConcluidas(tarefasConcluidas);
         return this;
     }
 

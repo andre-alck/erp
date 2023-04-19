@@ -3,6 +3,8 @@ package com.me.erp.builders;
 import com.me.erp.participante.interno.Perfil;
 import com.me.erp.participante.interno.funcionario.ti.SupervisorDeTi;
 
+import java.util.List;
+
 public class SupervisorDeTiBuilder {
     private SupervisorDeTi supervisorDeTi;
 
@@ -24,6 +26,11 @@ public class SupervisorDeTiBuilder {
 
     public SupervisorDeTiBuilder comVencimento(double vencimento) {
         supervisorDeTi.setVencimento(vencimento);
+        return this;
+    }
+
+    public SupervisorDeTiBuilder comTarefasConcluidas(List<String> tarefasConcluidas) {
+        supervisorDeTi.setTarefasConcluidas(tarefasConcluidas);
         return this;
     }
 

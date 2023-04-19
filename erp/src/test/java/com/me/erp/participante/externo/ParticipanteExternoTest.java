@@ -17,7 +17,7 @@ class ParticipanteExternoTest {
 
     @BeforeEach
     public void setup() {
-        builder = umParticipanteExterno().comId("54323212123").comOcupacao("Pintor").comVencimento(2500);
+        builder = umParticipanteExterno().comId("54323212123").comOcupacao("Pintor").comVencimento(2500).comTarefasConcluidas(new ArrayList<>());
     }
 
     @Test

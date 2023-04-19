@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 import static com.me.erp.builders.DocumentacaoBuilder.umDocumentacao;
 import static com.me.erp.builders.EstagiarioMockBuilder.umEstagiarioMock;
@@ -18,7 +19,7 @@ class EstagiarioTest {
 
     @BeforeEach
     void setup() {
-        builder = umEstagiarioMock().comOcupacao("Ocupação").comVencimento(1000).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(30);
+        builder = umEstagiarioMock().comOcupacao("Ocupação").comVencimento(1000).comTarefasConcluidas(new ArrayList<>()).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(30);
     }
 
     @Test

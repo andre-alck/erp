@@ -3,6 +3,8 @@ package com.me.erp.builders;
 import com.me.erp.participante.externo.ParticipanteExterno;
 import com.me.erp.participante.externo.StatusDaRegulamentacaoDoParticipanteExterno;
 
+import java.util.List;
+
 public class ParticipanteExternoBuilder {
     private ParticipanteExterno participanteExterno;
 
@@ -27,6 +29,11 @@ public class ParticipanteExternoBuilder {
 
     public ParticipanteExternoBuilder comVencimento(double vencimento) {
         participanteExterno.setVencimento(vencimento);
+        return this;
+    }
+
+    public ParticipanteExternoBuilder comTarefasConcluidas(List<String> tarefasConcluidas) {
+        participanteExterno.setTarefasConcluidas(tarefasConcluidas);
         return this;
     }
 

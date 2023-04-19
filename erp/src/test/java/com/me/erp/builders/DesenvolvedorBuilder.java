@@ -3,6 +3,8 @@ package com.me.erp.builders;
 import com.me.erp.participante.interno.Perfil;
 import com.me.erp.participante.interno.funcionario.ti.Desenvolvedor;
 
+import java.util.List;
+
 public class DesenvolvedorBuilder {
     private Desenvolvedor desenvolvedor;
 
@@ -24,6 +26,11 @@ public class DesenvolvedorBuilder {
 
     public DesenvolvedorBuilder comVencimento(double vencimento) {
         desenvolvedor.setVencimento(vencimento);
+        return this;
+    }
+
+    public DesenvolvedorBuilder comTarefasConcluidas(List<String> tarefasConcluidas) {
+        desenvolvedor.setTarefasConcluidas(tarefasConcluidas);
         return this;
     }
 

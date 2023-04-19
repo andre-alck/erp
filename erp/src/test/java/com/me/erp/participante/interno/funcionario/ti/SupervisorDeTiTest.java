@@ -23,9 +23,9 @@ class SupervisorDeTiTest {
 
     @BeforeEach
     void setup() {
-        estagiarioDeTiBuilder = umEstagiarioDeTi().comId("358.692.570-00").comOcupacao("Ocupação").comVencimento(1000).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(30);
-        desenvolvedorBuilder = umDesenvolvedor().comId("314.986.890-43").comOcupacao("Ocupação").comVencimento(2500).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(90);
-        supervisorDeTiBuilder = umSupervisorDeTi().comId("408.529.908-55").comOcupacao("Ocupação").comVencimento(5000).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(90);
+        estagiarioDeTiBuilder = umEstagiarioDeTi().comId("358.692.570-00").comOcupacao("Ocupação").comVencimento(1000).comTarefasConcluidas(new ArrayList<>()).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(30);
+        desenvolvedorBuilder = umDesenvolvedor().comId("314.986.890-43").comOcupacao("Ocupação").comVencimento(2500).comTarefasConcluidas(new ArrayList<>()).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(90);
+        supervisorDeTiBuilder = umSupervisorDeTi().comId("408.529.908-55").comOcupacao("Ocupação").comVencimento(5000).comTarefasConcluidas(new ArrayList<>()).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(90);
     }
 
     @Test

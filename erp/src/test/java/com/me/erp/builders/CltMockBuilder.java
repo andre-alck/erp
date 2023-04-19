@@ -3,6 +3,8 @@ package com.me.erp.builders;
 import com.me.erp.mocks.CltMock;
 import com.me.erp.participante.interno.Perfil;
 
+import java.util.List;
+
 public class CltMockBuilder {
     private CltMock clt;
 
@@ -27,6 +29,11 @@ public class CltMockBuilder {
 
     public CltMockBuilder comVencimento(double vencimento) {
         clt.setVencimento(vencimento);
+        return this;
+    }
+
+    public CltMockBuilder comTarefasConcluidas(List<String> tarefasConcluidas) {
+        clt.setTarefasConcluidas(tarefasConcluidas);
         return this;
     }
 

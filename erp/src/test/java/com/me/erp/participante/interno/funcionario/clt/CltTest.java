@@ -5,6 +5,8 @@ import com.me.erp.participante.interno.Perfil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static com.me.erp.builders.CltMockBuilder.umClt;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,7 +15,7 @@ class CltTest {
 
     @BeforeEach
     public void setup() {
-        clt = umClt().comId("408.529.908-55").comOcupacao("Ocupação").comVencimento(2000).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(2400).comPausa(90).agora();
+        clt = umClt().comId("408.529.908-55").comOcupacao("Ocupação").comVencimento(2000).comTarefasConcluidas(new ArrayList<>()).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(2400).comPausa(90).agora();
     }
 
     @Test

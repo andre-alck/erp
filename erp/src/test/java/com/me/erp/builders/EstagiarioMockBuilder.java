@@ -3,6 +3,8 @@ package com.me.erp.builders;
 import com.me.erp.mocks.EstagiarioMock;
 import com.me.erp.participante.interno.Perfil;
 
+import java.util.List;
+
 public class EstagiarioMockBuilder {
     private EstagiarioMock estagiarioMock;
 
@@ -24,6 +26,11 @@ public class EstagiarioMockBuilder {
 
     public EstagiarioMockBuilder comVencimento(double vencimento) {
         estagiarioMock.setVencimento(vencimento);
+        return this;
+    }
+
+    public EstagiarioMockBuilder comTarefasConcluidas(List<String> tarefasConcluidas) {
+        estagiarioMock.setTarefasConcluidas(tarefasConcluidas);
         return this;
     }
 
