@@ -1,37 +1,42 @@
 package com.me.erp.participante.interno.funcionario.estagiario;
 
-import com.me.erp.participante.StatusDoTrabalho;
 import com.me.erp.participante.interno.funcionario.Funcionario;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 
 public abstract class Estagiario extends Funcionario {
-    public StatusDoTrabalho documentar(Documentacao documentacao) {
-        StatusDoTrabalho statusDoTrabalho = isDocumentacaoValida(documentacao);
-        return statusDoTrabalho;
+    public void documentar(Documentacao documentacao) {
+        isDocumentacaoValida(documentacao);
     }
 
-    private StatusDoTrabalho isDocumentacaoValida(Documentacao documentacao) {
+    private void isDocumentacaoValida(Documentacao documentacao) throws DocumentacaoInvalidaException {
         if (documentacao.getId() == null) {
-            return StatusDoTrabalho.IRREGULAR;
+            throw new DocumentacaoInvalidaException("Id é nulo.");
         }
 
         if (documentacao.getId().isBlank()) {
-            return StatusDoTrabalho.IRREGULAR;
+            throw new DocumentacaoInvalidaException("Id está em branco.");
         }
 
         if (documentacao.getQuantidadeDePaginas() < 1) {
-            return StatusDoTrabalho.IRREGULAR;
+            throw new DocumentacaoInvalidaException("Quantidade de páginas é menor do que uma.");
         }
 
         if (documentacao.getCriacao() == null) {
-            return StatusDoTrabalho.IRREGULAR;
+            throw new DocumentacaoInvalidaException("Data de criação é nula.");
         }
 
         if (documentacao.getCriacao().isAfter(LocalDateTime.now())) {
-            return StatusDoTrabalho.IRREGULAR;
+            throw new DocumentacaoInvalidaException("Data de criação é futura.");
         }
 
-        return StatusDoTrabalho.REGULAR;
+        atribuiDocumentacaoATarefaConcluida(documentacao);
+    }
+
+    private void atribuiDocumentacaoATarefaConcluida(Documentacao documentacao) {
+        List<String> tarefas = Arrays.asList(documentacao.toString());
+        this.setTarefasConcluidas(tarefas);
     }
 }

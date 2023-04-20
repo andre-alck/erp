@@ -2,7 +2,6 @@ package com.me.erp.participante.interno.funcionario.estagiario;
 
 import com.me.erp.builders.EstagiarioMockBuilder;
 import com.me.erp.mocks.EstagiarioMock;
-import com.me.erp.participante.StatusDoTrabalho;
 import com.me.erp.participante.interno.Perfil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,6 +12,7 @@ import java.util.ArrayList;
 import static com.me.erp.builders.DocumentacaoBuilder.umDocumentacao;
 import static com.me.erp.builders.EstagiarioMockBuilder.umEstagiarioMock;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class EstagiarioTest {
     EstagiarioMockBuilder builder;
@@ -23,7 +23,7 @@ class EstagiarioTest {
     }
 
     @Test
-    void dadoEstagiarioQuandoTestadoMetodoDocumentarComIdNuloDeveRetornarStatusDoTrabalhoIrregular() {
+    void dadoEstagiarioQuandoTestadoMetodoDocumentarComIdNuloDeveLancarExcecaoDocumentacaoInvalidaException() {
         // preparacao
         EstagiarioMock estagiario = builder.comId(null).agora();
 
@@ -32,14 +32,14 @@ class EstagiarioTest {
         Documentacao documentacao = umDocumentacao().comId(doEstagiario).comQuantidadeDePaginas(5).comCriacao(agora).agora();
 
         // acao
-        StatusDoTrabalho status = estagiario.documentar(documentacao);
+        DocumentacaoInvalidaException exception = assertThrows(DocumentacaoInvalidaException.class, () -> estagiario.documentar(documentacao));
 
         // verificacao
-        assertEquals(StatusDoTrabalho.IRREGULAR, status);
+        assertEquals("Id é nulo.", exception.getMessage());
     }
 
     @Test
-    void dadoEstagiarioQuandoTestadoMetodoDocumentarComIdEmBrancoDeveRetornarStatusDoTrabalhoIrregular() {
+    void dadoEstagiarioQuandoTestadoMetodoDocumentarComIdEmBrancoDeveLancarExcecaoDocumentacaoInvalidaException() {
         // preparacao
         String emBranco = "";
         EstagiarioMock estagiario = builder.comId(emBranco).agora();
@@ -49,14 +49,14 @@ class EstagiarioTest {
         Documentacao documentacao = umDocumentacao().comId(doEstagiario).comQuantidadeDePaginas(5).comCriacao(agora).agora();
 
         // acao
-        StatusDoTrabalho status = estagiario.documentar(documentacao);
+        DocumentacaoInvalidaException exception = assertThrows(DocumentacaoInvalidaException.class, () -> estagiario.documentar(documentacao));
 
         // verificacao
-        assertEquals(StatusDoTrabalho.IRREGULAR, status);
+        assertEquals("Id está em branco.", exception.getMessage());
     }
 
     @Test
-    void dadoEstagiarioQuandoTestadoMetodoDocumentarComIdSomenteComEspacosDeveRetornarStatusDoTrabalhoIrregular() {
+    void dadoEstagiarioQuandoTestadoMetodoDocumentarComIdSomenteComEspacosDeveLancarExcecaoDocumentacaoInvalidaException() {
         // preparacao
         String sendoSomenteEspacos = "     ";
         EstagiarioMock estagiario = builder.comId(sendoSomenteEspacos).agora();
@@ -66,14 +66,14 @@ class EstagiarioTest {
         Documentacao documentacao = umDocumentacao().comId(doEstagiario).comQuantidadeDePaginas(5).comCriacao(agora).agora();
 
         // acao
-        StatusDoTrabalho status = estagiario.documentar(documentacao);
+        DocumentacaoInvalidaException exception = assertThrows(DocumentacaoInvalidaException.class, () -> estagiario.documentar(documentacao));
 
         // verificacao
-        assertEquals(StatusDoTrabalho.IRREGULAR, status);
+        assertEquals("Id está em branco.", exception.getMessage());
     }
 
     @Test
-    void dadoEstagiarioQuandoTestadoMetodoDocumentarComQuantidadeDePaginasMenorDoQueUmDeveRetornarStatusDoTrabalhoIrregular() {
+    void dadoEstagiarioQuandoTestadoMetodoDocumentarComQuantidadeDePaginasMenorDoQueUmDeveDeveLancarExcecaoDocumentacaoInvalidaException() {
         // preparacao
         String regular = "408.529.908-55";
         EstagiarioMock estagiario = builder.comId(regular).agora();
@@ -84,14 +84,14 @@ class EstagiarioTest {
         Documentacao documentacao = umDocumentacao().comId(doEstagiario).comQuantidadeDePaginas(nenhuma).comCriacao(agora).agora();
 
         // acao
-        StatusDoTrabalho status = estagiario.documentar(documentacao);
+        DocumentacaoInvalidaException exception = assertThrows(DocumentacaoInvalidaException.class, () -> estagiario.documentar(documentacao));
 
         // verificacao
-        assertEquals(StatusDoTrabalho.IRREGULAR, status);
+        assertEquals("Quantidade de páginas é menor do que uma.", exception.getMessage());
     }
 
     @Test
-    void dadoEstagiarioQuandoTestadoMetodoDocumentarComDataPosteriorAAgoraDeveRetornarStatusDoTrabalhoIrregular() {
+    void dadoEstagiarioQuandoTestadoMetodoDocumentarComDataPosteriorAAgoraDeveLancarExcecaoDocumentacaoInvalidaException() {
         // preparacao
         String regular = "69.534.723/0001-77";
         EstagiarioMock estagiario = builder.comId(regular).agora();
@@ -101,9 +101,9 @@ class EstagiarioTest {
         Documentacao documentacao = umDocumentacao().comId(doEstagiario).comQuantidadeDePaginas(5).comCriacao(daquiAPouco).agora();
 
         // acao
-        StatusDoTrabalho status = estagiario.documentar(documentacao);
+        DocumentacaoInvalidaException exception = assertThrows(DocumentacaoInvalidaException.class, () -> estagiario.documentar(documentacao));
 
         // verificacao
-        assertEquals(StatusDoTrabalho.IRREGULAR, status);
+        assertEquals("Data de criação é futura.", exception.getMessage());
     }
 }

@@ -1,8 +1,7 @@
 package com.me.erp.participante.interno.funcionario.ti;
 
-import com.me.erp.participante.StatusDoTrabalho;
+
 import com.me.erp.participante.interno.funcionario.clt.Clt;
-import com.me.erp.participante.interno.funcionario.estagiario.Documentacao;
 
 public class Desenvolvedor extends Clt implements TiPleno {
     @Override
@@ -27,10 +26,5 @@ public class Desenvolvedor extends Clt implements TiPleno {
 
         quantidadeDeChamadosResolvidos = quantidadeDeChamados;
         return quantidadeDeChamadosResolvidos;
-    }
-
-    @Override
-    public StatusDoTrabalho documentar(Documentacao documentacao) {
-        return null;
     }
 }
