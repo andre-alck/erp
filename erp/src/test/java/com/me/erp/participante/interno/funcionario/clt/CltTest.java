@@ -6,11 +6,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static com.me.erp.builders.CltMockBuilder.umClt;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CltTest {
     CltMock clt;
@@ -21,17 +19,17 @@ class CltTest {
     }
 
     @Test
-    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComZeroPerguntasDeveLancarExcecaoContribuicaoInvalidaException() {
+    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComZeroPerguntasDeveRetornarStatusDaContribuicaoInsuficiente() {
         // preparacao
         Contribuicao contribuicao = new Contribuicao();
         contribuicao.setQuantidadeDePerguntas(0);
         contribuicao.setQuantidadeDeRespostas(10);
 
         // acao
-        ContribuicaoInvalidaException exception = assertThrows(ContribuicaoInvalidaException.class, () -> clt.participarDeReuniao(contribuicao));
+        StatusDaContribuicao status = clt.participarDeReuniao(contribuicao);
 
         // verificacao
-        assertEquals("Quantidade de perguntas é menor do que uma.", exception.getMessage());
+        assertEquals(StatusDaContribuicao.INSUFICIENTE, status);
     }
 
     @Test
@@ -42,10 +40,10 @@ class CltTest {
         contribuicao.setQuantidadeDeRespostas(0);
 
         // acao
-        ContribuicaoInvalidaException exception = assertThrows(ContribuicaoInvalidaException.class, () -> clt.participarDeReuniao(contribuicao));
+        StatusDaContribuicao status = clt.participarDeReuniao(contribuicao);
 
         // verificacao
-        assertEquals("Quantidade de respostas é menor do que uma.", exception.getMessage());
+        assertEquals(StatusDaContribuicao.INSUFICIENTE, status);
     }
 
     @Test
@@ -56,10 +54,10 @@ class CltTest {
         contribuicao.setQuantidadeDeRespostas(1);
 
         // acao
-        ContribuicaoInvalidaException exception = assertThrows(ContribuicaoInvalidaException.class, () -> clt.participarDeReuniao(contribuicao));
+        StatusDaContribuicao status = clt.participarDeReuniao(contribuicao);
 
         // verificacao
-        assertEquals("Pontuação é menor do que cinco.", exception.getMessage());
+        assertEquals(StatusDaContribuicao.INSUFICIENTE, status);
     }
 
     @Test
@@ -70,24 +68,23 @@ class CltTest {
         contribuicao.setQuantidadeDeRespostas(1);
 
         // acao
-        clt.participarDeReuniao(contribuicao);
+        StatusDaContribuicao status = clt.participarDeReuniao(contribuicao);
 
-        List<String> tarefasConcluidas = clt.getTarefasConcluidas();
-        assertEquals(tarefasConcluidas.get(0), contribuicao.toString());
+        // verificacao
+        assertEquals(StatusDaContribuicao.SUFICIENTE, status);
     }
 
     @Test
-    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComCincoPerguntasECincoRespostasEPontuacaoMaiorDoQueCincoEntaoDeveAtribuirAsTarefasConcluidas() {
+    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComUmaPerguntaEUmaRespostaEPontuacaoMaiorDoQueCincoDeveRetornarStatusDaContribuicaoInsuficiente() {
         // preparacao
         Contribuicao contribuicao = new Contribuicao();
         contribuicao.setQuantidadeDePerguntas(5);
         contribuicao.setQuantidadeDeRespostas(5);
 
         // acao
-        clt.participarDeReuniao(contribuicao);
+        StatusDaContribuicao status = clt.participarDeReuniao(contribuicao);
 
         // verificacao
-        List<String> tarefasConcluidas = clt.getTarefasConcluidas();
-        assertEquals(tarefasConcluidas.get(0), contribuicao.toString());
+        assertEquals(StatusDaContribuicao.SUFICIENTE, status);
     }
 }
