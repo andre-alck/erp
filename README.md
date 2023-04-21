@@ -75,7 +75,7 @@ Caso as validações sejam cumpridas, o sistema deve atribuir a documentação �
 
 ### Clt
 
--   Ao **participar de reunião**, o sistema deve verificar se sua contribuição passa pelas validações, sendo:
+Ao **participar de reunião**, o sistema deve verificar se sua contribuição passa pelas validações, sendo:
 
 1. A quantidade de perguntas é maior do que uma.
 1. A quantidade de respostas é maior do que uma.
@@ -83,13 +83,13 @@ Caso as validações sejam cumpridas, o sistema deve atribuir a documentação �
 
 Caso as validações sejam cumpridas, o sistema deve atribuir à participação à lista de tarefas concluídas do CLT. Caso contrário, deve lançar exceções respectivas à situação em questão. Para mais detalhamentos, analise o fluxograma abaixo.
 
-    ![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/interno/funcionario/clt/participardereuniao.png)
+![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/interno/funcionario/clt/participardereuniao.png)
 
 ### Supervisor de TI
 
--   Ao **promover**, deve retornar É Promovível, como consta Fluxograma abaixo.
+Ao **promover**, deve retornar É Promovível, como consta Fluxograma abaixo.
 
-    ![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/interno/funcionario/ti/supervisordeti/promover.png)
+![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/interno/funcionario/ti/supervisordeti/promover.png)
 
 ## Design Pattern
 
