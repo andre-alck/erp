@@ -2,22 +2,32 @@ package com.me.erp.participante.interno.funcionario.clt;
 
 import com.me.erp.participante.interno.funcionario.estagiario.Estagiario;
 
+import java.util.Arrays;
+import java.util.List;
+
 public abstract class Clt extends Estagiario {
-    public StatusDaContribuicao participarDeReuniao(Contribuicao contribuicao) {
+    public void participarDeReuniao(Contribuicao contribuicao) throws ContribuicaoInvalidaException {
+        isContribuicaoValida(contribuicao);
+    }
+
+    private void isContribuicaoValida(Contribuicao contribuicao) {
         if (contribuicao.getQuantidadeDePerguntas() < 1) {
-            return StatusDaContribuicao.INSUFICIENTE;
+            throw new ContribuicaoInvalidaException("Quantidade de perguntas é menor do que uma.");
         }
 
         if (contribuicao.getQuantidadeDeRespostas() < 1) {
-            return StatusDaContribuicao.INSUFICIENTE;
+            throw new ContribuicaoInvalidaException("Quantidade de respostas é menor do que uma.");
         }
 
         if (contribuicao.getPontuacao() < 5) {
-            return StatusDaContribuicao.INSUFICIENTE;
+            throw new ContribuicaoInvalidaException("Pontuação é menor do que cinco.");
         }
 
-        return StatusDaContribuicao.SUFICIENTE;
+        atribuiContribuicaoATarefaConcluida(contribuicao);
+    }
+
+    private void atribuiContribuicaoATarefaConcluida(Contribuicao contribuicao) {
+        List<String> tarefas = Arrays.asList(contribuicao.toString());
+        this.setTarefasConcluidas(tarefas);
     }
 }
-
-// Necessário ter, no mínimo, uma pergunta e uma resposta. Necessário, também, pontuação maior ou igual a 5.
