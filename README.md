@@ -75,6 +75,12 @@ Custo variável, dependendo da tabela de preços atual do Google App Engine para
 
     -   Todo Estagiário segue as mesmas regras para documentação (independentemente se é, de fato, única e exclusivamente um Estagiário).
 
+### Clt
+
+-   Ao **participar de reunião**, o sistema deve verificar se sua contribuição foi suficiente e, caso passe pelas validações, atribuir sua a mesma à lista de tarefas concluídas. Caso contrário, deve lançar exceções respectivas à situação em questão. Para mais detalhamentos, analisar fluxograma abaixo.
+
+    ![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/interno/funcionario/clt/participardereuniao.png)
+
 ### Supervisor de TI
 
 -   Ao **promover**, deve retornar É Promovível, como consta Fluxograma abaixo.

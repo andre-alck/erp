@@ -1,0 +1,74 @@
+<mxfile host="Electron" modified="2023-04-21T02:27:30.152Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="Ax5Ua-eXGYmHY3lReN3a" version="21.2.1" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="2551" dy="1289" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="yQKlSZmlMiYKrW3qrxQF-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="yQKlSZmlMiYKrW3qrxQF-0" target="yQKlSZmlMiYKrW3qrxQF-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yQKlSZmlMiYKrW3qrxQF-0" value="Participar de Reunião" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="76.25" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yQKlSZmlMiYKrW3qrxQF-10" value="Fim" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="540" y="860" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BZU2yqcR_e0jBcHmHjQm-6" value="Sim" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="yQKlSZmlMiYKrW3qrxQF-12" target="BZU2yqcR_e0jBcHmHjQm-0" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lc3j8lSepd8AYCd5-HnY-8" value="Não" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="yQKlSZmlMiYKrW3qrxQF-12" target="lc3j8lSepd8AYCd5-HnY-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yQKlSZmlMiYKrW3qrxQF-12" value="Quantidade de perguntas é menor do que um?" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="53.13" y="150" width="166.25" height="166.25" as="geometry" />
+        </mxCell>
+        <mxCell id="yQKlSZmlMiYKrW3qrxQF-19" value="Não" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" target="yQKlSZmlMiYKrW3qrxQF-14" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="136.25" y="510" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BZU2yqcR_e0jBcHmHjQm-7" value="Sim" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="lc3j8lSepd8AYCd5-HnY-0" target="BZU2yqcR_e0jBcHmHjQm-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="196.25" y="450" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BZU2yqcR_e0jBcHmHjQm-8" value="Sim" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="yQKlSZmlMiYKrW3qrxQF-14" target="BZU2yqcR_e0jBcHmHjQm-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lc3j8lSepd8AYCd5-HnY-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="yQKlSZmlMiYKrW3qrxQF-14" target="BZU2yqcR_e0jBcHmHjQm-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yQKlSZmlMiYKrW3qrxQF-14" value="Pontuação é menor do que cinco?" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="51.26" y="630" width="170" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="lc3j8lSepd8AYCd5-HnY-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="BZU2yqcR_e0jBcHmHjQm-0" target="yQKlSZmlMiYKrW3qrxQF-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BZU2yqcR_e0jBcHmHjQm-0" value="Lance exceção&amp;nbsp;ContribuicaoInvalidaException(&quot;Quantidade de perguntas é menor do que uma.&quot;)" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="420" y="203.12" width="360" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lc3j8lSepd8AYCd5-HnY-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="BZU2yqcR_e0jBcHmHjQm-1" target="yQKlSZmlMiYKrW3qrxQF-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BZU2yqcR_e0jBcHmHjQm-1" value="Lance exceção&amp;nbsp;ContribuicaoInvalidaException(&quot;Quantidade de respostas é menor do que uma.&quot;)" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="420" y="433.12" width="360" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lc3j8lSepd8AYCd5-HnY-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="BZU2yqcR_e0jBcHmHjQm-2" target="yQKlSZmlMiYKrW3qrxQF-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BZU2yqcR_e0jBcHmHjQm-2" value="Lance exceção&amp;nbsp;ContribuicaoInvalidaException(&quot;Pontuação é menor do que cinco.&lt;span style=&quot;background-color: initial;&quot;&gt;&quot;)&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="421.25" y="685" width="357.5" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BZU2yqcR_e0jBcHmHjQm-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="BZU2yqcR_e0jBcHmHjQm-5" target="yQKlSZmlMiYKrW3qrxQF-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BZU2yqcR_e0jBcHmHjQm-5" value="Atribui contribuição às tarefas concluídas do Clt" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry y="875" width="272.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lc3j8lSepd8AYCd5-HnY-0" value="Quantidade de respostas é menor do que um?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="53.13" y="380" width="166.25" height="166.25" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
