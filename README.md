@@ -51,33 +51,37 @@ Custo variável, dependendo da tabela de preços atual do Google App Engine para
 
 ### Participante Externo
 
--   Ao **trabalhar**, deve retornar Status Do Trabalho, como consta Fluxograma abaixo.
+Ao **trabalhar**, o sistema deve verificar se as tarefas concluídas do participante externo passam pelas validações, sendo:
 
-    ![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/externo/trabalhar.png)
+1.  O status de sua regulamentação é regular;
+1.  A quantidade de tarefas concluídas deve ser maior do que zero.
 
-    Onde:
+Caso as validações sejam cumpridas, o sistema deve atribuir a lista de tarefas concluídas à lista de tarefas concluídas do participante externo. Caso contrário, deve lançar exceções respectivas à situação em questão. Para mais detalhamentos, analise o fluxograma abaixo.
 
-    -   Status Da Regulamentação Do Participante Externo:
-        1. Regular.
-        2. Aguardando Envio Por Parte do Participante Externo.
-        3. Aguardando Análise Interna.
-    -   Status Do Trabalho:
-        1. Regular.
-        2. Irregular.
+![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/externo/trabalhar.png)
 
 ### Estagiário
 
--   Ao **documentar**, deve retornar Status Do Trabalho, como consta Fluxograma abaixo.
+Ao **documentar**, o sistema deve verificar se a documentação passa pelas validações, sendo:
 
-    ![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/interno/funcionario/estagiario/documentar.png)
+1. Id não é nulo;
+1. Id não é vazio;
+1. Id não está em branco;
+1. O número de páginas é maior do que um.
 
-    Onde:
+Caso as validações sejam cumpridas, o sistema deve atribuir a documentação à lista de tarefas concluídas do estagiário. Caso contrário, deve lançar exceções respectivas à situação em questão. Para mais detalhamentos, analise o fluxograma abaixo.
 
-    -   Todo Estagiário segue as mesmas regras para documentação (independentemente se é, de fato, única e exclusivamente um Estagiário).
+![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/interno/funcionario/estagiario/documentar.png)
 
 ### Clt
 
--   Ao **participar de reunião**, o sistema deve verificar se sua contribuição foi suficiente e, caso passe pelas validações, atribuir sua a mesma à lista de tarefas concluídas. Caso contrário, deve lançar exceções respectivas à situação em questão. Para mais detalhamentos, analisar fluxograma abaixo.
+-   Ao **participar de reunião**, o sistema deve verificar se sua contribuição passa pelas validações, sendo:
+
+1. A quantidade de perguntas é maior do que uma.
+1. A quantidade de respostas é maior do que uma.
+1. A pontuação é maior ou igual a cinco.
+
+Caso as validações sejam cumpridas, o sistema deve atribuir à participação à lista de tarefas concluídas do CLT. Caso contrário, deve lançar exceções respectivas à situação em questão. Para mais detalhamentos, analise o fluxograma abaixo.
 
     ![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/interno/funcionario/clt/participardereuniao.png)
 
@@ -86,10 +90,6 @@ Custo variável, dependendo da tabela de preços atual do Google App Engine para
 -   Ao **promover**, deve retornar É Promovível, como consta Fluxograma abaixo.
 
     ![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/interno/funcionario/ti/supervisordeti/promover.png)
-
-    Onde:
-
-    -   Todo Estagiário segue as mesmas regras para documentação (independentemente se é, de fato, única e exclusivamente um Estagiário).
 
 ## Design Pattern
 
