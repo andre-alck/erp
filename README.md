@@ -47,7 +47,7 @@ Utilizando as competências listadas na seção "2. Why?".
 
 Custo variável, dependendo da tabela de preços atual do Google App Engine para hospedagem da aplicação. Para mais informações, [verificar documentação das cotas](https://cloud.google.com/1ppengine/docs/standard/quotashl=pt-br).
 
-## Regras de Negócio
+## Modelagem Funcional
 
 ### Participante Externo
 
