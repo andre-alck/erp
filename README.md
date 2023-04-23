@@ -81,15 +81,25 @@ Ao **participar de reunião**, o sistema deve verificar se sua contribuição pa
 1. A quantidade de respostas é maior do que uma.
 1. A pontuação é maior ou igual a cinco.
 
-Caso as validações sejam cumpridas, o sistema deve atribuir à participação à lista de tarefas concluídas do CLT. Caso contrário, deve lançar exceções respectivas à situação em questão. Para mais detalhamentos, analise o fluxograma abaixo.
+Caso as validações sejam cumpridas, o sistema deve atribuir à promoção à lista de tarefas concluídas do CLT. Caso contrário, deve lançar exceções respectivas à situação em questão. Para mais detalhamentos, analise o fluxograma abaixo.
 
 ![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/interno/funcionario/clt/participardereuniao.png)
 
 ### Supervisor de TI
 
-Ao **promover**, deve retornar É Promovível, como consta Fluxograma abaixo.
+Ao **promover**, o sistema deve verificar se o funcionário passa pelas validações, sendo:
 
-![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/interno/funcionario/ti/supervisordeti/promover.png)
+1. O funcionário é um Estagiário de TI.
+
+Caso essa validação seja cumprida, o sistema deve atribuir a promoção à lista de tarefas concluídas do Supervisor de TI. Caso contrário, deve lançar exceções respectivas à situação em questão. Para mais detalhamentos, analise o fluxograma abaixo.
+
+![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/interno/funcionario/ti/supervisordeti/promover/promover.png)
+
+Ao **demitir**, o sistema deve verificar se o funcionário passa pelas validações, sendo:
+
+1. O funcionário é um Estagiário de TI ou o funcionário é Desenvolvedor.
+
+Caso essa validação seja cumprida, o sistema deve atribuir a demissão à lista de tarefas concluídas do Supervisor de TI. Caso contrário, deve lançar exceções respectivas à situação em questão. Para mais detalhamentos, analise o fluxograma abaixo.
 
 ## Design Pattern
 
