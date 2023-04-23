@@ -1,44 +1,38 @@
-<mxfile host="Electron" modified="2023-04-08T21:16:47.502Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.1.2 Chrome/106.0.5249.199 Electron/21.4.3 Safari/537.36" etag="wnmQ8218FQtGNWtolbdp" version="21.1.2" type="device">
+<mxfile host="Electron" modified="2023-04-23T01:45:50.087Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="YnG3RNTLz1LD0VquLc-d" version="21.2.1" type="device">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="3316" dy="1676" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1017" dy="1207" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
-        <mxCell id="_9QvVU8hzhrvSvUGCxbc-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_9QvVU8hzhrvSvUGCxbc-1" target="_9QvVU8hzhrvSvUGCxbc-2">
+        <mxCell id="_9QvVU8hzhrvSvUGCxbc-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_9QvVU8hzhrvSvUGCxbc-1" target="_9QvVU8hzhrvSvUGCxbc-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="_9QvVU8hzhrvSvUGCxbc-1" value="Promover" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="_9QvVU8hzhrvSvUGCxbc-1" value="Promover" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="25" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="_9QvVU8hzhrvSvUGCxbc-5" value="Sim" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_9QvVU8hzhrvSvUGCxbc-2" target="_9QvVU8hzhrvSvUGCxbc-3">
+        <mxCell id="_9QvVU8hzhrvSvUGCxbc-5" value="Sim" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_9QvVU8hzhrvSvUGCxbc-2" target="_9QvVU8hzhrvSvUGCxbc-3" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="_9QvVU8hzhrvSvUGCxbc-6" value="Não" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_9QvVU8hzhrvSvUGCxbc-2" target="_9QvVU8hzhrvSvUGCxbc-4">
+        <mxCell id="_9QvVU8hzhrvSvUGCxbc-6" value="Não" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_9QvVU8hzhrvSvUGCxbc-2" target="_9QvVU8hzhrvSvUGCxbc-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="_9QvVU8hzhrvSvUGCxbc-2" value="Funcionário é Nível Junior?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="_9QvVU8hzhrvSvUGCxbc-2" value="Nível do Funcionário é diferente de Junior?" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry y="140" width="170" height="170" as="geometry" />
         </mxCell>
-        <mxCell id="_9QvVU8hzhrvSvUGCxbc-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_9QvVU8hzhrvSvUGCxbc-3" target="_9QvVU8hzhrvSvUGCxbc-8">
+        <mxCell id="H8M6yK8CZekjocky79J1-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_9QvVU8hzhrvSvUGCxbc-3" target="_9QvVU8hzhrvSvUGCxbc-9">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="_9QvVU8hzhrvSvUGCxbc-3" value="É promovível é verdadeiro" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="259" y="195" width="120" height="60" as="geometry" />
+        <mxCell id="_9QvVU8hzhrvSvUGCxbc-3" value="Lance exceção PromocaoInvalidaException(&quot;Funcionário não é Estagiário TI.&quot;)" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="259" y="202.5" width="441" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="_9QvVU8hzhrvSvUGCxbc-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_9QvVU8hzhrvSvUGCxbc-4" target="_9QvVU8hzhrvSvUGCxbc-8">
+        <mxCell id="H8M6yK8CZekjocky79J1-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_9QvVU8hzhrvSvUGCxbc-4" target="_9QvVU8hzhrvSvUGCxbc-9">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="_9QvVU8hzhrvSvUGCxbc-4" value="É promovível é falso" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="25" y="394.5" width="120" height="60" as="geometry" />
+        <mxCell id="_9QvVU8hzhrvSvUGCxbc-4" value="Atribui promoção às tarefas concluídas" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="25" y="390" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="_9QvVU8hzhrvSvUGCxbc-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_9QvVU8hzhrvSvUGCxbc-8" target="_9QvVU8hzhrvSvUGCxbc-9">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="_9QvVU8hzhrvSvUGCxbc-8" value="Retorne É Promovível" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="259" y="395" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="_9QvVU8hzhrvSvUGCxbc-9" value="Fim" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="259" y="600" width="120" height="60" as="geometry" />
+        <mxCell id="_9QvVU8hzhrvSvUGCxbc-9" value="Fim" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="419.5" y="390" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
