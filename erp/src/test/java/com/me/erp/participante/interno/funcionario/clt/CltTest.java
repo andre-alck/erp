@@ -72,6 +72,7 @@ class CltTest {
         // acao
         clt.participarDeReuniao(contribuicao);
 
+        // verificacao
         List<String> tarefasConcluidas = clt.getTarefasConcluidas();
         assertEquals(tarefasConcluidas.get(0), contribuicao.toString());
     }

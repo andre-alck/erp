@@ -1,19 +1,25 @@
 package com.me.erp.participante.interno.funcionario.ti;
 
 import com.me.erp.participante.interno.funcionario.Funcionario;
+import com.me.erp.participante.interno.funcionario.supervisor.PromocaoInvalidaException;
 import com.me.erp.participante.interno.funcionario.supervisor.Supervisor;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class SupervisorDeTi extends Supervisor implements TiSenior {
 
     @Override
-    public boolean promover(Funcionario funcionarioASerPromovido) {
-        return isTiJunior(funcionarioASerPromovido);
+    public void promover(Funcionario funcionarioASerPromovido) throws PromocaoInvalidaException {
+        if(isNivelDoFuncionarioIgualATiJunior(funcionarioASerPromovido)) {
+            this.setTarefasConcluidas(Arrays.asList(funcionarioASerPromovido.getId() + " promovido."));
+        } else {
+            throw new PromocaoInvalidaException("Funcionário não é Estagiário de TI.");
+        }
     }
 
-    private boolean isTiJunior(Funcionario funcionarioASerPromovido) {
+    private boolean isNivelDoFuncionarioIgualATiJunior(Funcionario funcionarioASerPromovido) {
         List<Class<?>> interfacesImplementadas = Arrays.asList(funcionarioASerPromovido.getClass().getInterfaces());
         boolean isPromovivel = interfacesImplementadas.contains(TiJunior.class);
         return isPromovivel;

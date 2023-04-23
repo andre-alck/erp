@@ -4,10 +4,12 @@ import com.me.erp.builders.DesenvolvedorBuilder;
 import com.me.erp.builders.EstagiarioDeTiBuilder;
 import com.me.erp.builders.SupervisorDeTiBuilder;
 import com.me.erp.participante.interno.Perfil;
+import com.me.erp.participante.interno.funcionario.supervisor.PromocaoInvalidaException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static com.me.erp.builders.DesenvolvedorBuilder.umDesenvolvedor;
@@ -29,42 +31,44 @@ class SupervisorDeTiTest {
     }
 
     @Test
-    void dadoSupervisorDeTiQuandoTestadoMetodoPromoverComEstagiarioDeTiDeveRetornarTrue() {
+    void dadoSupervisorDeTiQuandoTestadoMetodoPromoverComEstagiarioDeTiEntaoDeveAtribuirPromocaoAsTarefasConcluidas() {
         // preparacao
         SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
         EstagiarioDeTi estagiarioDeTi = estagiarioDeTiBuilder.agora();
 
         // acao
-        boolean promoveu = supervisorDeTi.promover(estagiarioDeTi);
+        supervisorDeTi.promover(estagiarioDeTi);
 
         // verificacao
-        assertTrue(promoveu);
+        List<String> tarefasConcluidas = Arrays.asList(estagiarioDeTi.getId() + " promovido.");
+        assertEquals(tarefasConcluidas, supervisorDeTi.getTarefasConcluidas());
     }
 
     @Test
-    void dadoSupervisorDeTiQuandoTestadoMetodoPromoverComDesenvolvedorDeveRetornarFalse() {
+    void dadoSupervisorDeTiQuandoTestadoMetodoPromoverComDesenvolvedorEntaoDeveLancarExcecaoPromocaoInvalidaException() {
         // preparacao
         SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
         Desenvolvedor desenvolvedor = desenvolvedorBuilder.agora();
 
         // acao
-        boolean promoveu = supervisorDeTi.promover(desenvolvedor);
+        PromocaoInvalidaException exception =  assertThrows(PromocaoInvalidaException.class, () -> supervisorDeTi.promover(desenvolvedor));
 
         // verificacao
-        assertFalse(promoveu);
+
+        assertEquals("Funcionário não é Estagiário de TI.", exception.getMessage());
     }
 
     @Test
-    void dadoSupervisorDeTiQuandoTestadoMetodoPromoverComSupervisorDeTiDeveRetornarTrue() {
+    void dadoSupervisorDeTiQuandoTestadoMetodoPromoverComSupervisorDeTiEntaoDeveLancarExcecaoPromocaoInvalidaException() {
         // preparacao
         SupervisorDeTi supervisorDeTi1 = supervisorDeTiBuilder.agora();
         SupervisorDeTi supervisorDeTi2 = supervisorDeTiBuilder.agora();
 
         // acao
-        boolean promoveu = supervisorDeTi1.promover(supervisorDeTi2);
+        PromocaoInvalidaException exception = assertThrows(PromocaoInvalidaException.class, () -> supervisorDeTi1.promover(supervisorDeTi2));
 
         // verificacao
-        assertFalse(promoveu);
+        assertEquals("Funcionário não é Estagiário de TI.", exception.getMessage());
     }
 
     @Test
