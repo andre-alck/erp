@@ -4,6 +4,7 @@ import com.me.erp.builders.DesenvolvedorBuilder;
 import com.me.erp.builders.EstagiarioDeTiBuilder;
 import com.me.erp.builders.SupervisorDeTiBuilder;
 import com.me.erp.participante.interno.Perfil;
+import com.me.erp.participante.interno.funcionario.supervisor.DemissaoInvalidaException;
 import com.me.erp.participante.interno.funcionario.supervisor.PromocaoInvalidaException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -69,6 +70,47 @@ class SupervisorDeTiTest {
 
         // verificacao
         assertEquals("Funcionário não é Estagiário de TI.", exception.getMessage());
+    }
+
+    @Test
+    void dadoSupervisorDeTiQuandoTestadoMetodoDemitirComEstagiarioDeTiEntaoDeveAtribuirDemissaoAsTarefasConcluidas() {
+        // preparacao
+        SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
+        EstagiarioDeTi estagiarioDeTi = estagiarioDeTiBuilder.agora();
+
+        // acao
+        supervisorDeTi.demitir(estagiarioDeTi);
+
+        // verificacao
+        List<String> tarefasConcluidas = Arrays.asList(estagiarioDeTi.getId() + " demitido.");
+        assertEquals(tarefasConcluidas, supervisorDeTi.getTarefasConcluidas());
+    }
+
+    @Test
+    void dadoSupervisorDeTiQuandoTestadoMetodoDemitirComDesenvolvedorEntaoDeveAtribuirDemissaoAsTarefasConcluidas() {
+        // preparacao
+        SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
+        Desenvolvedor desenvolvedor = desenvolvedorBuilder.agora();
+
+        // acao
+        supervisorDeTi.demitir(desenvolvedor);
+
+        // verificacao
+        List<String> tarefasConcluidas = Arrays.asList(desenvolvedor.getId() + " demitido.");
+        assertEquals(tarefasConcluidas, supervisorDeTi.getTarefasConcluidas());
+    }
+
+    @Test
+    void dadoSupervisorDeTiQuandoTestadoMetodoDemitirComSupervisorDeTiEntaoDeveLancarExcecaoDemissaoInvalidaException() {
+        // preparacao
+        SupervisorDeTi supervisorDeTi1 = supervisorDeTiBuilder.agora();
+        SupervisorDeTi supervisorDeTi2 = supervisorDeTiBuilder.agora();
+
+        // acao
+        DemissaoInvalidaException exception = assertThrows(DemissaoInvalidaException.class, () -> supervisorDeTi1.demitir(supervisorDeTi2));
+
+        // verificacao
+        assertEquals("Funcionário não é Estagiário de TI ou Desenvolvedor.", exception.getMessage());
     }
 
     @Test
