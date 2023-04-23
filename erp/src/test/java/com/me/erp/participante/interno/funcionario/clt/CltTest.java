@@ -21,53 +21,59 @@ class CltTest {
     }
 
     @Test
-    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComZeroPerguntasDeveLancarExcecaoContribuicaoInvalidaException() {
+    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComNenhumaPerguntaENenhumaRespostaEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
         // preparacao
-        Contribuicao contribuicao = new Contribuicao();
-        contribuicao.setQuantidadeDePerguntas(0);
-        contribuicao.setQuantidadeDeRespostas(10);
+        int comNenhumaPergunta = 0;
+        int eNenhumaResposta = 0;
+        Contribuicao contribuicao = new Contribuicao(comNenhumaPergunta, eNenhumaResposta);
 
         // acao
         ContribuicaoInvalidaException exception = assertThrows(ContribuicaoInvalidaException.class, () -> clt.participarDeReuniao(contribuicao));
 
         // verificacao
-        assertEquals("Quantidade de perguntas é menor do que uma.", exception.getMessage());
+        String mensagemEsperada = "Quantidade de perguntas é menor do que uma.";
+        String mensagemRecebida = exception.getMessage();
+        assertEquals(mensagemEsperada, mensagemRecebida);
     }
 
     @Test
-    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComZeroRespostasDeveRetornarStatusDaContribuicaoInsuficiente() {
+    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComComDezPerguntasENenhumaRespostaEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
         // preparacao
-        Contribuicao contribuicao = new Contribuicao();
-        contribuicao.setQuantidadeDePerguntas(10);
-        contribuicao.setQuantidadeDeRespostas(0);
+        int comDezPerguntas = 10;
+        int eNenhumaResposta = 0;
+        Contribuicao contribuicao = new Contribuicao(comDezPerguntas, eNenhumaResposta);
 
         // acao
         ContribuicaoInvalidaException exception = assertThrows(ContribuicaoInvalidaException.class, () -> clt.participarDeReuniao(contribuicao));
 
         // verificacao
-        assertEquals("Quantidade de respostas é menor do que uma.", exception.getMessage());
+        String mensagemEsperada = "Quantidade de respostas é menor do que uma.";
+        String mensagemRecebida = exception.getMessage();
+        assertEquals(mensagemEsperada, mensagemRecebida);
     }
 
     @Test
-    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComUmaPerguntaEUmaRespostaEPontuacaoMenorDoQueCincoDeveRetornarStatusDaContribuicaoInsuficiente() {
+    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComUmaPerguntaEUmaRespostaEPontuacaoMenorDoQueCincoEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
         // preparacao
-        Contribuicao contribuicao = new Contribuicao();
-        contribuicao.setQuantidadeDePerguntas(1);
-        contribuicao.setQuantidadeDeRespostas(1);
+        int comUmaPergunta = 1;
+        int eUmaResposta = 1;
+        Contribuicao contribuicao = new Contribuicao(comUmaPergunta, eUmaResposta);
 
         // acao
         ContribuicaoInvalidaException exception = assertThrows(ContribuicaoInvalidaException.class, () -> clt.participarDeReuniao(contribuicao));
 
         // verificacao
-        assertEquals("Pontuação é menor do que cinco.", exception.getMessage());
+        String mensagemEsperada = "Pontuação é menor do que cinco.";
+        String mensagemRecebida = exception.getMessage();
+        assertEquals(mensagemEsperada, mensagemRecebida);
     }
 
     @Test
-    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComUmaPerguntaEUmaRespostaEPontuacaoIgualACincoDeveRetornarStatusDaContribuicaoInsuficiente() {
+    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComQuatroPerguntasEUmaRespostaEPontuacaoIgualACincoEntaoDeveAtribuirContribuicaoAsTarefasConcluidas() {
         // preparacao
-        Contribuicao contribuicao = new Contribuicao();
-        contribuicao.setQuantidadeDePerguntas(4);
-        contribuicao.setQuantidadeDeRespostas(1);
+        int comQuatroPerguntas = 4;
+        int eUmaResposta = 1;
+        Contribuicao contribuicao = new Contribuicao(comQuatroPerguntas, eUmaResposta);
 
         // acao
         clt.participarDeReuniao(contribuicao);
@@ -78,17 +84,21 @@ class CltTest {
     }
 
     @Test
-    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComCincoPerguntasECincoRespostasEPontuacaoMaiorDoQueCincoEntaoDeveAtribuirAsTarefasConcluidas() {
+    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComCincoPerguntasECincoRespostasEPontuacaoMaiorDoQueCincoEntaoDeveAtribuirContribuicaoAsTarefasConcluidas() {
         // preparacao
-        Contribuicao contribuicao = new Contribuicao();
-        contribuicao.setQuantidadeDePerguntas(5);
-        contribuicao.setQuantidadeDeRespostas(5);
+        int comCincoPerguntas = 5;
+        int eCincoRespostas = 5;
+        Contribuicao contribuicao = new Contribuicao(comCincoPerguntas, eCincoRespostas);
 
         // acao
         clt.participarDeReuniao(contribuicao);
 
         // verificacao
+        String contribuicaoEsperada = contribuicao.toString();
+
         List<String> tarefasConcluidas = clt.getTarefasConcluidas();
-        assertEquals(tarefasConcluidas.get(0), contribuicao.toString());
+        String contribuicaoRecebida = tarefasConcluidas.get(0);
+
+        assertEquals(contribuicaoRecebida, contribuicaoEsperada);
     }
 }

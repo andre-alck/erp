@@ -5,6 +5,14 @@ public class Contribuicao {
     private int quantidadeDeRespostas;
     private int pontuacao;
 
+    public Contribuicao() {
+    }
+
+    public Contribuicao(int quantidadeDePerguntas, int quantidadeDeRespostas) {
+        this.quantidadeDePerguntas = quantidadeDePerguntas;
+        this.quantidadeDeRespostas = quantidadeDeRespostas;
+    }
+
     public int getQuantidadeDePerguntas() {
         return quantidadeDePerguntas;
     }

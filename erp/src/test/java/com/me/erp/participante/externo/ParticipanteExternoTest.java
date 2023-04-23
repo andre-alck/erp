@@ -24,39 +24,44 @@ class ParticipanteExternoTest {
     public void dadoParticipanteExternoComStatusDaRegulamentacaoRegularQuandoTrabalharEntaoDeveAtribuirAsTarefasConcluidas() throws StatusDoTrabalhoIrregularException {
         // preparacao
         ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.REGULAR).agora();
-        List<String> tarefasConcluidas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
+        List<String> tarefas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
 
         // acao
-        participanteExterno.trabalhar(tarefasConcluidas);
+        participanteExterno.trabalhar(tarefas);
 
         // verificacao
-        assertEquals(participanteExterno.getTarefasConcluidas(), tarefasConcluidas);
+        List<String> tarefasConcluidas = participanteExterno.getTarefasConcluidas();
+        assertEquals(tarefas, tarefasConcluidas);
     }
 
     @Test()
     public void dadoParticipanteExternoComStatusDaRegulamentacaoEmAguardoDoEnvioDaDocumentacaoQuandoTrabalharEntaoDeveLancarExcecaoStatusDoTrabalhoIrregularException() throws StatusDoTrabalhoIrregularException {
         // preparacao
         ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.EM_AGUARDO_DO_ENVIO_DA_DOCUMENTACAO).agora();
-        List<String> tarefasConcluidas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
+        List<String> tarefas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
 
         // acao
-        StatusDoTrabalhoIrregularException exception = assertThrows(StatusDoTrabalhoIrregularException.class, () -> participanteExterno.trabalhar(tarefasConcluidas));
+        StatusDoTrabalhoIrregularException exception = assertThrows(StatusDoTrabalhoIrregularException.class, () -> participanteExterno.trabalhar(tarefas));
 
         // verificacao
-        assertEquals("Status da Regulamentação do Participante Externo é diferente de Regular.", exception.getMessage());
+        String mensagemEsperada = "Status da Regulamentação do Participante Externo é diferente de Regular.";
+        String mensagemRecebida = exception.getMessage();
+        assertEquals(mensagemEsperada, mensagemRecebida);
     }
 
     @Test()
     public void dadoParticipanteExternoComStatusDaRegulamentacaoEmAnaliseInternaQuandoTrabalharEntaoDeveLancarExcecaoStatusDoTrabalhoIrregularException() throws StatusDoTrabalhoIrregularException {
         // preparacao
         ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.EM_ANALISE_INTERNA).agora();
-        List<String> tarefasConcluidas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
+        List<String> tarefas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
 
         // acao
-        StatusDoTrabalhoIrregularException exception = assertThrows(StatusDoTrabalhoIrregularException.class, () -> participanteExterno.trabalhar(tarefasConcluidas));
+        StatusDoTrabalhoIrregularException exception = assertThrows(StatusDoTrabalhoIrregularException.class, () -> participanteExterno.trabalhar(tarefas));
 
         // verificacao
-        assertEquals("Status da Regulamentação do Participante Externo é diferente de Regular.", exception.getMessage());
+        String mensagemEsperada = "Status da Regulamentação do Participante Externo é diferente de Regular.";
+        String mensagemRecebida = exception.getMessage();
+        assertEquals(mensagemEsperada, mensagemRecebida);
     }
 
     @Test()
@@ -69,6 +74,8 @@ class ParticipanteExternoTest {
         StatusDoTrabalhoIrregularException exception = assertThrows(StatusDoTrabalhoIrregularException.class, () -> participanteExterno.trabalhar(tarefasConcluidas));
 
         // verificacao
-        assertEquals("Quantidade de tarefas concluídas é zero.", exception.getMessage());
+        String mensagemEsperada = "Quantidade de tarefas concluídas é zero.";
+        String mensagemRecebida = exception.getMessage();
+        assertEquals(mensagemEsperada, mensagemRecebida);
     }
 }

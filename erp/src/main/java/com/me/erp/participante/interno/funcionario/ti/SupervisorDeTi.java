@@ -12,7 +12,7 @@ public class SupervisorDeTi extends Supervisor implements TiSenior {
 
     @Override
     public void promover(Funcionario funcionarioASerPromovido) throws PromocaoInvalidaException {
-        if(isNivelDoFuncionarioIgualATiJunior(funcionarioASerPromovido)) {
+        if (isNivelDoFuncionarioIgualATiJunior(funcionarioASerPromovido)) {
             this.setTarefasConcluidas(Arrays.asList(funcionarioASerPromovido.getId() + " promovido."));
         } else {
             throw new PromocaoInvalidaException("Funcionário não é Estagiário de TI.");
@@ -27,7 +27,7 @@ public class SupervisorDeTi extends Supervisor implements TiSenior {
 
     @Override
     public void demitir(Funcionario funcionarioASerDemitido) throws DemissaoInvalidaException {
-        if(isNivelDoFuncionarioIgualATiJuniorOuTiPleno(funcionarioASerDemitido)) {
+        if (isNivelDoFuncionarioIgualATiJuniorOuTiPleno(funcionarioASerDemitido)) {
             this.setTarefasConcluidas(Arrays.asList(funcionarioASerDemitido.getId() + " demitido."));
         } else {
             throw new DemissaoInvalidaException("Funcionário não é Estagiário de TI ou Desenvolvedor.");

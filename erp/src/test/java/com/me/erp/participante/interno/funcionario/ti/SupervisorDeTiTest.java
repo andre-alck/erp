@@ -16,7 +16,8 @@ import java.util.List;
 import static com.me.erp.builders.DesenvolvedorBuilder.umDesenvolvedor;
 import static com.me.erp.builders.EstagiarioDeTiBuilder.umEstagiarioDeTi;
 import static com.me.erp.builders.SupervisorDeTiBuilder.umSupervisorDeTi;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class SupervisorDeTiTest {
     EstagiarioDeTiBuilder estagiarioDeTiBuilder;
@@ -52,7 +53,7 @@ class SupervisorDeTiTest {
         Desenvolvedor desenvolvedor = desenvolvedorBuilder.agora();
 
         // acao
-        PromocaoInvalidaException exception =  assertThrows(PromocaoInvalidaException.class, () -> supervisorDeTi.promover(desenvolvedor));
+        PromocaoInvalidaException exception = assertThrows(PromocaoInvalidaException.class, () -> supervisorDeTi.promover(desenvolvedor));
 
         // verificacao
 
