@@ -1,10 +1,10 @@
 package com.me.erp.participante.interno.funcionario.ti;
 
 import com.me.erp.participante.interno.funcionario.Funcionario;
+import com.me.erp.participante.interno.funcionario.supervisor.DemissaoInvalidaException;
 import com.me.erp.participante.interno.funcionario.supervisor.PromocaoInvalidaException;
 import com.me.erp.participante.interno.funcionario.supervisor.Supervisor;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,8 +26,7 @@ public class SupervisorDeTi extends Supervisor implements TiSenior {
     }
 
     @Override
-    public boolean demitir(Funcionario funcionarioASerDemitido) {
-        return false;
+    public void demitir(Funcionario funcionarioASerDemitido) throws DemissaoInvalidaException {
     }
 
     @Override
