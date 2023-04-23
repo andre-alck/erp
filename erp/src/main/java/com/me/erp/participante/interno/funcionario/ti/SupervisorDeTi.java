@@ -27,6 +27,17 @@ public class SupervisorDeTi extends Supervisor implements TiSenior {
 
     @Override
     public void demitir(Funcionario funcionarioASerDemitido) throws DemissaoInvalidaException {
+        if(isNivelDoFuncionarioIgualATiJuniorOuTiPleno(funcionarioASerDemitido)) {
+            this.setTarefasConcluidas(Arrays.asList(funcionarioASerDemitido.getId() + " demitido."));
+        } else {
+            throw new DemissaoInvalidaException("Funcionário não é Estagiário de TI ou Desenvolvedor.");
+        }
+    }
+
+    private boolean isNivelDoFuncionarioIgualATiJuniorOuTiPleno(Funcionario funcionarioASerPromovido) {
+        List<Class<?>> interfacesImplementadas = Arrays.asList(funcionarioASerPromovido.getClass().getInterfaces());
+        boolean isDemissivel = interfacesImplementadas.contains(TiJunior.class) || interfacesImplementadas.contains(TiPleno.class);
+        return isDemissivel;
     }
 
     @Override
