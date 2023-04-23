@@ -101,6 +101,8 @@ Ao **demitir**, o sistema deve verificar se o funcionário passa pelas validaç�
 
 Caso essa validação seja cumprida, o sistema deve atribuir a demissão à lista de tarefas concluídas do Supervisor de TI. Caso contrário, deve lançar exceções respectivas à situação em questão. Para mais detalhamentos, analise o fluxograma abaixo.
 
+![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/interno/funcionario/ti/supervisordeti/demitir/demitir.png)
+
 ## Design Pattern
 
 -   Builders
