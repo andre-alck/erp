@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SupervisorDeTi extends Supervisor implements TiSenior {
+
     @Override
     public boolean promover(Funcionario funcionarioASerPromovido) {
         return isTiJunior(funcionarioASerPromovido);
