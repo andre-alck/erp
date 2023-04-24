@@ -1,5 +1,6 @@
 package com.me.erp.participante.interno.funcionario.clt;
 
+import com.me.erp.builders.CltMockBuilder;
 import com.me.erp.mocks.CltMock;
 import com.me.erp.participante.interno.Perfil;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,16 +14,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CltTest {
-    CltMock clt;
+    CltMockBuilder builder;
 
     @BeforeEach
     public void setup() {
-        clt = umClt().comId("408.529.908-55").comOcupacao("Ocupação").comVencimento(2000).comTarefasConcluidas(new ArrayList<>()).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(2400).comPausa(90).agora();
+        builder = umClt().comId("408.529.908-55").comOcupacao("Ocupação").comVencimento(2000).comTarefasConcluidas(new ArrayList<>()).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(2400).comPausa(90);
     }
 
     @Test
     public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComNenhumaPerguntaENenhumaRespostaEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
         // preparacao
+        Clt clt = builder.agora();
+
         int comNenhumaPergunta = 0;
         int eNenhumaResposta = 0;
         Contribuicao contribuicao = new Contribuicao(comNenhumaPergunta, eNenhumaResposta);
@@ -39,6 +42,8 @@ class CltTest {
     @Test
     public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComComDezPerguntasENenhumaRespostaEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
         // preparacao
+        Clt clt = builder.agora();
+
         int comDezPerguntas = 10;
         int eNenhumaResposta = 0;
         Contribuicao contribuicao = new Contribuicao(comDezPerguntas, eNenhumaResposta);
@@ -55,6 +60,8 @@ class CltTest {
     @Test
     public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComUmaPerguntaEUmaRespostaEPontuacaoMenorDoQueCincoEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
         // preparacao
+        Clt clt = builder.agora();
+
         int comUmaPergunta = 1;
         int eUmaResposta = 1;
         Contribuicao contribuicao = new Contribuicao(comUmaPergunta, eUmaResposta);
@@ -71,6 +78,8 @@ class CltTest {
     @Test
     public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComQuatroPerguntasEUmaRespostaEPontuacaoIgualACincoEntaoDeveAtribuirContribuicaoAsTarefasConcluidas() {
         // preparacao
+        Clt clt = builder.agora();
+
         int comQuatroPerguntas = 4;
         int eUmaResposta = 1;
         Contribuicao contribuicao = new Contribuicao(comQuatroPerguntas, eUmaResposta);
@@ -86,6 +95,8 @@ class CltTest {
     @Test
     public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComCincoPerguntasECincoRespostasEPontuacaoMaiorDoQueCincoEntaoDeveAtribuirContribuicaoAsTarefasConcluidas() {
         // preparacao
+        Clt clt = builder.agora();
+
         int comCincoPerguntas = 5;
         int eCincoRespostas = 5;
         Contribuicao contribuicao = new Contribuicao(comCincoPerguntas, eCincoRespostas);
