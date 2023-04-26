@@ -106,3 +106,4 @@ Caso essa validação seja cumprida, o sistema deve atribuir a demissão à list
 ## Design Pattern
 
 -   Builders
+-   Strategy
