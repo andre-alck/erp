@@ -2,6 +2,7 @@ package com.me.erp.builders;
 
 import com.me.erp.participante.interno.Perfil;
 import com.me.erp.participante.interno.funcionario.ti.Desenvolvedor;
+import com.me.erp.participante.interno.funcionario.ti.atividadestinivelpleno.AtividadesTiNivelPleno;
 
 import java.util.List;
 
@@ -51,6 +52,11 @@ public class DesenvolvedorBuilder {
 
     public DesenvolvedorBuilder comPausa(double pausa) {
         desenvolvedor.setPausa(pausa);
+        return this;
+    }
+
+    public DesenvolvedorBuilder comResolverChamadosService(AtividadesTiNivelPleno tiPleno) {
+        desenvolvedor.setResolverChamadosService(tiPleno);
         return this;
     }
 

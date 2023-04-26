@@ -2,6 +2,7 @@ package com.me.erp.builders;
 
 import com.me.erp.participante.interno.Perfil;
 import com.me.erp.participante.interno.funcionario.ti.EstagiarioDeTi;
+import com.me.erp.participante.interno.funcionario.ti.atividadestiniveljunior.AtividadesTiNivelJunior;
 
 import java.util.List;
 
@@ -51,6 +52,11 @@ public class EstagiarioDeTiBuilder {
 
     public EstagiarioDeTiBuilder comPausa(double pausa) {
         estagiarioDeTi.setPausa(pausa);
+        return this;
+    }
+
+    public EstagiarioDeTiBuilder comProgramarService(AtividadesTiNivelJunior atividadesTiNivelJunior) {
+        estagiarioDeTi.setProgramarService(atividadesTiNivelJunior);
         return this;
     }
 

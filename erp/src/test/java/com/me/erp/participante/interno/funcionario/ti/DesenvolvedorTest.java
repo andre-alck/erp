@@ -1,24 +1,30 @@
 package com.me.erp.participante.interno.funcionario.ti;
 
+import com.me.erp.builders.DesenvolvedorBuilder;
+import com.me.erp.participante.interno.funcionario.ti.atividadestinivelpleno.AtividadesTiNivelPlenoImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.me.erp.builders.DesenvolvedorBuilder.umDesenvolvedor;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DesenvolvedorTest {
-    Desenvolvedor desenvolvedor;
+    DesenvolvedorBuilder builder;
 
     @BeforeEach
     void setup() {
-        desenvolvedor = new Desenvolvedor();
+        AtividadesTiNivelPlenoImpl service = new AtividadesTiNivelPlenoImpl();
+        builder = umDesenvolvedor().comResolverChamadosService(service);
     }
 
     @Test
     void dadoDesenvolvedorQuandoTestadoMetodoResolverChamadosComDezChamadosDeveRetornarDez() {
         // preparacao
+        Desenvolvedor desenvolvedor = builder.agora();
+
         final int quantidadeDeChamados = 10;
         final int quantidadeEsperada = quantidadeDeChamados;
 
@@ -32,6 +38,8 @@ class DesenvolvedorTest {
     @Test
     void dadoDesenvolvedorQuandoTestadoMetodoResolverChamadosComMenosUmChamadoDeveRetornarZero() {
         // preparacao
+        Desenvolvedor desenvolvedor = builder.agora();
+
         final int quantidadeDeChamados = -1;
         final int quantidadeEsperada = 0;
 
@@ -45,6 +53,8 @@ class DesenvolvedorTest {
     @Test
     void dadoDesenvolvedorQuandoTestadoMetodoResolverChamadosComQuantidadesAceitaveisDeveRetornarTalQuantidade() {
         // preparacao
+        Desenvolvedor desenvolvedor = builder.agora();
+
         List<Integer> quantidadeDeChamados = List.of(1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10);
         List<Integer> quantidadeDeChamadosResolvidosIndividualmente = new ArrayList<>();
 
@@ -61,6 +71,8 @@ class DesenvolvedorTest {
     @Test
     void dadoDesenvolvedorQuandoTestadoMetodoProgramarDeveRetornarProgramacaoNivelPl() {
         // preparacao
+        Desenvolvedor desenvolvedor = builder.agora();
+
         final String PROGRAMACAO = "Programação Nível PL.";
 
         // acao

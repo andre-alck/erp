@@ -1,11 +1,25 @@
 package com.me.erp.participante.interno.funcionario.ti;
 
 import com.me.erp.participante.interno.funcionario.estagiario.Estagiario;
+import com.me.erp.participante.interno.funcionario.ti.atividadestiniveljunior.AtividadesTiNivelJunior;
 
-public class EstagiarioDeTi extends Estagiario implements TiJunior {
+public class EstagiarioDeTi extends Estagiario {
 
-    @Override
+    private AtividadesTiNivelJunior atividadesTiNivelJunior;
+
+    public EstagiarioDeTi() {
+    };
+
+    public EstagiarioDeTi(AtividadesTiNivelJunior atividadesTiNivelJunior) {
+        this.atividadesTiNivelJunior = atividadesTiNivelJunior;
+    };
+
+    public void setProgramarService(AtividadesTiNivelJunior atividadesTiNivelJunior) {
+        this.atividadesTiNivelJunior = atividadesTiNivelJunior;
+    }
+
     public String programar() {
-        return null;
+        String programacao = this.atividadesTiNivelJunior.programar();
+        return programacao;
     }
 }

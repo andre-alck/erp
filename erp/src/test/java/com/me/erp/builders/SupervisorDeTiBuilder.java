@@ -2,6 +2,7 @@ package com.me.erp.builders;
 
 import com.me.erp.participante.interno.Perfil;
 import com.me.erp.participante.interno.funcionario.ti.SupervisorDeTi;
+import com.me.erp.participante.interno.funcionario.ti.atividadestinivelsenior.AtividadesTiNivelSenior;
 
 import java.util.List;
 
@@ -51,6 +52,11 @@ public class SupervisorDeTiBuilder {
 
     public SupervisorDeTiBuilder comPausa(double pausa) {
         supervisorDeTi.setPausa(pausa);
+        return this;
+    }
+
+    public SupervisorDeTiBuilder comAtividadesTiNivelSenior(AtividadesTiNivelSenior atividadesTiNivelSenior) {
+        supervisorDeTi.setAtividadesTiNivelSenior(atividadesTiNivelSenior);
         return this;
     }
 
