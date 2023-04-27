@@ -55,7 +55,7 @@ public class EstagiarioDeTiBuilder {
         return this;
     }
 
-    public EstagiarioDeTiBuilder comProgramarService(AtividadesTiNivelJunior atividadesTiNivelJunior) {
+    public EstagiarioDeTiBuilder comAtividadesTiNivelJunior(AtividadesTiNivelJunior atividadesTiNivelJunior) {
         estagiarioDeTi.setProgramarService(atividadesTiNivelJunior);
         return this;
     }

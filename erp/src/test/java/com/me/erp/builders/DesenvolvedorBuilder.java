@@ -55,7 +55,7 @@ public class DesenvolvedorBuilder {
         return this;
     }
 
-    public DesenvolvedorBuilder comResolverChamadosService(AtividadesTiNivelPleno tiPleno) {
+    public DesenvolvedorBuilder comAtividadesTiNivelPleno(AtividadesTiNivelPleno tiPleno) {
         desenvolvedor.setResolverChamadosService(tiPleno);
         return this;
     }

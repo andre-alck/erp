@@ -17,7 +17,7 @@ class DesenvolvedorTest {
     @BeforeEach
     void setup() {
         AtividadesTiNivelPlenoImpl service = new AtividadesTiNivelPlenoImpl();
-        builder = umDesenvolvedor().comResolverChamadosService(service);
+        builder = umDesenvolvedor().comAtividadesTiNivelPleno(service);
     }
 
     @Test

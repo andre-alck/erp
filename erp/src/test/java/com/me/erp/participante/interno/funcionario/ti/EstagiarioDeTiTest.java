@@ -14,7 +14,7 @@ class EstagiarioDeTiTest {
     @BeforeEach
     void setup() {
         AtividadesTiNivelJuniorImpl service = new AtividadesTiNivelJuniorImpl();
-        builder = umEstagiarioDeTi().comProgramarService(service);
+        builder = umEstagiarioDeTi().comAtividadesTiNivelJunior(service);
     }
 
     @Test
