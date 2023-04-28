@@ -3,7 +3,7 @@ package com.me.erp.participante.interno.funcionario.ti;
 import com.me.erp.builders.DesenvolvedorBuilder;
 import com.me.erp.builders.EstagiarioDeTiBuilder;
 import com.me.erp.builders.SupervisorDeTiBuilder;
-import com.me.erp.participante.interno.Perfil;
+import com.me.erp.participante.interno.Credenciais;
 import com.me.erp.participante.interno.funcionario.supervisor.DemissaoInvalidaException;
 import com.me.erp.participante.interno.funcionario.supervisor.PromocaoInvalidaException;
 import com.me.erp.participante.interno.funcionario.ti.atividadestinivelsenior.AtividadesTiNivelSenior;
@@ -13,7 +13,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static com.me.erp.builders.DesenvolvedorBuilder.umDesenvolvedor;
@@ -30,11 +29,11 @@ class SupervisorDeTiTest {
 
     @BeforeEach
     void setup() {
-        estagiarioDeTiBuilder = umEstagiarioDeTi().comId("358.692.570-00").comOcupacao("Ocupação").comVencimento(1000).comTarefasConcluidas(new ArrayList<>()).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(30);
-        desenvolvedorBuilder = umDesenvolvedor().comId("314.986.890-43").comOcupacao("Ocupação").comVencimento(2500).comTarefasConcluidas(new ArrayList<>()).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(90);
+        estagiarioDeTiBuilder = umEstagiarioDeTi().comId("358.692.570-00").comOcupacao("Ocupação").comVencimento(1000).comTarefasConcluidas(new ArrayList<>()).comCredenciais(new Credenciais()).comPerfil(new Credenciais()).comCargaHorariaSemanal(1950).comPausa(30);
+        desenvolvedorBuilder = umDesenvolvedor().comId("314.986.890-43").comOcupacao("Ocupação").comVencimento(2500).comTarefasConcluidas(new ArrayList<>()).comCredenciais(new Credenciais()).comPerfil(new Credenciais()).comCargaHorariaSemanal(1950).comPausa(90);
 
         AtividadesTiNivelSenior atividadesTiNivelSenior = new AtividadesTiNivelSeniorImpl();
-        supervisorDeTiBuilder = umSupervisorDeTi().comId("408.529.908-55").comOcupacao("Ocupação").comVencimento(5000).comTarefasConcluidas(new ArrayList<>()).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(90).comAtividadesTiNivelSenior(atividadesTiNivelSenior);
+        supervisorDeTiBuilder = umSupervisorDeTi().comId("408.529.908-55").comOcupacao("Ocupação").comVencimento(5000).comTarefasConcluidas(new ArrayList<>()).comCredenciais(new Credenciais()).comPerfil(new Credenciais()).comCargaHorariaSemanal(1950).comPausa(90).comAtividadesTiNivelSenior(atividadesTiNivelSenior);
     }
 
     @Test
@@ -47,7 +46,7 @@ class SupervisorDeTiTest {
         supervisorDeTi.promover(estagiarioDeTi);
 
         // verificacao
-        List<String> tarefasConcluidas = Arrays.asList(estagiarioDeTi.getId() + " promovido.");
+        List<String> tarefasConcluidas = List.of(estagiarioDeTi.getId() + " promovido.");
         assertEquals(tarefasConcluidas, supervisorDeTi.getTarefasConcluidas());
     }
 
@@ -88,7 +87,7 @@ class SupervisorDeTiTest {
         supervisorDeTi.demitir(estagiarioDeTi);
 
         // verificacao
-        List<String> tarefasConcluidas = Arrays.asList(estagiarioDeTi.getId() + " demitido.");
+        List<String> tarefasConcluidas = List.of(estagiarioDeTi.getId() + " demitido.");
         assertEquals(tarefasConcluidas, supervisorDeTi.getTarefasConcluidas());
     }
 
@@ -102,7 +101,7 @@ class SupervisorDeTiTest {
         supervisorDeTi.demitir(desenvolvedor);
 
         // verificacao
-        List<String> tarefasConcluidas = Arrays.asList(desenvolvedor.getId() + " demitido.");
+        List<String> tarefasConcluidas = List.of(desenvolvedor.getId() + " demitido.");
         assertEquals(tarefasConcluidas, supervisorDeTi.getTarefasConcluidas());
     }
 

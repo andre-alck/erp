@@ -12,8 +12,7 @@ public class AtividadesTiNivelSeniorImpl implements AtividadesTiNivelSenior {
             return "Por favor, acrescente detalhes ao seu relatório.";
         }
 
-        String relatorioGerado = autor + ": " + conteudo;
-        return relatorioGerado;
+        return autor + ": " + conteudo;
     }
 
     @Override
@@ -31,7 +30,6 @@ public class AtividadesTiNivelSeniorImpl implements AtividadesTiNivelSenior {
         }
 
         if (quantidadeDeChamados >= 20) {
-            quantidadeDeChamadosResolvidos = 20;
             quantidadeDeChamadosResolvidos = 20;
             return quantidadeDeChamadosResolvidos;
         }

@@ -1,6 +1,6 @@
 package com.me.erp.builders;
 
-import com.me.erp.participante.interno.Perfil;
+import com.me.erp.participante.interno.Credenciais;
 import com.me.erp.participante.interno.funcionario.ti.SupervisorDeTi;
 import com.me.erp.participante.interno.funcionario.ti.atividadestinivelsenior.AtividadesTiNivelSenior;
 
@@ -35,13 +35,13 @@ public class SupervisorDeTiBuilder {
         return this;
     }
 
-    public SupervisorDeTiBuilder comSenha(String senha) {
-        supervisorDeTi.setSenha(senha);
+    public SupervisorDeTiBuilder comCredenciais(Credenciais credenciais) {
+        supervisorDeTi.setCredenciais(credenciais);
         return this;
     }
 
-    public SupervisorDeTiBuilder comPerfil(Perfil perfil) {
-        supervisorDeTi.setPerfil(perfil);
+    public SupervisorDeTiBuilder comPerfil(Credenciais credenciais) {
+        supervisorDeTi.setCredenciais(credenciais);
         return this;
     }
 

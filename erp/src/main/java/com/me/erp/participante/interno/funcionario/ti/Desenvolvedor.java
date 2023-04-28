@@ -1,6 +1,5 @@
 package com.me.erp.participante.interno.funcionario.ti;
 
-
 import com.me.erp.participante.interno.funcionario.clt.Clt;
 import com.me.erp.participante.interno.funcionario.ti.atividadestinivelpleno.AtividadesTiNivelPleno;
 
@@ -8,7 +7,8 @@ public class Desenvolvedor extends Clt {
 
     private AtividadesTiNivelPleno atividadesTiNivelPleno;
 
-    public Desenvolvedor() {};
+    public Desenvolvedor() {
+    }
 
     public Desenvolvedor(AtividadesTiNivelPleno atividadesTiNivelPleno) {
         this.atividadesTiNivelPleno = atividadesTiNivelPleno;
@@ -19,12 +19,10 @@ public class Desenvolvedor extends Clt {
     }
 
     public String programar() {
-        String programacao = this.atividadesTiNivelPleno.programar();
-        return programacao;
+        return this.atividadesTiNivelPleno.programar();
     }
 
     public int resolverChamados(int quantidadeDeChamados) {
-        int quantidadeDeChamadosResolvidos = this.atividadesTiNivelPleno.resolverChamados(quantidadeDeChamados);
-        return quantidadeDeChamadosResolvidos;
+        return this.atividadesTiNivelPleno.resolverChamados(quantidadeDeChamados);
     }
 }

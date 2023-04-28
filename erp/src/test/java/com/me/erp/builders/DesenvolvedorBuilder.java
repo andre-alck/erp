@@ -1,6 +1,6 @@
 package com.me.erp.builders;
 
-import com.me.erp.participante.interno.Perfil;
+import com.me.erp.participante.interno.Credenciais;
 import com.me.erp.participante.interno.funcionario.ti.Desenvolvedor;
 import com.me.erp.participante.interno.funcionario.ti.atividadestinivelpleno.AtividadesTiNivelPleno;
 
@@ -35,13 +35,13 @@ public class DesenvolvedorBuilder {
         return this;
     }
 
-    public DesenvolvedorBuilder comSenha(String senha) {
-        desenvolvedor.setSenha(senha);
+    public DesenvolvedorBuilder comCredenciais(Credenciais credenciais) {
+        desenvolvedor.setCredenciais(credenciais);
         return this;
     }
 
-    public DesenvolvedorBuilder comPerfil(Perfil perfil) {
-        desenvolvedor.setPerfil(perfil);
+    public DesenvolvedorBuilder comPerfil(Credenciais credenciais) {
+        desenvolvedor.setCredenciais(credenciais);
         return this;
     }
 

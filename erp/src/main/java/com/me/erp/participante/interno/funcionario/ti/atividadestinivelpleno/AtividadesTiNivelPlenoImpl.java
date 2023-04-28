@@ -18,7 +18,6 @@ public class AtividadesTiNivelPlenoImpl implements AtividadesTiNivelPleno {
 
         if (quantidadeDeChamados >= 10) {
             quantidadeDeChamadosResolvidos = 10;
-            quantidadeDeChamadosResolvidos = 10;
             return quantidadeDeChamadosResolvidos;
         }
 

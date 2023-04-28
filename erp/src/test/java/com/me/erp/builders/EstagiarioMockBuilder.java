@@ -1,7 +1,7 @@
 package com.me.erp.builders;
 
 import com.me.erp.mocks.EstagiarioMock;
-import com.me.erp.participante.interno.Perfil;
+import com.me.erp.participante.interno.Credenciais;
 
 import java.util.List;
 
@@ -34,13 +34,13 @@ public class EstagiarioMockBuilder {
         return this;
     }
 
-    public EstagiarioMockBuilder comSenha(String senha) {
-        estagiarioMock.setSenha(senha);
+    public EstagiarioMockBuilder comCredenciais(Credenciais credenciais) {
+        estagiarioMock.setCredenciais(credenciais);
         return this;
     }
 
-    public EstagiarioMockBuilder comPerfil(Perfil perfil) {
-        estagiarioMock.setPerfil(perfil);
+    public EstagiarioMockBuilder comPerfil(Credenciais credenciais) {
+        estagiarioMock.setCredenciais(credenciais);
         return this;
     }
 

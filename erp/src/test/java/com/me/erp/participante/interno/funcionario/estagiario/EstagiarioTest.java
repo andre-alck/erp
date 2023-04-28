@@ -2,7 +2,7 @@ package com.me.erp.participante.interno.funcionario.estagiario;
 
 import com.me.erp.builders.EstagiarioMockBuilder;
 import com.me.erp.mocks.EstagiarioMock;
-import com.me.erp.participante.interno.Perfil;
+import com.me.erp.participante.interno.Credenciais;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +19,7 @@ class EstagiarioTest {
 
     @BeforeEach
     void setup() {
-        builder = umEstagiarioMock().comOcupacao("Ocupação").comVencimento(1000).comTarefasConcluidas(new ArrayList<>()).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(30);
+        builder = umEstagiarioMock().comOcupacao("Ocupação").comVencimento(1000).comTarefasConcluidas(new ArrayList<>()).comCredenciais(new Credenciais()).comPerfil(new Credenciais()).comCargaHorariaSemanal(1950).comPausa(30);
     }
 
     @Test

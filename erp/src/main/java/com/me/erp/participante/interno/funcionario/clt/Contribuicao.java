@@ -3,7 +3,6 @@ package com.me.erp.participante.interno.funcionario.clt;
 public class Contribuicao {
     private int quantidadeDePerguntas;
     private int quantidadeDeRespostas;
-    private int pontuacao;
 
     public Contribuicao() {
     }
@@ -30,7 +29,6 @@ public class Contribuicao {
     }
 
     public int getPontuacao() {
-        int pontuacao = quantidadeDePerguntas + quantidadeDeRespostas;
-        return pontuacao;
+        return quantidadeDePerguntas + quantidadeDeRespostas;
     }
 }

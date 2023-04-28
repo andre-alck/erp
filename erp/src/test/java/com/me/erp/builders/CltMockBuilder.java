@@ -1,7 +1,7 @@
 package com.me.erp.builders;
 
 import com.me.erp.mocks.CltMock;
-import com.me.erp.participante.interno.Perfil;
+import com.me.erp.participante.interno.Credenciais;
 
 import java.util.List;
 
@@ -37,13 +37,13 @@ public class CltMockBuilder {
         return this;
     }
 
-    public CltMockBuilder comSenha(String senha) {
-        clt.setSenha(senha);
+    public CltMockBuilder comCredenciais(Credenciais credenciais) {
+        clt.setCredenciais(credenciais);
         return this;
     }
 
-    public CltMockBuilder comPerfil(Perfil perfil) {
-        clt.setPerfil(perfil);
+    public CltMockBuilder comPerfil(Credenciais credenciais) {
+        clt.setCredenciais(credenciais);
         return this;
     }
 

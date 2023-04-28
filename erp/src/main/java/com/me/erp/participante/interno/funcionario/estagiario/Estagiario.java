@@ -3,7 +3,7 @@ package com.me.erp.participante.interno.funcionario.estagiario;
 import com.me.erp.participante.interno.funcionario.Funcionario;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public abstract class Estagiario extends Funcionario {
@@ -36,7 +36,7 @@ public abstract class Estagiario extends Funcionario {
     }
 
     private void atribuiDocumentacaoATarefaConcluida(Documentacao documentacao) {
-        List<String> tarefas = Arrays.asList(documentacao.toString());
+        List<String> tarefas = Collections.singletonList(documentacao.toString());
         this.setTarefasConcluidas(tarefas);
     }
 }

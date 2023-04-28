@@ -1,8 +1,7 @@
 package com.me.erp.participante.interno.funcionario.clt;
 
 import com.me.erp.builders.CltMockBuilder;
-import com.me.erp.mocks.CltMock;
-import com.me.erp.participante.interno.Perfil;
+import com.me.erp.participante.interno.Credenciais;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,11 +17,11 @@ class CltTest {
 
     @BeforeEach
     public void setup() {
-        builder = umClt().comId("408.529.908-55").comOcupacao("Ocupação").comVencimento(2000).comTarefasConcluidas(new ArrayList<>()).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(2400).comPausa(90);
+        builder = umClt().comId("408.529.908-55").comOcupacao("Ocupação").comVencimento(2000).comTarefasConcluidas(new ArrayList<>()).comCredenciais(new Credenciais()).comPerfil(new Credenciais()).comCargaHorariaSemanal(2400).comPausa(90);
     }
 
     @Test
-    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComNenhumaPerguntaENenhumaRespostaEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
+    void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComNenhumaPerguntaENenhumaRespostaEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
         // preparacao
         Clt clt = builder.agora();
 
@@ -40,7 +39,7 @@ class CltTest {
     }
 
     @Test
-    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComComDezPerguntasENenhumaRespostaEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
+    void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComComDezPerguntasENenhumaRespostaEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
         // preparacao
         Clt clt = builder.agora();
 
@@ -58,7 +57,7 @@ class CltTest {
     }
 
     @Test
-    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComUmaPerguntaEUmaRespostaEPontuacaoMenorDoQueCincoEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
+    void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComUmaPerguntaEUmaRespostaEPontuacaoMenorDoQueCincoEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
         // preparacao
         Clt clt = builder.agora();
 
@@ -76,7 +75,7 @@ class CltTest {
     }
 
     @Test
-    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComQuatroPerguntasEUmaRespostaEPontuacaoIgualACincoEntaoDeveAtribuirContribuicaoAsTarefasConcluidas() {
+    void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComQuatroPerguntasEUmaRespostaEPontuacaoIgualACincoEntaoDeveAtribuirContribuicaoAsTarefasConcluidas() {
         // preparacao
         Clt clt = builder.agora();
 
@@ -93,7 +92,7 @@ class CltTest {
     }
 
     @Test
-    public void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComCincoPerguntasECincoRespostasEPontuacaoMaiorDoQueCincoEntaoDeveAtribuirContribuicaoAsTarefasConcluidas() {
+    void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComCincoPerguntasECincoRespostasEPontuacaoMaiorDoQueCincoEntaoDeveAtribuirContribuicaoAsTarefasConcluidas() {
         // preparacao
         Clt clt = builder.agora();
 

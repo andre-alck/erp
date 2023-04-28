@@ -1,6 +1,6 @@
 package com.me.erp.builders;
 
-import com.me.erp.participante.interno.Perfil;
+import com.me.erp.participante.interno.Credenciais;
 import com.me.erp.participante.interno.funcionario.ti.EstagiarioDeTi;
 import com.me.erp.participante.interno.funcionario.ti.atividadestiniveljunior.AtividadesTiNivelJunior;
 
@@ -35,13 +35,13 @@ public class EstagiarioDeTiBuilder {
         return this;
     }
 
-    public EstagiarioDeTiBuilder comSenha(String senha) {
-        estagiarioDeTi.setSenha(senha);
+    public EstagiarioDeTiBuilder comCredenciais(Credenciais credenciais) {
+        estagiarioDeTi.setCredenciais(credenciais);
         return this;
     }
 
-    public EstagiarioDeTiBuilder comPerfil(Perfil perfil) {
-        estagiarioDeTi.setPerfil(perfil);
+    public EstagiarioDeTiBuilder comPerfil(Credenciais credenciais) {
+        estagiarioDeTi.setCredenciais(credenciais);
         return this;
     }
 

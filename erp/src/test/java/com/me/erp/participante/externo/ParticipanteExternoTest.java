@@ -21,7 +21,7 @@ class ParticipanteExternoTest {
     }
 
     @Test
-    public void dadoParticipanteExternoComStatusDaRegulamentacaoRegularQuandoTrabalharEntaoDeveAtribuirAsTarefasConcluidas() throws StatusDoTrabalhoIrregularException {
+    void dadoParticipanteExternoComStatusDaRegulamentacaoRegularQuandoTrabalharEntaoDeveAtribuirAsTarefasConcluidas() throws StatusDoTrabalhoIrregularException {
         // preparacao
         ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.REGULAR).agora();
         List<String> tarefas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
@@ -35,7 +35,7 @@ class ParticipanteExternoTest {
     }
 
     @Test()
-    public void dadoParticipanteExternoComStatusDaRegulamentacaoEmAguardoDoEnvioDaDocumentacaoQuandoTrabalharEntaoDeveLancarExcecaoStatusDoTrabalhoIrregularException() throws StatusDoTrabalhoIrregularException {
+    void dadoParticipanteExternoComStatusDaRegulamentacaoEmAguardoDoEnvioDaDocumentacaoQuandoTrabalharEntaoDeveLancarExcecaoStatusDoTrabalhoIrregularException() throws StatusDoTrabalhoIrregularException {
         // preparacao
         ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.EM_AGUARDO_DO_ENVIO_DA_DOCUMENTACAO).agora();
         List<String> tarefas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
@@ -50,7 +50,7 @@ class ParticipanteExternoTest {
     }
 
     @Test()
-    public void dadoParticipanteExternoComStatusDaRegulamentacaoEmAnaliseInternaQuandoTrabalharEntaoDeveLancarExcecaoStatusDoTrabalhoIrregularException() throws StatusDoTrabalhoIrregularException {
+    void dadoParticipanteExternoComStatusDaRegulamentacaoEmAnaliseInternaQuandoTrabalharEntaoDeveLancarExcecaoStatusDoTrabalhoIrregularException() throws StatusDoTrabalhoIrregularException {
         // preparacao
         ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.EM_ANALISE_INTERNA).agora();
         List<String> tarefas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
@@ -65,7 +65,7 @@ class ParticipanteExternoTest {
     }
 
     @Test()
-    public void dadoParticipanteExternoComStatusDaRegulamentacaoRegularEZeroTarefasConcluidasQuandoTrabalharEntaoDeveLancarExcecaoStatusDoTrabalhoIrregularException() throws StatusDoTrabalhoIrregularException {
+    void dadoParticipanteExternoComStatusDaRegulamentacaoRegularEZeroTarefasConcluidasQuandoTrabalharEntaoDeveLancarExcecaoStatusDoTrabalhoIrregularException() throws StatusDoTrabalhoIrregularException {
         // preparacao
         ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.REGULAR).agora();
         List<String> tarefasConcluidas = new ArrayList<>();

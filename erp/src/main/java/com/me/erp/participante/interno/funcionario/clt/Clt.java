@@ -2,7 +2,7 @@ package com.me.erp.participante.interno.funcionario.clt;
 
 import com.me.erp.participante.interno.funcionario.estagiario.Estagiario;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public abstract class Clt extends Estagiario {
@@ -27,7 +27,7 @@ public abstract class Clt extends Estagiario {
     }
 
     private void atribuiContribuicaoATarefaConcluida(Contribuicao contribuicao) {
-        List<String> tarefas = Arrays.asList(contribuicao.toString());
+        List<String> tarefas = Collections.singletonList(contribuicao.toString());
         this.setTarefasConcluidas(tarefas);
     }
 }
