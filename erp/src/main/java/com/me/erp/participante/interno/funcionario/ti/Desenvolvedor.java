@@ -2,29 +2,29 @@ package com.me.erp.participante.interno.funcionario.ti;
 
 
 import com.me.erp.participante.interno.funcionario.clt.Clt;
+import com.me.erp.participante.interno.funcionario.ti.atividadestinivelpleno.AtividadesTiNivelPleno;
 
-public class Desenvolvedor extends Clt implements TiPleno {
-    @Override
-    public String programar() {
-        return "Programação Nível PL.";
+public class Desenvolvedor extends Clt {
+
+    private AtividadesTiNivelPleno atividadesTiNivelPleno;
+
+    public Desenvolvedor() {};
+
+    public Desenvolvedor(AtividadesTiNivelPleno atividadesTiNivelPleno) {
+        this.atividadesTiNivelPleno = atividadesTiNivelPleno;
     }
 
-    @Override
+    public void setAtividadesTiNivelPleno(AtividadesTiNivelPleno tiPleno) {
+        this.atividadesTiNivelPleno = tiPleno;
+    }
+
+    public String programar() {
+        String programacao = this.atividadesTiNivelPleno.programar();
+        return programacao;
+    }
+
     public int resolverChamados(int quantidadeDeChamados) {
-        int quantidadeDeChamadosResolvidos;
-
-        if (quantidadeDeChamados <= 0) {
-            quantidadeDeChamadosResolvidos = 0;
-            return quantidadeDeChamadosResolvidos;
-        }
-
-        if (quantidadeDeChamados >= 10) {
-            quantidadeDeChamadosResolvidos = 10;
-            quantidadeDeChamadosResolvidos = 10;
-            return quantidadeDeChamadosResolvidos;
-        }
-
-        quantidadeDeChamadosResolvidos = quantidadeDeChamados;
+        int quantidadeDeChamadosResolvidos = this.atividadesTiNivelPleno.resolverChamados(quantidadeDeChamados);
         return quantidadeDeChamadosResolvidos;
     }
 }

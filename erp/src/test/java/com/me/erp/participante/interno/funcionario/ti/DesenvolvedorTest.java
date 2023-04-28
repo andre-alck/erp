@@ -1,7 +1,7 @@
 package com.me.erp.participante.interno.funcionario.ti;
 
 import com.me.erp.builders.DesenvolvedorBuilder;
-import com.me.erp.participante.interno.Perfil;
+import com.me.erp.participante.interno.funcionario.ti.atividadestinivelpleno.AtividadesTiNivelPlenoImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,8 +16,8 @@ class DesenvolvedorTest {
 
     @BeforeEach
     void setup() {
-        builder = umDesenvolvedor().comId("314.986.890-43").comOcupacao("Ocupação").comVencimento(2500).comTarefasConcluidas(new ArrayList<>()).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(90);
-
+        AtividadesTiNivelPlenoImpl service = new AtividadesTiNivelPlenoImpl();
+        builder = umDesenvolvedor().comAtividadesTiNivelPleno(service);
     }
 
     @Test

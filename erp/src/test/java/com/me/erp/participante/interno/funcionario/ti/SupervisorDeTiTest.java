@@ -6,6 +6,9 @@ import com.me.erp.builders.SupervisorDeTiBuilder;
 import com.me.erp.participante.interno.Perfil;
 import com.me.erp.participante.interno.funcionario.supervisor.DemissaoInvalidaException;
 import com.me.erp.participante.interno.funcionario.supervisor.PromocaoInvalidaException;
+import com.me.erp.participante.interno.funcionario.ti.atividadestinivelsenior.AtividadesTiNivelSenior;
+import com.me.erp.participante.interno.funcionario.ti.atividadestinivelsenior.AtividadesTiNivelSeniorImpl;
+import com.me.erp.participante.interno.funcionario.ti.atividadestinivelsenior.Relatorio;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -29,7 +32,9 @@ class SupervisorDeTiTest {
     void setup() {
         estagiarioDeTiBuilder = umEstagiarioDeTi().comId("358.692.570-00").comOcupacao("Ocupação").comVencimento(1000).comTarefasConcluidas(new ArrayList<>()).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(30);
         desenvolvedorBuilder = umDesenvolvedor().comId("314.986.890-43").comOcupacao("Ocupação").comVencimento(2500).comTarefasConcluidas(new ArrayList<>()).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(90);
-        supervisorDeTiBuilder = umSupervisorDeTi().comId("408.529.908-55").comOcupacao("Ocupação").comVencimento(5000).comTarefasConcluidas(new ArrayList<>()).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(90);
+
+        AtividadesTiNivelSenior atividadesTiNivelSenior = new AtividadesTiNivelSeniorImpl();
+        supervisorDeTiBuilder = umSupervisorDeTi().comId("408.529.908-55").comOcupacao("Ocupação").comVencimento(5000).comTarefasConcluidas(new ArrayList<>()).comSenha("Senha").comPerfil(new Perfil()).comCargaHorariaSemanal(1950).comPausa(90).comAtividadesTiNivelSenior(atividadesTiNivelSenior);
     }
 
     @Test
@@ -182,7 +187,9 @@ class SupervisorDeTiTest {
         // preparacao
         SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
 
-        final String relatorio = ".";
+        final String comId = supervisorDeTi.getId();
+        final String somenteComPontoFinal = ".";
+        Relatorio relatorio = new Relatorio(comId, somenteComPontoFinal);
         final String resultadoEsperado = "Por favor, acrescente detalhes ao seu relatório.";
 
         // acao
@@ -197,8 +204,10 @@ class SupervisorDeTiTest {
         // preparacao
         SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
 
-        final String relatorio = "..........";
-        final String resultadoEsperado = supervisorDeTi.getId() + ": " + relatorio;
+        final String comId = supervisorDeTi.getId();
+        final String comDezPontosFinais = "..........";
+        Relatorio relatorio = new Relatorio(comId, comDezPontosFinais);
+        final String resultadoEsperado = supervisorDeTi.getId() + ": " + comDezPontosFinais;
 
         // acao
         String resultado = supervisorDeTi.gerarRelatorio(relatorio);
@@ -212,8 +221,10 @@ class SupervisorDeTiTest {
         // preparacao
         SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
 
-        final String relatorio = "...........";
-        final String resultadoEsperado = supervisorDeTi.getId() + ": " + relatorio;
+        final String comId = supervisorDeTi.getId();
+        final String comOnzePontosFinais = "...........";
+        Relatorio relatorio = new Relatorio(comId, comOnzePontosFinais);
+        final String resultadoEsperado = supervisorDeTi.getId() + ": " + comOnzePontosFinais;
 
         // acao
         String resultado = supervisorDeTi.gerarRelatorio(relatorio);
