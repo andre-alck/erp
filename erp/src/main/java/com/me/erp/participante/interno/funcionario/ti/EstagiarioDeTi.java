@@ -14,7 +14,7 @@ public class EstagiarioDeTi extends Estagiario {
         this.atividadesTiNivelJunior = atividadesTiNivelJunior;
     };
 
-    public void setProgramarService(AtividadesTiNivelJunior atividadesTiNivelJunior) {
+    public void setAtividadesTiNivelJunior(AtividadesTiNivelJunior atividadesTiNivelJunior) {
         this.atividadesTiNivelJunior = atividadesTiNivelJunior;
     }
 

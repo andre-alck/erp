@@ -56,7 +56,7 @@ public class DesenvolvedorBuilder {
     }
 
     public DesenvolvedorBuilder comAtividadesTiNivelPleno(AtividadesTiNivelPleno tiPleno) {
-        desenvolvedor.setResolverChamadosService(tiPleno);
+        desenvolvedor.setAtividadesTiNivelPleno(tiPleno);
         return this;
     }
 

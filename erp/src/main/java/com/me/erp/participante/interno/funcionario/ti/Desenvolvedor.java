@@ -14,7 +14,7 @@ public class Desenvolvedor extends Clt {
         this.atividadesTiNivelPleno = atividadesTiNivelPleno;
     }
 
-    public void setResolverChamadosService(AtividadesTiNivelPleno tiPleno) {
+    public void setAtividadesTiNivelPleno(AtividadesTiNivelPleno tiPleno) {
         this.atividadesTiNivelPleno = tiPleno;
     }
 
