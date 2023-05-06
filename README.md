@@ -1,9 +1,5 @@
 # ERP
 
-## Diagrama de Classes UML
-
-![](erp.png)
-
 ## 5W2H
 
 **1. What?**
@@ -46,6 +42,10 @@ Utilizando as competências listadas na seção "2. Why?".
 **7. How Much?**
 
 Custo variável, dependendo da tabela de preços atual do Google App Engine para hospedagem da aplicação. Para mais informações, [verificar documentação das cotas](https://cloud.google.com/1ppengine/docs/standard/quotashl=pt-br).
+
+## Diagrama de Classes UML
+
+![](erp.png)
 
 ## Modelagem Funcional
 
