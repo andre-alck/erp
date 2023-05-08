@@ -47,6 +47,10 @@ Custo variável, dependendo da tabela de preços atual do Google App Engine para
 
 ![](erp.png)
 
+## Diagrama de Entidade e Relacionamento
+
+![](https://raw.githubusercontent.com/andre-alck/erp/main/modelagem.de.dados/der.png)
+
 ## Modelagem Funcional
 
 ### Participante Externo
