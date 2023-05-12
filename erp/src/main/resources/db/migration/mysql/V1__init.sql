@@ -4,21 +4,32 @@
 -- MySQL Workbench Forward Engineering
 
 -- -----------------------------------------------------
--- Table `erp`.`erpexter`
+-- Table `erp`.`erpparti`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `erp`.`erpexter` ;
+DROP TABLE IF EXISTS `erp`.`erpparti` ;
 
-CREATE TABLE IF NOT EXISTS `erp`.`erpexter` (
+CREATE TABLE IF NOT EXISTS `erp`.`erpparti` (
   `c_idparti` VARCHAR(20) NOT NULL,
-  `c_statexter` VARCHAR(35) NOT NULL,
+  `c_ocupparti` VARCHAR(50) NOT NULL,
+  `n_vencparti` DECIMAL(5,2) NULL,
+  PRIMARY KEY (`c_idparti`))
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `erp`.`erpinter`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `erp`.`erpinter` ;
+
+CREATE TABLE IF NOT EXISTS `erp`.`erpinter` (
+  `c_idparti` VARCHAR(20) NOT NULL,
+  `c_senhinter` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`c_idparti`),
-  CONSTRAINT `fk_erpexter_erpparti`
+  CONSTRAINT `fk_erpinter_erpparti`
     FOREIGN KEY (`c_idparti`)
     REFERENCES `erp`.`erpparti` (`c_idparti`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `erp`.`erpfunci`
@@ -38,36 +49,21 @@ CREATE TABLE IF NOT EXISTS `erp`.`erpfunci` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
--- Table `erp`.`erpinter`
+-- Table `erp`.`erpexter`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `erp`.`erpinter` ;
+DROP TABLE IF EXISTS `erp`.`erpexter` ;
 
-CREATE TABLE IF NOT EXISTS `erp`.`erpinter` (
+CREATE TABLE IF NOT EXISTS `erp`.`erpexter` (
   `c_idparti` VARCHAR(20) NOT NULL,
-  `c_senhinter` VARCHAR(50) NOT NULL,
+  `c_statexter` VARCHAR(35) NOT NULL,
   PRIMARY KEY (`c_idparti`),
-  CONSTRAINT `fk_erpinter_erpparti`
+  CONSTRAINT `fk_erpexter_erpparti`
     FOREIGN KEY (`c_idparti`)
     REFERENCES `erp`.`erpparti` (`c_idparti`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `erp`.`erpparti`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `erp`.`erpparti` ;
-
-CREATE TABLE IF NOT EXISTS `erp`.`erpparti` (
-  `c_idparti` VARCHAR(20) NOT NULL,
-  `c_ocupparti` VARCHAR(50) NOT NULL,
-  `n_vencparti` DECIMAL(5,2) NULL,
-  PRIMARY KEY (`c_idparti`))
-ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `erp`.`erptaref`
