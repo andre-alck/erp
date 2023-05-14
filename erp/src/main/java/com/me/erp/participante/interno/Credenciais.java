@@ -4,6 +4,14 @@ public class Credenciais {
     private String id;
     private String senha;
 
+    public Credenciais() {
+    }
+
+    public Credenciais(String id, String senha) {
+        this.id = id;
+        this.senha = senha;
+    }
+
     public String getId() {
         return id;
     }
