@@ -1,4 +1,4 @@
-package com.me.erp.dao;
+package com.me.erp.dao.estagiarioDeTi;
 
 import com.me.erp.builders.EstagiarioDeTiBuilder;
 import com.me.erp.participante.interno.Credenciais;

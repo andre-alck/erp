@@ -40,11 +40,6 @@ public class EstagiarioDeTiBuilder {
         return this;
     }
 
-    public EstagiarioDeTiBuilder comPerfil(Credenciais credenciais) {
-        estagiarioDeTi.setCredenciais(credenciais);
-        return this;
-    }
-
     public EstagiarioDeTiBuilder comCargaHorariaSemanal(double cargaHorariaSemanal) {
         estagiarioDeTi.setCargaHorariaSemanal(cargaHorariaSemanal);
         return this;

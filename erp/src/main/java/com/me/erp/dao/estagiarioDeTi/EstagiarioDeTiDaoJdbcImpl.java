@@ -1,5 +1,6 @@
-package com.me.erp.dao;
+package com.me.erp.dao.estagiarioDeTi;
 
+import com.me.erp.dao.Dao;
 import com.me.erp.participante.interno.Credenciais;
 import com.me.erp.participante.interno.funcionario.ti.EstagiarioDeTi;
 import org.springframework.beans.factory.annotation.Autowired;
