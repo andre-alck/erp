@@ -10,10 +10,11 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
-public class EstagiarioDeTiJdbcDao implements Dao<EstagiarioDeTi> {
+public class EstagiarioDeTiDaoJdbcImpl implements Dao<EstagiarioDeTi> {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
     private RowMapper<EstagiarioDeTi> rowMapper = (rs, rowNum) -> {
         String bdid = rs.getString("c_idparti");
         String bdocup = rs.getString("c_ocupparti");
@@ -55,8 +56,7 @@ public class EstagiarioDeTiJdbcDao implements Dao<EstagiarioDeTi> {
                                 AND erpfunci.c_tipofunc = ?
                 """;
 
-        EstagiarioDeTi estagiarioDeTi = null;
-        estagiarioDeTi = jdbcTemplate.queryForObject(sql, new Object[]{id, "Estagiário de Ti"}, rowMapper);
+        EstagiarioDeTi estagiarioDeTi = jdbcTemplate.queryForObject(sql, new Object[]{id, "Estagiário de Ti"}, rowMapper);
 
         return Optional.ofNullable(estagiarioDeTi);
     }
