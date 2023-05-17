@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static com.me.erp.factories.participante.interno.funcionario.estagiario.EstagiarioDeTiFactory.daBaseDeDados;
+
+
 @Component
 public class EstagiarioDeTiDaoJdbcImpl implements Dao<EstagiarioDeTi> {
 
@@ -25,11 +28,10 @@ public class EstagiarioDeTiDaoJdbcImpl implements Dao<EstagiarioDeTi> {
         double cargaHorariaSemanal = rs.getDouble("n_cargfunc");
         double pausa = rs.getDouble("n_pausfunc");
 
+        // TODO(🙋‍♂️): resgatar tarefas cadastradas no banco
         List<String> mocktarefas = new ArrayList<>();
 
-        EstagiarioDeTi estagiarioDeTi = new EstagiarioDeTi(id, ocupacao, vencimento, mocktarefas, senha, cargaHorariaSemanal, pausa);
-
-        return estagiarioDeTi;
+        return daBaseDeDados(id, ocupacao, vencimento, mocktarefas, senha, cargaHorariaSemanal, pausa);
     };
 
     @Override
@@ -51,10 +53,10 @@ public class EstagiarioDeTiDaoJdbcImpl implements Dao<EstagiarioDeTi> {
                             erpfunci ON erpparti.c_idparti = erpfunci.c_idparti
                         WHERE
                             erpparti.c_idparti = ?
-                                AND erpfunci.c_tipofunc = ?
+                                AND erpfunci.c_tipofunc = "Estagiário de Ti"
                 """;
 
-        EstagiarioDeTi estagiarioDeTi = jdbcTemplate.queryForObject(sql, new Object[]{id, "Estagiário de Ti"}, rowMapper);
+        EstagiarioDeTi estagiarioDeTi = jdbcTemplate.queryForObject(sql, rowMapper, id);
 
         return Optional.ofNullable(estagiarioDeTi);
     }
