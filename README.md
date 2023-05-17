@@ -107,7 +107,12 @@ Caso essa validação seja cumprida, o sistema deve atribuir a demissão à list
 
 ![](https://raw.githubusercontent.com/andre-alck/erp/main/regras.de.negocio/participante/interno/funcionario/ti/supervisordeti/demitir/demitir.png)
 
-## Design Pattern
+## Design Patterns
 
 -   Builders
 -   Strategy
+-   Factory
+
+## Padrão de Arquitetura de Software
+
+MVC
