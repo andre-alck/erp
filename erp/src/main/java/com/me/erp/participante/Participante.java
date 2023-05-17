@@ -8,6 +8,9 @@ public abstract class Participante {
     private double vencimento;
     private List<String> tarefasConcluidas;
 
+    protected Participante() {
+    }
+
     public String getId() {
         return id;
     }

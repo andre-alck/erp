@@ -6,6 +6,9 @@ public abstract class Funcionario extends ParticipanteInterno {
     private double cargaHorariaSemanal;
     private double pausa;
 
+    protected Funcionario() {
+    }
+
     public double getCargaHorariaSemanal() {
         return cargaHorariaSemanal;
     }

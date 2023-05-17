@@ -1,6 +1,7 @@
-package com.me.erp.dao.estagiarioDeTi;
+package com.me.erp.dao.estagiariodeti;
 
 import com.me.erp.builders.EstagiarioDeTiBuilder;
+import com.me.erp.dao.estagiariodeti.helper.EstagiarioDeTiDaoTestHelperJdbcImpl;
 import com.me.erp.participante.interno.Credenciais;
 import com.me.erp.participante.interno.funcionario.ti.EstagiarioDeTi;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,13 +17,13 @@ import static com.me.erp.builders.EstagiarioDeTiBuilder.umEstagiarioDeTi;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class EstagiarioDeTiJdbcDaoTest {
+class EstagiarioDeTiDaoJdbcImplTest {
 
     @Autowired
     EstagiarioDeTiDaoJdbcImpl estagiarioDeTiJdbcDao;
 
     @Autowired
-    EstagiarioDeTiDaoTestAuxJdbcImpl estagiarioDeTiDaoTestAuxJdbc;
+    EstagiarioDeTiDaoTestHelperJdbcImpl estagiarioDeTiDaoTestAuxJdbc;
 
     EstagiarioDeTiBuilder builder;
 
@@ -60,5 +61,4 @@ class EstagiarioDeTiJdbcDaoTest {
         // verificacao
         assertTrue(possivelEstagiarioDeTi.isPresent());
     }
-
 }

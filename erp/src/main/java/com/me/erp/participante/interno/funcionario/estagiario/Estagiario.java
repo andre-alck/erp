@@ -7,6 +7,10 @@ import java.util.Collections;
 import java.util.List;
 
 public abstract class Estagiario extends Funcionario {
+
+    protected Estagiario() {
+    }
+
     public void documentar(Documentacao documentacao) {
         isDocumentacaoValida(documentacao);
     }

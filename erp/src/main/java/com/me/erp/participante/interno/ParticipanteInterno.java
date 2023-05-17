@@ -5,6 +5,9 @@ import com.me.erp.participante.Participante;
 public abstract class ParticipanteInterno extends Participante {
     private Credenciais credenciais;
 
+    protected ParticipanteInterno() {
+    }
+
     public Credenciais getCredenciais() {
         return credenciais;
     }
