@@ -1,4 +1,4 @@
-package com.me.erp.dao.estagiarioDeTi;
+package com.me.erp.dao.estagiariodeti.helper;
 
 import com.me.erp.participante.interno.funcionario.ti.EstagiarioDeTi;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,7 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class EstagiarioDeTiDaoTestAuxJdbcImpl implements EstagiarioDeTiDaoTestAux {
+public class EstagiarioDeTiDaoTestHelperJdbcImpl implements EstagiarioDeTiDaoTestHelper {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;

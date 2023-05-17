@@ -8,6 +8,16 @@ public abstract class Participante {
     private double vencimento;
     private List<String> tarefasConcluidas;
 
+    public Participante() {
+    }
+
+    public Participante(String id, String ocupacao, double vencimento, List<String> tarefasConcluidas) {
+        this.id = id;
+        this.ocupacao = ocupacao;
+        this.vencimento = vencimento;
+        this.tarefasConcluidas = tarefasConcluidas;
+    }
+
     public String getId() {
         return id;
     }

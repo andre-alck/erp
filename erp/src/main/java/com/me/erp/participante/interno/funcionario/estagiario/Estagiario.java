@@ -7,6 +7,14 @@ import java.util.Collections;
 import java.util.List;
 
 public abstract class Estagiario extends Funcionario {
+
+    public Estagiario() {
+    }
+
+    public Estagiario(String id, String ocupacao, double vencimento, List<String> tarefasConcluidas, String senha, double cargaHorariaSemanal, double pausa) {
+        super(id, ocupacao, vencimento, tarefasConcluidas, senha, cargaHorariaSemanal, pausa);
+    }
+
     public void documentar(Documentacao documentacao) {
         isDocumentacaoValida(documentacao);
     }
