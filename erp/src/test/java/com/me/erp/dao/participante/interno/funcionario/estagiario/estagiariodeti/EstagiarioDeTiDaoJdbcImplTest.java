@@ -2,9 +2,7 @@ package com.me.erp.dao.participante.interno.funcionario.estagiario.estagiariodet
 
 import com.me.erp.builders.EstagiarioDeTiBuilder;
 import com.me.erp.dao.participante.daotesthelper.DaoTestHelperJdbcImpl;
-import com.me.erp.dao.participante.interno.funcionario.clt.estagiario.estagiariodeti.EstagiarioDeTiDaoJdbcImpl;
 import com.me.erp.dao.participante.interno.funcionario.estagiario.estagiariodeti.estagiariodetihelper.EstagiarioDeTiDaoTestHelperJdbcImpl;
-import com.me.erp.dao.participante.tarefasconcluidashelper.TarefasConcluidasDaoTestHelperJdbcImpl;
 import com.me.erp.participante.interno.Credenciais;
 import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.EmptyResultDataAccessException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Optional;
 
 import static com.me.erp.builders.EstagiarioDeTiBuilder.umEstagiarioDeTi;
@@ -27,9 +26,6 @@ class EstagiarioDeTiDaoJdbcImplTest {
 
     @Autowired
     EstagiarioDeTiDaoTestHelperJdbcImpl estagiarioDeTiDaoTestAuxJdbc;
-
-    @Autowired
-    TarefasConcluidasDaoTestHelperJdbcImpl tarefasConcluidasDaoTestHelperJdbc;
 
     @Autowired
     DaoTestHelperJdbcImpl daoTestHelperJdbc;
@@ -58,14 +54,17 @@ class EstagiarioDeTiDaoJdbcImplTest {
     @Test
     void dadoEstagiarioDeTiJdbcDaoQuandoTestadoMetodoResgataPorIdComUmRegistroNoBancoDeDadosEntaoDeveExistirUmEstagiarioDeTi() {
         // preparacao
-        EstagiarioDeTi estagiarioDeTi = builder.agora();
+        EstagiarioDeTi estagiarioDeTi = builder.comTarefasConcluidas(Arrays.asList("tarefa 1", "tarefa 2")).agora();
 
         // acao
         estagiarioDeTiDaoTestAuxJdbc.criaRegistroDeEstagiarioDeTi(estagiarioDeTi);
-        tarefasConcluidasDaoTestHelperJdbc.criaRegistroDeTarefaConcluidaComParticipanteExistente(estagiarioDeTi.getId(), "descricao");
         Optional<EstagiarioDeTi> possivelEstagiarioDeTi = estagiarioDeTiJdbcDao.resgataPorId(estagiarioDeTi.getId());
 
         // verificacao
-        assertTrue(possivelEstagiarioDeTi.isPresent());
+        EstagiarioDeTi estagiarioDeTiDaBaseDeDados = possivelEstagiarioDeTi.get();
+        int quantidadeDeTarefasConcluidasEsperadas = 2;
+        int quantidadeDeTarefasConcluidas = estagiarioDeTiDaBaseDeDados.getTarefasConcluidas().size();
+        assertEquals(quantidadeDeTarefasConcluidasEsperadas, quantidadeDeTarefasConcluidas);
     }
+
 }
