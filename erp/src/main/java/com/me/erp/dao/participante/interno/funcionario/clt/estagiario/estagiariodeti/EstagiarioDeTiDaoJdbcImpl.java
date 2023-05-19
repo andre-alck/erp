@@ -1,7 +1,7 @@
 package com.me.erp.dao.estagiariodeti;
 
 import com.me.erp.dao.Dao;
-import com.me.erp.participante.interno.funcionario.ti.EstagiarioDeTi;
+import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
