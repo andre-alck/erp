@@ -1,6 +1,8 @@
-package com.me.erp.participante.interno.funcionario.ti;
+package com.me.erp.participante.interno.funcionario.supervisor.supervisordeti;
 
 import com.me.erp.participante.interno.funcionario.Funcionario;
+import com.me.erp.participante.interno.funcionario.clt.desenvolvedor.Desenvolvedor;
+import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
 import com.me.erp.participante.interno.funcionario.supervisor.DemissaoInvalidaException;
 import com.me.erp.participante.interno.funcionario.supervisor.PromocaoInvalidaException;
 import com.me.erp.participante.interno.funcionario.supervisor.Supervisor;

@@ -1,7 +1,7 @@
 package com.me.erp.builders;
 
 import com.me.erp.participante.interno.Credenciais;
-import com.me.erp.participante.interno.funcionario.ti.EstagiarioDeTi;
+import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
 import com.me.erp.participante.interno.funcionario.ti.atividadestiniveljunior.AtividadesTiNivelJunior;
 
 import java.util.List;

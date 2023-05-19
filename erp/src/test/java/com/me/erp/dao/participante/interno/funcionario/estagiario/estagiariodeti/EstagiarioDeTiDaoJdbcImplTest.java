@@ -1,9 +1,11 @@
-package com.me.erp.dao.estagiariodeti;
+package com.me.erp.dao.participante.interno.funcionario.estagiario.estagiariodeti;
 
 import com.me.erp.builders.EstagiarioDeTiBuilder;
-import com.me.erp.dao.estagiariodeti.helper.EstagiarioDeTiDaoTestHelperJdbcImpl;
+import com.me.erp.dao.participante.daotesthelper.DaoTestHelperJdbcImpl;
+import com.me.erp.dao.participante.interno.funcionario.clt.estagiario.estagiariodeti.EstagiarioDeTiDaoJdbcImpl;
+import com.me.erp.dao.participante.interno.funcionario.estagiario.estagiariodeti.estagiariodetihelper.EstagiarioDeTiDaoTestHelperJdbcImpl;
 import com.me.erp.participante.interno.Credenciais;
-import com.me.erp.participante.interno.funcionario.ti.EstagiarioDeTi;
+import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,9 @@ class EstagiarioDeTiDaoJdbcImplTest {
     @Autowired
     EstagiarioDeTiDaoTestHelperJdbcImpl estagiarioDeTiDaoTestAuxJdbc;
 
+    @Autowired
+    DaoTestHelperJdbcImpl daoTestHelperJdbc;
+
     EstagiarioDeTiBuilder builder;
 
     @BeforeEach
@@ -32,14 +37,11 @@ class EstagiarioDeTiDaoJdbcImplTest {
         String cpf = "53576485768";
         builder = umEstagiarioDeTi().comId(cpf).comOcupacao("Ocupação").comVencimento(0).comTarefasConcluidas(new ArrayList<>()).comCredenciais(new Credenciais(cpf, "123")).comCargaHorariaSemanal(1950).comPausa(0);
 
-        estagiarioDeTiDaoTestAuxJdbc.deletaRegistrosDeEstagiarioDeTi();
+        daoTestHelperJdbc.cleanUp();
     }
 
     @Test
-    void dadoEstagiarioDeTiJdbcDaoQuandoTestadoMetodoResgataPorIdComNenhumRegistroNoBancoDeDadosEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
-        // preparacao
-        EstagiarioDeTi estagiarioDeTi = builder.agora();
-
+    void dadoEstagiarioDeTiJdbcDaoQuandoTestadoMetodoResgataPorIdComNenhumRegistroNoBancoDeDadosEntaoDeveLancarEmptyResultDataAccessException() {
         // acao
         EmptyResultDataAccessException exception = assertThrows(EmptyResultDataAccessException.class, () -> estagiarioDeTiJdbcDao.resgataPorId("id"));
 

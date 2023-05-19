@@ -1,7 +1,7 @@
 package com.me.erp.builders;
 
 import com.me.erp.participante.interno.Credenciais;
-import com.me.erp.participante.interno.funcionario.ti.Desenvolvedor;
+import com.me.erp.participante.interno.funcionario.clt.desenvolvedor.Desenvolvedor;
 import com.me.erp.participante.interno.funcionario.ti.atividadestinivelpleno.AtividadesTiNivelPleno;
 
 import java.util.List;
