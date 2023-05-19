@@ -4,6 +4,7 @@ import com.me.erp.builders.EstagiarioDeTiBuilder;
 import com.me.erp.dao.participante.daotesthelper.DaoTestHelperJdbcImpl;
 import com.me.erp.dao.participante.interno.funcionario.clt.estagiario.estagiariodeti.EstagiarioDeTiDaoJdbcImpl;
 import com.me.erp.dao.participante.interno.funcionario.estagiario.estagiariodeti.estagiariodetihelper.EstagiarioDeTiDaoTestHelperJdbcImpl;
+import com.me.erp.dao.participante.tarefasconcluidashelper.TarefasConcluidasDaoTestHelperJdbcImpl;
 import com.me.erp.participante.interno.Credenciais;
 import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,6 +27,9 @@ class EstagiarioDeTiDaoJdbcImplTest {
 
     @Autowired
     EstagiarioDeTiDaoTestHelperJdbcImpl estagiarioDeTiDaoTestAuxJdbc;
+
+    @Autowired
+    TarefasConcluidasDaoTestHelperJdbcImpl tarefasConcluidasDaoTestHelperJdbc;
 
     @Autowired
     DaoTestHelperJdbcImpl daoTestHelperJdbc;
@@ -58,6 +62,7 @@ class EstagiarioDeTiDaoJdbcImplTest {
 
         // acao
         estagiarioDeTiDaoTestAuxJdbc.criaRegistroDeEstagiarioDeTi(estagiarioDeTi);
+        tarefasConcluidasDaoTestHelperJdbc.criaRegistroDeTarefaConcluidaComParticipanteExistente(estagiarioDeTi.getId(), "descricao");
         Optional<EstagiarioDeTi> possivelEstagiarioDeTi = estagiarioDeTiJdbcDao.resgataPorId(estagiarioDeTi.getId());
 
         // verificacao
