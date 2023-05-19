@@ -1,6 +1,7 @@
 package com.me.erp.participante.interno.funcionario.ti;
 
 import com.me.erp.builders.DesenvolvedorBuilder;
+import com.me.erp.participante.interno.funcionario.clt.desenvolvedor.Desenvolvedor;
 import com.me.erp.participante.interno.funcionario.ti.atividadestinivelpleno.AtividadesTiNivelPlenoImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
