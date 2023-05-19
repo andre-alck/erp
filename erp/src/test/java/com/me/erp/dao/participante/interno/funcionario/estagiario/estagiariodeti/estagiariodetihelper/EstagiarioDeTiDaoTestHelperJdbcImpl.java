@@ -1,6 +1,7 @@
-package com.me.erp.dao.estagiariodeti.helper;
+package com.me.erp.dao.participante.interno.funcionario.estagiario.estagiariodeti.estagiariodetihelper;
 
-import com.me.erp.participante.interno.funcionario.ti.EstagiarioDeTi;
+
+import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -29,8 +30,10 @@ public class EstagiarioDeTiDaoTestHelperJdbcImpl implements EstagiarioDeTiDaoTes
         String sqlParaCriarRegistroNaTabelaDeParticipantesInternos = "insert into erpinter (c_idparti, c_senhinter) values (?, ?)";
         jdbcTemplate.update(sqlParaCriarRegistroNaTabelaDeParticipantesInternos, estagiarioDeTi.getId(), estagiarioDeTi.getCredenciais().getSenha());
 
-        String sqlParaCriarRegistroNaTabelaDeFuncionarios = "insert into erpfunci (c_idparti, n_cargfunc, n_pausfunc, c_tipofunc) values (?, ?, ?, ?)";
+        String sqlParaCriarRegistroNaTabelaDeFuncionarios = "insert into erpfunci (c_idparti, n_cargfunci, n_pausfunci, c_tipofunci) values (?, ?, ?, ?)";
         jdbcTemplate.update(sqlParaCriarRegistroNaTabelaDeFuncionarios, estagiarioDeTi.getId(), estagiarioDeTi.getCargaHorariaSemanal(), estagiarioDeTi.getPausa(), "Estagiário de Ti");
+
+        // TODO(🙋‍♂️): adicionar tarefas concluidas no banco
     }
 }
 

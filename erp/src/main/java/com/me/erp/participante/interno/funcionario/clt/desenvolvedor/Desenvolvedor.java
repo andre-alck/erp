@@ -1,4 +1,4 @@
-package com.me.erp.participante.interno.funcionario.ti;
+package com.me.erp.participante.interno.funcionario.clt.desenvolvedor;
 
 import com.me.erp.participante.interno.funcionario.clt.Clt;
 import com.me.erp.participante.interno.funcionario.ti.atividadestinivelpleno.AtividadesTiNivelPleno;

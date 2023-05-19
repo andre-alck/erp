@@ -1,7 +1,6 @@
-package com.me.erp.factories.participante.interno.funcionario.estagiario;
+package com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti;
 
 import com.me.erp.participante.interno.Credenciais;
-import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
 
 import java.util.List;
 

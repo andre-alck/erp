@@ -1,4 +1,4 @@
-package com.me.erp.participante.interno.funcionario.ti;
+package com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti;
 
 import com.me.erp.participante.interno.funcionario.estagiario.Estagiario;
 import com.me.erp.participante.interno.funcionario.ti.atividadestiniveljunior.AtividadesTiNivelJunior;

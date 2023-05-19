@@ -1,18 +1,17 @@
-package com.me.erp.dao.estagiariodeti;
+package com.me.erp.dao.participante.interno.funcionario.clt.estagiario.estagiariodeti;
 
 import com.me.erp.dao.Dao;
+import com.me.erp.dao.participante.TarefasConcluidasDaoJdbcImpl;
 import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static com.me.erp.factories.participante.interno.funcionario.estagiario.EstagiarioDeTiFactory.daBaseDeDados;
-
+import static com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTiFactory.daBaseDeDados;
 
 @Component
 public class EstagiarioDeTiDaoJdbcImpl implements Dao<EstagiarioDeTi> {
@@ -20,18 +19,22 @@ public class EstagiarioDeTiDaoJdbcImpl implements Dao<EstagiarioDeTi> {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    private TarefasConcluidasDaoJdbcImpl tarefasConcluidasDaoJdbc;
+
     private RowMapper<EstagiarioDeTi> rowMapper = (rs, rowNum) -> {
         String id = rs.getString("c_idparti");
         String ocupacao = rs.getString("c_ocupparti");
         double vencimento = rs.getDouble("n_vencparti");
         String senha = rs.getString("c_senhinter");
-        double cargaHorariaSemanal = rs.getDouble("n_cargfunc");
-        double pausa = rs.getDouble("n_pausfunc");
+        double cargaHorariaSemanal = rs.getDouble("n_cargfunci");
+        double pausa = rs.getDouble("n_pausfunci");
 
         // TODO(🙋‍♂️): resgatar tarefas cadastradas no banco
-        List<String> mocktarefas = new ArrayList<>();
+        Optional<List<String>> possivelTarefasConcluidas = tarefasConcluidasDaoJdbc.resgataPorId(id);
+        List<String> tarefasConcluidas = possivelTarefasConcluidas.get();
 
-        return daBaseDeDados(id, ocupacao, vencimento, mocktarefas, senha, cargaHorariaSemanal, pausa);
+        return daBaseDeDados(id, ocupacao, vencimento, tarefasConcluidas, senha, cargaHorariaSemanal, pausa);
     };
 
     @Override
@@ -42,9 +45,9 @@ public class EstagiarioDeTiDaoJdbcImpl implements Dao<EstagiarioDeTi> {
                             erpparti.c_ocupparti,
                             erpparti.n_vencparti,
                             erpinter.c_senhinter,
-                            erpfunci.n_cargfunc,
-                            erpfunci.n_pausfunc,
-                            erpfunci.c_tipofunc
+                            erpfunci.n_cargfunci,
+                            erpfunci.n_pausfunci,
+                            erpfunci.c_tipofunci
                         FROM
                             erpparti
                                 INNER JOIN
@@ -53,7 +56,7 @@ public class EstagiarioDeTiDaoJdbcImpl implements Dao<EstagiarioDeTi> {
                             erpfunci ON erpparti.c_idparti = erpfunci.c_idparti
                         WHERE
                             erpparti.c_idparti = ?
-                                AND erpfunci.c_tipofunc = "Estagiário de Ti"
+                                AND erpfunci.c_tipofunci = "Estagiário de Ti"
                 """;
 
         EstagiarioDeTi estagiarioDeTi = jdbcTemplate.queryForObject(sql, rowMapper, id);
