@@ -32,8 +32,11 @@ public class EstagiarioDeTiDaoTestHelperJdbcImpl implements EstagiarioDeTiDaoTes
 
         String sqlParaCriarRegistroNaTabelaDeFuncionarios = "insert into erpfunci (c_idparti, n_cargfunci, n_pausfunci, c_tipofunci) values (?, ?, ?, ?)";
         jdbcTemplate.update(sqlParaCriarRegistroNaTabelaDeFuncionarios, estagiarioDeTi.getId(), estagiarioDeTi.getCargaHorariaSemanal(), estagiarioDeTi.getPausa(), "Estagiário de Ti");
-
-        // TODO(🙋‍♂️): adicionar tarefas concluidas no banco
+        
+        String sqlParaCriarRegistroNaTabelaDeTarefasConcluidas = "insert into erptaref (c_idparti, c_desctaref) values (?, ?)";
+        for(String tarefa : estagiarioDeTi.getTarefasConcluidas()) {
+            jdbcTemplate.update(sqlParaCriarRegistroNaTabelaDeTarefasConcluidas, estagiarioDeTi.getId(), tarefa);
+        }
     }
 }
 
