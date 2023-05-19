@@ -22,7 +22,7 @@ class DesenvolvedorTest {
     }
 
     @Test
-    void dadoDesenvolvedorQuandoTestadoMetodoResolverChamadosComDezChamadosDeveRetornarDez() {
+    void dadoDesenvolvedorQuandoTestadoMetodoResolverChamadosComDezChamadosEntaoDeveRetornarDez() {
         // preparacao
         Desenvolvedor desenvolvedor = builder.agora();
 
@@ -37,7 +37,7 @@ class DesenvolvedorTest {
     }
 
     @Test
-    void dadoDesenvolvedorQuandoTestadoMetodoResolverChamadosComMenosUmChamadoDeveRetornarZero() {
+    void dadoDesenvolvedorQuandoTestadoMetodoResolverChamadosComMenosUmChamadoEntaoDeveRetornarZero() {
         // preparacao
         Desenvolvedor desenvolvedor = builder.agora();
 
@@ -52,7 +52,7 @@ class DesenvolvedorTest {
     }
 
     @Test
-    void dadoDesenvolvedorQuandoTestadoMetodoResolverChamadosComQuantidadesAceitaveisDeveRetornarTalQuantidade() {
+    void dadoDesenvolvedorQuandoTestadoMetodoResolverChamadosComQuantidadesAceitaveisEntaoDeveRetornarTalQuantidade() {
         // preparacao
         Desenvolvedor desenvolvedor = builder.agora();
 
@@ -70,7 +70,7 @@ class DesenvolvedorTest {
     }
 
     @Test
-    void dadoDesenvolvedorQuandoTestadoMetodoProgramarDeveRetornarProgramacaoNivelPl() {
+    void dadoDesenvolvedorQuandoTestadoMetodoProgramarEntaoDeveRetornarProgramacaoNivelPl() {
         // preparacao
         Desenvolvedor desenvolvedor = builder.agora();
 

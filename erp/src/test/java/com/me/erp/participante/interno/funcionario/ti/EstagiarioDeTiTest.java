@@ -19,7 +19,7 @@ class EstagiarioDeTiTest {
     }
 
     @Test
-    void dadoEstagiarioDeTiQuandoTestadoMetodoProgramarDeveRetornarJuninho() {
+    void dadoEstagiarioDeTiQuandoTestadoMetodoProgramarEntaoDeveRetornarJuninho() {
         // preparacao
         EstagiarioDeTi estagiarioDeTi = builder.agora();
 

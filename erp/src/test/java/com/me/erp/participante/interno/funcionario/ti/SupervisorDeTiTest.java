@@ -122,7 +122,7 @@ class SupervisorDeTiTest {
     }
 
     @Test
-    void dadoSupervisorDeTiQuandoTestadoMetodoResolverChamadosComVinteChamadosDeveRetornarVinte() {
+    void dadoSupervisorDeTiQuandoTestadoMetodoResolverChamadosComVinteChamadosEntaoDeveRetornarVinte() {
         // preparacao
         SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
 
@@ -137,7 +137,7 @@ class SupervisorDeTiTest {
     }
 
     @Test
-    void dadoSupervisorDeTiQuandoTestadoMetodoResolverChamadosComMenosUmChamadoDeveRetornarZero() {
+    void dadoSupervisorDeTiQuandoTestadoMetodoResolverChamadosComMenosUmChamadoEntaoDeveRetornarZero() {
         // preparacao
         SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
 
@@ -153,7 +153,7 @@ class SupervisorDeTiTest {
 
     //
     @Test
-    void dadoSupervisorDeTiQuandoTestadoMetodoResolverChamadosComQuantidadesAceitaveisDeveRetornarTalQuantidade() {
+    void dadoSupervisorDeTiQuandoTestadoMetodoResolverChamadosComQuantidadesAceitaveisEntaoDeveRetornarTalQuantidade() {
         // preparacao
         SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
 
@@ -171,7 +171,7 @@ class SupervisorDeTiTest {
     }
 
     @Test
-    void dadoSupervisorDeTiQuandoTestadoMetodoProgramarDeveRetornarDocumentacaoNivelSr() {
+    void dadoSupervisorDeTiQuandoTestadoMetodoProgramarEntaoDeveRetornarDocumentacaoNivelSr() {
         // preparacao
         SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
 
@@ -185,7 +185,7 @@ class SupervisorDeTiTest {
     }
 
     @Test
-    void dadoSupervisorDeTiQuandoTestadoMetodoGerarRelatorioComMenosDeDezLetrasDeveRetornarAviso() {
+    void dadoSupervisorDeTiQuandoTestadoMetodoGerarRelatorioComMenosDeDezLetrasEntaoDeveRetornarAviso() {
         // preparacao
         SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
 
@@ -202,7 +202,7 @@ class SupervisorDeTiTest {
     }
 
     @Test
-    void dadoSupervisorDeTiQuandoTestadoMetodoGerarRelatorioComDezLetrasDeveRetornarRelatorio() {
+    void dadoSupervisorDeTiQuandoTestadoMetodoGerarRelatorioComDezLetrasEntaoDeveRetornarRelatorio() {
         // preparacao
         SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
 
@@ -219,7 +219,7 @@ class SupervisorDeTiTest {
     }
 
     @Test
-    void dadoSupervisorDeTiQuandoTestadoMetodoGerarRelatorioComOnzeLetrasDeveRetornarRelatorio() {
+    void dadoSupervisorDeTiQuandoTestadoMetodoGerarRelatorioComOnzeLetrasEntaoDeveRetornarRelatorio() {
         // preparacao
         SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
 
