@@ -28,29 +28,34 @@ class TarefasConcluidasDaoJdbcImplTest {
 
   @Test
   void
-      dadoTarefasConcluidasDaoJdbcImplQuandoTestadoMetodoResgataPorIdComNenhumRegistroNoBancoDeDadosEntaoDeveVerificarSeQuantidadeDeTarefasEZero() {
+      dadoTarefasConcluidasDaoJdbcImplQuandoTestadoMetodoResgataPorIdComNenhumRegistroNoBancoDeDadosEntaoDeveExistirZeroTarefas() {
+    // preparacao
+    String queNaoExisteNoBancoDeDados = "inexistente";
+
     // acao
     Optional<List<String>> possivelListaDeTarefas =
-        tarefasConcluidasDaoJdbc.resgataPorId("inexistente");
+        tarefasConcluidasDaoJdbc.resgataPorId(queNaoExisteNoBancoDeDados);
 
     // verificacao
-    assertTrue(possivelListaDeTarefas.get().isEmpty());
+    boolean isPossivelListaDeTarefasVazia = possivelListaDeTarefas.get().isEmpty();
+    assertTrue(isPossivelListaDeTarefasVazia);
   }
 
   @Test
   void
       dadoTarefasConcluidasDaoJdbcImplQuandoTestadoMetodoResgataPorIdComDoisRegistrosNoBancoDeDadosEntaoDeveExistirDuasTarefas() {
     // preparacao
-    String id = "757.857.8475-98";
+    String queExisteNoBancoDeDados = "757.857.8475-98";
     tarefasConcluidasDaoTestHelperJdbc.criaRegistroDeTarefaConcluidaRegistrandoParticipante(
-        id, "descricao");
+        queExisteNoBancoDeDados, "T1");
 
     // acao
-    Optional<List<String>> possivelListaDeTarefas = tarefasConcluidasDaoJdbc.resgataPorId(id);
+    Optional<List<String>> possivelListaDeTarefas =
+        tarefasConcluidasDaoJdbc.resgataPorId(queExisteNoBancoDeDados);
 
     // verificacao
-    int quantidadeEsperada = 2;
-    int quantidadeRecebida = possivelListaDeTarefas.get().size();
-    assertEquals(quantidadeEsperada, quantidadeRecebida);
+    int quantidadeDeTarefasConcluidasEsperada = 2;
+    int quantidadeDeTarefasConcluidasRecebida = possivelListaDeTarefas.get().size();
+    assertEquals(quantidadeDeTarefasConcluidasEsperada, quantidadeDeTarefasConcluidasRecebida);
   }
 }

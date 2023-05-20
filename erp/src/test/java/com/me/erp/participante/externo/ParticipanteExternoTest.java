@@ -12,73 +12,111 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ParticipanteExternoTest {
-    ParticipanteExternoBuilder builder;
+  ParticipanteExternoBuilder builder;
 
-    @BeforeEach
-    public void setup() {
-        builder = umParticipanteExterno().comId("54323212123").comOcupacao("Pintor").comVencimento(2500).comTarefasConcluidas(new ArrayList<>());
-    }
+  @BeforeEach
+  public void setup() {
+    builder =
+        umParticipanteExterno()
+            .comId("54323212123")
+            .comOcupacao("Pintor")
+            .comVencimento(2500)
+            .comTarefasConcluidas(new ArrayList<>());
+  }
 
-    @Test()
-    void dadoParticipanteExternoComStatusDaRegulamentacaoEmAguardoDoEnvioDaDocumentacaoQuandoTrabalharEntaoDeveLancarExcecaoStatusDoTrabalhoIrregularException() throws StatusDoTrabalhoIrregularException {
-        // preparacao
-        ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.EM_AGUARDO_DO_ENVIO_DA_DOCUMENTACAO).agora();
+  @Test()
+  void
+      dadoParticipanteExternoComStatusDaRegulamentacaoEmAguardoDoEnvioDaDocumentacaoQuandoTrabalharEntaoDeveLancarExcecaoStatusDoTrabalhoIrregularException()
+          throws StatusDoTrabalhoIrregularException {
+    // preparacao
+    ParticipanteExterno participanteExterno =
+        builder
+            .comStatusDaRegulamentacaoDoParticipanteExterno(
+                StatusDaRegulamentacaoDoParticipanteExterno.EM_AGUARDO_DO_ENVIO_DA_DOCUMENTACAO)
+            .agora();
 
-        List<String> tarefas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
+    List<String> tarefas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
 
-        // acao
-        StatusDoTrabalhoIrregularException exception = assertThrows(StatusDoTrabalhoIrregularException.class, () -> participanteExterno.trabalhar(tarefas));
+    // acao
+    StatusDoTrabalhoIrregularException exception =
+        assertThrows(
+            StatusDoTrabalhoIrregularException.class, () -> participanteExterno.trabalhar(tarefas));
 
-        // verificacao
-        String mensagemEsperada = "Status da Regulamentação do Participante Externo é diferente de Regular.";
-        String mensagemRecebida = exception.getMessage();
-        assertEquals(mensagemEsperada, mensagemRecebida);
-    }
+    // verificacao
+    String mensagemEsperada =
+        "Status da Regulamentação do Participante Externo é diferente de Regular.";
+    String mensagemRecebida = exception.getMessage();
+    assertEquals(mensagemEsperada, mensagemRecebida);
+  }
 
-    @Test()
-    void dadoParticipanteExternoComStatusDaRegulamentacaoEmAnaliseInternaQuandoTrabalharEntaoDeveLancarExcecaoStatusDoTrabalhoIrregularException() throws StatusDoTrabalhoIrregularException {
-        // preparacao
-        ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.EM_ANALISE_INTERNA).agora();
+  @Test()
+  void
+      dadoParticipanteExternoComStatusDaRegulamentacaoEmAnaliseInternaQuandoTrabalharEntaoDeveLancarExcecaoStatusDoTrabalhoIrregularException()
+          throws StatusDoTrabalhoIrregularException {
+    // preparacao
+    ParticipanteExterno participanteExterno =
+        builder
+            .comStatusDaRegulamentacaoDoParticipanteExterno(
+                StatusDaRegulamentacaoDoParticipanteExterno.EM_ANALISE_INTERNA)
+            .agora();
 
-        List<String> tarefas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
+    List<String> tarefas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
 
-        // acao
-        StatusDoTrabalhoIrregularException exception = assertThrows(StatusDoTrabalhoIrregularException.class, () -> participanteExterno.trabalhar(tarefas));
+    // acao
+    StatusDoTrabalhoIrregularException exception =
+        assertThrows(
+            StatusDoTrabalhoIrregularException.class, () -> participanteExterno.trabalhar(tarefas));
 
-        // verificacao
-        String mensagemEsperada = "Status da Regulamentação do Participante Externo é diferente de Regular.";
-        String mensagemRecebida = exception.getMessage();
-        assertEquals(mensagemEsperada, mensagemRecebida);
-    }
+    // verificacao
+    String mensagemEsperada =
+        "Status da Regulamentação do Participante Externo é diferente de Regular.";
+    String mensagemRecebida = exception.getMessage();
+    assertEquals(mensagemEsperada, mensagemRecebida);
+  }
 
-    @Test()
-    void dadoParticipanteExternoComStatusDaRegulamentacaoRegularEZeroTarefasConcluidasQuandoTrabalharEntaoDeveLancarExcecaoStatusDoTrabalhoIrregularException() throws StatusDoTrabalhoIrregularException {
-        // preparacao
-        ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.REGULAR).agora();
-        List<String> semTarefasConcluidas = new ArrayList<>();
+  @Test()
+  void
+      dadoParticipanteExternoComStatusDaRegulamentacaoRegularEZeroTarefasConcluidasQuandoTrabalharEntaoDeveLancarExcecaoStatusDoTrabalhoIrregularException()
+          throws StatusDoTrabalhoIrregularException {
+    // preparacao
+    ParticipanteExterno participanteExterno =
+        builder
+            .comStatusDaRegulamentacaoDoParticipanteExterno(
+                StatusDaRegulamentacaoDoParticipanteExterno.REGULAR)
+            .agora();
+    List<String> semTarefasConcluidas = new ArrayList<>();
 
-        // acao
-        StatusDoTrabalhoIrregularException exception = assertThrows(StatusDoTrabalhoIrregularException.class, () -> participanteExterno.trabalhar(semTarefasConcluidas));
+    // acao
+    StatusDoTrabalhoIrregularException exception =
+        assertThrows(
+            StatusDoTrabalhoIrregularException.class,
+            () -> participanteExterno.trabalhar(semTarefasConcluidas));
 
-        // verificacao
-        String mensagemEsperada = "Quantidade de tarefas concluídas é zero.";
-        String mensagemRecebida = exception.getMessage();
-        assertEquals(mensagemEsperada, mensagemRecebida);
-    }
+    // verificacao
+    String mensagemEsperada = "Quantidade de tarefas concluídas é zero.";
+    String mensagemRecebida = exception.getMessage();
+    assertEquals(mensagemEsperada, mensagemRecebida);
+  }
 
-    @Test
-    void dadoParticipanteExternoComStatusDaRegulamentacaoRegularQuandoTrabalharEntaoDeveAtribuirAsTarefasConcluidas() throws StatusDoTrabalhoIrregularException {
-        // preparacao
-        ParticipanteExterno participanteExterno = builder.comStatusDaRegulamentacaoDoParticipanteExterno(StatusDaRegulamentacaoDoParticipanteExterno.REGULAR).agora();
+  @Test
+  void
+      dadoParticipanteExternoComStatusDaRegulamentacaoRegularQuandoTrabalharEntaoDeveAtribuirAsTarefasConcluidas()
+          throws StatusDoTrabalhoIrregularException {
+    // preparacao
+    ParticipanteExterno participanteExterno =
+        builder
+            .comStatusDaRegulamentacaoDoParticipanteExterno(
+                StatusDaRegulamentacaoDoParticipanteExterno.REGULAR)
+            .agora();
 
-        List<String> tarefas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
+    List<String> tarefas = Arrays.asList("T1", "T2", "T3", "T4", "T5");
 
-        // acao
-        participanteExterno.trabalhar(tarefas);
+    // acao
+    participanteExterno.trabalhar(tarefas);
 
-        // verificacao
-        List<String> tarefasConcluidasEsperadas = tarefas;
-        List<String> tarefasConcluidasRecebidas = participanteExterno.getTarefasConcluidas();
-        assertEquals(tarefasConcluidasEsperadas, tarefasConcluidasRecebidas);
-    }
+    // verificacao
+    List<String> tarefasConcluidasEsperadas = tarefas;
+    List<String> tarefasConcluidasRecebidas = participanteExterno.getTarefasConcluidas();
+    assertEquals(tarefasConcluidasEsperadas, tarefasConcluidasRecebidas);
+  }
 }
