@@ -24,17 +24,19 @@ class EstagiarioTest {
     @Test
     void dadoEstagiarioQuandoTestadoMetodoDocumentarComIdNuloEntaoDeveLancarExcecaoDocumentacaoInvalidaException() {
         // preparacao
-        EstagiarioMock estagiario = builder.comId(null).agora();
+        String nulo = null;
+        EstagiarioMock estagiario = builder.comId(nulo).agora();
 
-        String doEstagiario = estagiario.getId();
-        LocalDateTime agora = LocalDateTime.now();
-        Documentacao documentacao = umDocumentacao().comId(doEstagiario).comQuantidadeDePaginas(5).comCriacao(agora).agora();
+        String nuloDoEstagiario = estagiario.getId();
+        Documentacao documentacao = umDocumentacao().comId(nuloDoEstagiario).agora();
 
         // acao
         DocumentacaoInvalidaException exception = assertThrows(DocumentacaoInvalidaException.class, () -> estagiario.documentar(documentacao));
 
         // verificacao
-        assertEquals("Id é nulo.", exception.getMessage());
+        String mensagemEsperada = "Id é nulo.";
+        String mensagemRecebida = exception.getMessage();
+        assertEquals(mensagemEsperada, mensagemRecebida);
     }
 
     @Test
@@ -43,15 +45,16 @@ class EstagiarioTest {
         String emBranco = "";
         EstagiarioMock estagiario = builder.comId(emBranco).agora();
 
-        String doEstagiario = estagiario.getId();
-        LocalDateTime agora = LocalDateTime.now();
-        Documentacao documentacao = umDocumentacao().comId(doEstagiario).comQuantidadeDePaginas(5).comCriacao(agora).agora();
+        String emBrancoDoEstagiario = estagiario.getId();
+        Documentacao documentacao = umDocumentacao().comId(emBrancoDoEstagiario).agora();
 
         // acao
         DocumentacaoInvalidaException exception = assertThrows(DocumentacaoInvalidaException.class, () -> estagiario.documentar(documentacao));
 
         // verificacao
-        assertEquals("Id está em branco.", exception.getMessage());
+        String mensagemEsperada = "Id está em branco.";
+        String mensagemRecebida = exception.getMessage();
+        assertEquals(mensagemEsperada, mensagemRecebida);
     }
 
     @Test
@@ -60,33 +63,37 @@ class EstagiarioTest {
         String sendoSomenteEspacos = "     ";
         EstagiarioMock estagiario = builder.comId(sendoSomenteEspacos).agora();
 
-        String doEstagiario = estagiario.getId();
+        String sendoSomenteEspacosDoEstagiario = estagiario.getId();
         LocalDateTime agora = LocalDateTime.now();
-        Documentacao documentacao = umDocumentacao().comId(doEstagiario).comQuantidadeDePaginas(5).comCriacao(agora).agora();
+        Documentacao documentacao = umDocumentacao().comId(sendoSomenteEspacosDoEstagiario).agora();
 
         // acao
         DocumentacaoInvalidaException exception = assertThrows(DocumentacaoInvalidaException.class, () -> estagiario.documentar(documentacao));
 
         // verificacao
-        assertEquals("Id está em branco.", exception.getMessage());
+        String mensagemEsperada = "Id está em branco.";
+        String mensagemRecebida = exception.getMessage();
+        assertEquals(mensagemEsperada, mensagemRecebida);
     }
 
     @Test
-    void dadoEstagiarioQuandoTestadoMetodoDocumentarComQuantidadeDePaginasMenorDoQueUmDeveEntaoDeveLancarExcecaoDocumentacaoInvalidaException() {
+    void dadoEstagiarioQuandoTestadoMetodoDocumentarComQuantidadeDePaginasMenorDoQueUmaDeveEntaoDeveLancarExcecaoDocumentacaoInvalidaException() {
         // preparacao
         String regular = "408.529.908-55";
         EstagiarioMock estagiario = builder.comId(regular).agora();
 
-        String doEstagiario = estagiario.getId();
-        int nenhuma = 0;
+        String regularDoEstagiario = estagiario.getId();
+        int zerada = 0;
         LocalDateTime agora = LocalDateTime.now();
-        Documentacao documentacao = umDocumentacao().comId(doEstagiario).comQuantidadeDePaginas(nenhuma).comCriacao(agora).agora();
+        Documentacao documentacao = umDocumentacao().comId(regularDoEstagiario).comQuantidadeDePaginas(zerada).comCriacao(agora).agora();
 
         // acao
         DocumentacaoInvalidaException exception = assertThrows(DocumentacaoInvalidaException.class, () -> estagiario.documentar(documentacao));
 
         // verificacao
-        assertEquals("Quantidade de páginas é menor do que uma.", exception.getMessage());
+        String mensagemEsperada = "Quantidade de páginas é menor do que uma.";
+        String mensagemRecebida = exception.getMessage();
+        assertEquals(mensagemEsperada, mensagemRecebida);
     }
 
     @Test
@@ -95,14 +102,17 @@ class EstagiarioTest {
         String regular = "69.534.723/0001-77";
         EstagiarioMock estagiario = builder.comId(regular).agora();
 
-        String doEstagiario = estagiario.getId();
-        LocalDateTime daquiAPouco = LocalDateTime.now().plusMinutes(1);
-        Documentacao documentacao = umDocumentacao().comId(doEstagiario).comQuantidadeDePaginas(5).comCriacao(daquiAPouco).agora();
+        String regularDoEstagiario = estagiario.getId();
+        int aceitavel = 5;
+        LocalDateTime daquiUmMinutinho = LocalDateTime.now().plusMinutes(1);
+        Documentacao documentacao = umDocumentacao().comId(regularDoEstagiario).comQuantidadeDePaginas(aceitavel).comCriacao(daquiUmMinutinho).agora();
 
         // acao
         DocumentacaoInvalidaException exception = assertThrows(DocumentacaoInvalidaException.class, () -> estagiario.documentar(documentacao));
 
         // verificacao
-        assertEquals("Data de criação é futura.", exception.getMessage());
+        String mensagemEsperada = "Data de criação é futura.";
+        String mensagemRecebida = exception.getMessage();
+        assertEquals(mensagemEsperada, mensagemRecebida);
     }
 }
