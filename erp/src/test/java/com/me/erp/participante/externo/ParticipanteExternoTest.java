@@ -1,16 +1,15 @@
 package com.me.erp.participante.externo;
 
-import com.me.erp.builders.ParticipanteExternoBuilder;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import static com.me.erp.builders.ParticipanteExternoBuilder.umParticipanteExterno;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import com.me.erp.builders.ParticipanteExternoBuilder;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class ParticipanteExternoTest {
     ParticipanteExternoBuilder builder;

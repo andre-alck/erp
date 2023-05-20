@@ -1,7 +1,6 @@
 package com.me.erp.participante.externo;
 
 import com.me.erp.participante.Participante;
-
 import java.util.List;
 
 public class ParticipanteExterno extends Participante {

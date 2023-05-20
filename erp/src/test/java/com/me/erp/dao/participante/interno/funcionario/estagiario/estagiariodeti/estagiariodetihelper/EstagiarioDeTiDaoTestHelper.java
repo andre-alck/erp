@@ -3,7 +3,7 @@ package com.me.erp.dao.participante.interno.funcionario.estagiario.estagiariodet
 import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
 
 public interface EstagiarioDeTiDaoTestHelper {
-    void deletaRegistrosDeEstagiarioDeTi();
+  void deletaRegistrosDeEstagiarioDeTi();
 
-    void criaRegistroDeEstagiarioDeTi(EstagiarioDeTi estagiarioDeTi);
+  void criaRegistroDeEstagiarioDeTi(EstagiarioDeTi estagiarioDeTi);
 }

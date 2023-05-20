@@ -2,11 +2,10 @@ package com.me.erp.dao.participante.interno.funcionario.estagiario.estagiariodet
 
 
 import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 public class EstagiarioDeTiDaoTestHelperJdbcImpl implements EstagiarioDeTiDaoTestHelper {

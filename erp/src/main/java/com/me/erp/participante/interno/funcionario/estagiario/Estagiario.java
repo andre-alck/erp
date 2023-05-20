@@ -1,7 +1,6 @@
 package com.me.erp.participante.interno.funcionario.estagiario;
 
 import com.me.erp.participante.interno.funcionario.Funcionario;
-
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;

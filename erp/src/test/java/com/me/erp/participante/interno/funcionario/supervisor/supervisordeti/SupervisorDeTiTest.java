@@ -1,5 +1,11 @@
 package com.me.erp.participante.interno.funcionario.supervisor.supervisordeti;
 
+import static com.me.erp.builders.DesenvolvedorBuilder.umDesenvolvedor;
+import static com.me.erp.builders.EstagiarioDeTiBuilder.umEstagiarioDeTi;
+import static com.me.erp.builders.SupervisorDeTiBuilder.umSupervisorDeTi;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import com.me.erp.builders.DesenvolvedorBuilder;
 import com.me.erp.builders.EstagiarioDeTiBuilder;
 import com.me.erp.builders.SupervisorDeTiBuilder;
@@ -8,27 +14,18 @@ import com.me.erp.participante.interno.funcionario.clt.desenvolvedor.Desenvolved
 import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
 import com.me.erp.participante.interno.funcionario.supervisor.DemissaoInvalidaException;
 import com.me.erp.participante.interno.funcionario.supervisor.PromocaoInvalidaException;
-
 import com.me.erp.participante.interno.funcionario.ti.atividadestinivelsenior.AtividadesTiNivelSenior;
 import com.me.erp.participante.interno.funcionario.ti.atividadestinivelsenior.AtividadesTiNivelSeniorImpl;
 import com.me.erp.participante.interno.funcionario.ti.atividadestinivelsenior.Relatorio;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.me.erp.builders.DesenvolvedorBuilder.umDesenvolvedor;
-import static com.me.erp.builders.EstagiarioDeTiBuilder.umEstagiarioDeTi;
-import static com.me.erp.builders.SupervisorDeTiBuilder.umSupervisorDeTi;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class SupervisorDeTiTest {
     EstagiarioDeTiBuilder estagiarioDeTiBuilder;
     DesenvolvedorBuilder desenvolvedorBuilder;
     SupervisorDeTiBuilder supervisorDeTiBuilder;
-
 
     @BeforeEach
     void setup() {

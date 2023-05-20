@@ -1,23 +1,22 @@
 package com.me.erp.dao.participante.interno.funcionario.estagiario.estagiariodeti;
 
+import static com.me.erp.builders.EstagiarioDeTiBuilder.umEstagiarioDeTi;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import com.me.erp.builders.EstagiarioDeTiBuilder;
 import com.me.erp.dao.participante.daotesthelper.DaoTestHelperJdbcImpl;
 import com.me.erp.dao.participante.interno.funcionario.estagiario.estagiariodeti.estagiariodetihelper.EstagiarioDeTiDaoTestHelperJdbcImpl;
 import com.me.erp.participante.interno.Credenciais;
 import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.EmptyResultDataAccessException;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Optional;
-
-import static com.me.erp.builders.EstagiarioDeTiBuilder.umEstagiarioDeTi;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 class EstagiarioDeTiDaoJdbcImplTest {

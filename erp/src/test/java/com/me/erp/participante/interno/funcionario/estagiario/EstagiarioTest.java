@@ -1,18 +1,17 @@
 package com.me.erp.participante.interno.funcionario.estagiario;
 
-import com.me.erp.builders.EstagiarioMockBuilder;
-import com.me.erp.mocks.EstagiarioMock;
-import com.me.erp.participante.interno.Credenciais;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-
 import static com.me.erp.builders.DocumentacaoBuilder.umDocumentacao;
 import static com.me.erp.builders.EstagiarioMockBuilder.umEstagiarioMock;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import com.me.erp.builders.EstagiarioMockBuilder;
+import com.me.erp.mocks.EstagiarioMock;
+import com.me.erp.participante.interno.Credenciais;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class EstagiarioTest {
     EstagiarioMockBuilder builder;

@@ -2,7 +2,6 @@ package com.me.erp.builders;
 
 import com.me.erp.mocks.EstagiarioMock;
 import com.me.erp.participante.interno.Credenciais;
-
 import java.util.List;
 
 public class EstagiarioMockBuilder {

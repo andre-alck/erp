@@ -1,22 +1,21 @@
 package com.me.erp.participante.interno.funcionario.clt;
 
-import com.me.erp.builders.CltMockBuilder;
-import com.me.erp.participante.interno.Credenciais;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import static com.me.erp.builders.CltMockBuilder.umClt;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import com.me.erp.builders.CltMockBuilder;
+import com.me.erp.participante.interno.Credenciais;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class CltTest {
     CltMockBuilder builder;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         builder = umClt().comId("408.529.908-55").comOcupacao("Ocupação").comVencimento(2000).comTarefasConcluidas(new ArrayList<>()).comCredenciais(new Credenciais()).comPerfil(new Credenciais()).comCargaHorariaSemanal(2400).comPausa(90);
     }
 
@@ -91,7 +90,6 @@ class CltTest {
         String mensagemRecebida = exception.getMessage();
         assertEquals(mensagemEsperada, mensagemRecebida);
     }
-
 
 
     @Test

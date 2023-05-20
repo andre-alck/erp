@@ -1,7 +1,6 @@
 package com.me.erp.participante.interno.funcionario.clt;
 
 import com.me.erp.participante.interno.funcionario.estagiario.Estagiario;
-
 import java.util.Collections;
 import java.util.List;
 

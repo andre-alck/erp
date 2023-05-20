@@ -1,38 +1,22 @@
 package com.me.erp.participante.interno.funcionario.clt.desenvolvedor;
 
-import com.me.erp.builders.DesenvolvedorBuilder;
-import com.me.erp.participante.interno.funcionario.ti.atividadestinivelpleno.AtividadesTiNivelPlenoImpl;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import static com.me.erp.builders.DesenvolvedorBuilder.umDesenvolvedor;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import com.me.erp.builders.DesenvolvedorBuilder;
+import com.me.erp.participante.interno.funcionario.ti.atividadestinivelpleno.AtividadesTiNivelPlenoImpl;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class DesenvolvedorTest {
     DesenvolvedorBuilder builder;
 
     @BeforeEach
     void setup() {
-        AtividadesTiNivelPlenoImpl service = new AtividadesTiNivelPlenoImpl();
-        builder = umDesenvolvedor().comAtividadesTiNivelPleno(service);
-    }
-
-    @Test
-    void dadoDesenvolvedorQuandoTestadoMetodoResolverChamadosComDezChamadosEntaoDeveRetornarDez() {
-        // preparacao
-        Desenvolvedor desenvolvedor = builder.agora();
-
-        final int quantidadeDeChamados = 10;
-        final int quantidadeEsperada = quantidadeDeChamados;
-
-        // acao
-        int quantidadeDeChamadosResolvidos = desenvolvedor.resolverChamados(quantidadeDeChamados);
-
-        // verificacao
-        assertEquals(quantidadeEsperada, quantidadeDeChamadosResolvidos);
+        AtividadesTiNivelPlenoImpl atividadesTiNivelPleno = new AtividadesTiNivelPlenoImpl();
+        builder = umDesenvolvedor().comAtividadesTiNivelPleno(atividadesTiNivelPleno);
     }
 
     @Test
@@ -40,32 +24,51 @@ class DesenvolvedorTest {
         // preparacao
         Desenvolvedor desenvolvedor = builder.agora();
 
-        final int quantidadeDeChamados = -1;
-        final int quantidadeEsperada = 0;
+        int quantidadeInvalida = -1;
 
         // acao
-        int quantidadeDeChamadosResolvidos = desenvolvedor.resolverChamados(quantidadeDeChamados);
+        int result = desenvolvedor.resolverChamados(quantidadeInvalida);
 
         // verificacao
-        assertEquals(quantidadeEsperada, quantidadeDeChamadosResolvidos);
+        int quantidadeDeChamadosResolvidosEsperada = 0;
+        int quantidadeDeChamadosResolvidosRecebida = result;
+        assertEquals(quantidadeDeChamadosResolvidosEsperada, quantidadeDeChamadosResolvidosRecebida);
     }
 
     @Test
-    void dadoDesenvolvedorQuandoTestadoMetodoResolverChamadosComQuantidadesAceitaveisEntaoDeveRetornarTalQuantidade() {
+    void dadoDesenvolvedorQuandoTestadoMetodoResolverChamadosComDezChamadosEntaoDeveResolverDezChamados() {
         // preparacao
         Desenvolvedor desenvolvedor = builder.agora();
 
-        List<Integer> quantidadeDeChamados = List.of(1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10);
-        List<Integer> quantidadeDeChamadosResolvidosIndividualmente = new ArrayList<>();
+        int quantidadeValida = 10;
 
         // acao
-        for (int quantidade : quantidadeDeChamados) {
-            int quantidadeDeChamadosResolvidos = desenvolvedor.resolverChamados(quantidade);
-            quantidadeDeChamadosResolvidosIndividualmente.add(quantidadeDeChamadosResolvidos);
+        int result = desenvolvedor.resolverChamados(quantidadeValida);
+
+        // verificacao
+        int quantidadeDeChamadosResolvidosEsperada = 10;
+        int quantidadeDeChamadosResolvidosRecebida = result;
+        assertEquals(quantidadeDeChamadosResolvidosEsperada, quantidadeDeChamadosResolvidosRecebida);
+    }
+
+    @Test
+    void dadoDesenvolvedorQuandoTestadoMetodoResolverChamadosComQuantidadesAceitaveisEntaoDeveResolverQuantidadeFornecida() {
+        // preparacao
+        Desenvolvedor desenvolvedor = builder.agora();
+
+        List<Integer> umMonteDeQuantidadeDeChamados = List.of(1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10);
+        List<Integer> umMonteDeQuantidadeDeChamadosResolvidos = new ArrayList<>();
+
+        // acao
+        for (int certaQuantidadeDeChamados : umMonteDeQuantidadeDeChamados) {
+            int quantidadeDeChamadosResolvidos = desenvolvedor.resolverChamados(certaQuantidadeDeChamados);
+            umMonteDeQuantidadeDeChamadosResolvidos.add(quantidadeDeChamadosResolvidos);
         }
 
         // verificacao
-        assertEquals(quantidadeDeChamadosResolvidosIndividualmente, quantidadeDeChamados);
+        List<Integer> quantidadeDeChamadosResolvidosEsperada = umMonteDeQuantidadeDeChamados;
+        List<Integer> quantidadeDeChamadosResolvidosRecebida = umMonteDeQuantidadeDeChamadosResolvidos;
+        assertEquals(quantidadeDeChamadosResolvidosEsperada, quantidadeDeChamadosResolvidosRecebida);
     }
 
     @Test
@@ -73,12 +76,12 @@ class DesenvolvedorTest {
         // preparacao
         Desenvolvedor desenvolvedor = builder.agora();
 
-        final String PROGRAMACAO = "Programação Nível PL.";
-
         // acao
-        String programacao = desenvolvedor.programar();
+        String result = desenvolvedor.programar();
 
         // verificacao
-        assertEquals(PROGRAMACAO, programacao);
+        String programacaoEsperada = "Programação Nível PL.";
+        String programacaoRecebida = result;
+        assertEquals(programacaoEsperada, programacaoRecebida);
     }
 }
