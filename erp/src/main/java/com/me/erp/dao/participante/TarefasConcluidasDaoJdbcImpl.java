@@ -12,22 +12,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class TarefasConcluidasDaoJdbcImpl implements Dao<List<String>> {
 
-    @Autowired
-    JdbcTemplate jdbcTemplate;
+  @Autowired JdbcTemplate jdbcTemplate;
 
-    private RowMapper<String> rowMapper = (rs, rowNum) -> rs.getString("c_desctaref");
+  private RowMapper<String> rowMapper = (rs, rowNum) -> rs.getString("c_desctaref");
 
-    @Override
-    public Optional<List<String>> resgataPorId(String id) {
-        String sql = "select erptaref.c_desctaref from erptaref where erptaref.c_idparti = ?";
+  @Override
+  public Optional<List<String>> resgataPorId(String id) {
+    String sql = "select erptaref.c_desctaref from erptaref where erptaref.c_idparti = ?";
 
-        List<String> tarefas = null;
-        try {
-            tarefas = jdbcTemplate.query(sql, rowMapper, id);
-        } catch (DataAccessException e) {
-            //
-        }
-
-        return Optional.ofNullable(tarefas);
+    List<String> tarefas = null;
+    try {
+      tarefas = jdbcTemplate.query(sql, rowMapper, id);
+    } catch (DataAccessException e) {
+      //
     }
+
+    return Optional.ofNullable(tarefas);
+  }
 }

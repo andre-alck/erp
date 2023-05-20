@@ -13,8 +13,8 @@ class EstagiarioDeTiTest {
 
   @BeforeEach
   void setup() {
-    AtividadesTiNivelJuniorImpl service = new AtividadesTiNivelJuniorImpl();
-    builder = umEstagiarioDeTi().comAtividadesTiNivelJunior(service);
+    AtividadesTiNivelJuniorImpl atividadesTiNivelJunior = new AtividadesTiNivelJuniorImpl();
+    builder = umEstagiarioDeTi().comAtividadesTiNivelJunior(atividadesTiNivelJunior);
   }
 
   @Test
@@ -23,10 +23,11 @@ class EstagiarioDeTiTest {
     EstagiarioDeTi estagiarioDeTi = builder.agora();
 
     // acao
-    String programacaoRecebida = estagiarioDeTi.programar();
+    String result = estagiarioDeTi.programar();
 
     // verificacao
     String programacaoEsperada = "Juninho";
+    String programacaoRecebida = result;
     assertEquals(programacaoEsperada, programacaoRecebida);
   }
 }
