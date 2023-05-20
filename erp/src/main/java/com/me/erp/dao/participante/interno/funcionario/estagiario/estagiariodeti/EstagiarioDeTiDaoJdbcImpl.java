@@ -1,4 +1,4 @@
-package com.me.erp.dao.participante.interno.funcionario.clt.estagiario.estagiariodeti;
+package com.me.erp.dao.participante.interno.funcionario.estagiario.estagiariodeti;
 
 import com.me.erp.dao.Dao;
 import com.me.erp.dao.participante.TarefasConcluidasDaoJdbcImpl;
@@ -30,7 +30,6 @@ public class EstagiarioDeTiDaoJdbcImpl implements Dao<EstagiarioDeTi> {
         double cargaHorariaSemanal = rs.getDouble("n_cargfunci");
         double pausa = rs.getDouble("n_pausfunci");
 
-        // TODO(🙋‍♂️): resgatar tarefas cadastradas no banco
         Optional<List<String>> possivelTarefasConcluidas = tarefasConcluidasDaoJdbc.resgataPorId(id);
         List<String> tarefasConcluidas = possivelTarefasConcluidas.get();
 

@@ -23,7 +23,7 @@ class EstagiarioTest {
     }
 
     @Test
-    void dadoEstagiarioQuandoTestadoMetodoDocumentarComIdNuloDeveLancarExcecaoDocumentacaoInvalidaException() {
+    void dadoEstagiarioQuandoTestadoMetodoDocumentarComIdNuloEntaoDeveLancarExcecaoDocumentacaoInvalidaException() {
         // preparacao
         EstagiarioMock estagiario = builder.comId(null).agora();
 
@@ -39,7 +39,7 @@ class EstagiarioTest {
     }
 
     @Test
-    void dadoEstagiarioQuandoTestadoMetodoDocumentarComIdEmBrancoDeveLancarExcecaoDocumentacaoInvalidaException() {
+    void dadoEstagiarioQuandoTestadoMetodoDocumentarComIdEmBrancoEntaoDeveLancarExcecaoDocumentacaoInvalidaException() {
         // preparacao
         String emBranco = "";
         EstagiarioMock estagiario = builder.comId(emBranco).agora();
@@ -56,7 +56,7 @@ class EstagiarioTest {
     }
 
     @Test
-    void dadoEstagiarioQuandoTestadoMetodoDocumentarComIdSomenteComEspacosDeveLancarExcecaoDocumentacaoInvalidaException() {
+    void dadoEstagiarioQuandoTestadoMetodoDocumentarComIdSomenteComEspacosEntaoDeveLancarExcecaoDocumentacaoInvalidaException() {
         // preparacao
         String sendoSomenteEspacos = "     ";
         EstagiarioMock estagiario = builder.comId(sendoSomenteEspacos).agora();
@@ -73,7 +73,7 @@ class EstagiarioTest {
     }
 
     @Test
-    void dadoEstagiarioQuandoTestadoMetodoDocumentarComQuantidadeDePaginasMenorDoQueUmDeveDeveLancarExcecaoDocumentacaoInvalidaException() {
+    void dadoEstagiarioQuandoTestadoMetodoDocumentarComQuantidadeDePaginasMenorDoQueUmDeveEntaoDeveLancarExcecaoDocumentacaoInvalidaException() {
         // preparacao
         String regular = "408.529.908-55";
         EstagiarioMock estagiario = builder.comId(regular).agora();
@@ -91,7 +91,7 @@ class EstagiarioTest {
     }
 
     @Test
-    void dadoEstagiarioQuandoTestadoMetodoDocumentarComDataPosteriorAAgoraDeveLancarExcecaoDocumentacaoInvalidaException() {
+    void dadoEstagiarioQuandoTestadoMetodoDocumentarComDataPosteriorAAgoraEntaoDeveLancarExcecaoDocumentacaoInvalidaException() {
         // preparacao
         String regular = "69.534.723/0001-77";
         EstagiarioMock estagiario = builder.comId(regular).agora();

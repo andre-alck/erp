@@ -42,10 +42,11 @@ class TarefasConcluidasDaoJdbcImplTest {
     @Test
     void dadoTarefasConcluidasDaoJdbcImplQuandoTestadoMetodoResgataPorIdComDoisRegistrosNoBancoDeDadosEntaoDeveExistirDuasTarefas() {
         // preparacao
-        tarefasConcluidasDaoTestHelperJdbc.criaRegistroDeTarefasConcluida("");
+        String id = "757.857.8475-98";
+        tarefasConcluidasDaoTestHelperJdbc.criaRegistroDeTarefaConcluidaRegistrandoParticipante(id, "descricao");
 
         // acao
-        Optional<List<String>> possivelListaDeTarefas = tarefasConcluidasDaoJdbc.resgataPorId("participante");
+        Optional<List<String>> possivelListaDeTarefas = tarefasConcluidasDaoJdbc.resgataPorId(id);
 
         // verificacao
         int quantidadeEsperada = 2;
