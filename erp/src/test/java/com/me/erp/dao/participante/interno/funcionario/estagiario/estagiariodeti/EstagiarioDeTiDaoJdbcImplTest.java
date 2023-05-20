@@ -16,7 +16,8 @@ import java.util.Arrays;
 import java.util.Optional;
 
 import static com.me.erp.builders.EstagiarioDeTiBuilder.umEstagiarioDeTi;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 class EstagiarioDeTiDaoJdbcImplTest {

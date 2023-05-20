@@ -1,7 +1,6 @@
-package com.me.erp.participante.interno.funcionario.ti;
+package com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti;
 
 import com.me.erp.builders.EstagiarioDeTiBuilder;
-import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
 import com.me.erp.participante.interno.funcionario.ti.atividadestiniveljunior.AtividadesTiNivelJuniorImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

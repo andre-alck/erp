@@ -34,7 +34,7 @@ public class EstagiarioDeTiDaoTestHelperJdbcImpl implements EstagiarioDeTiDaoTes
         jdbcTemplate.update(sqlParaCriarRegistroNaTabelaDeFuncionarios, estagiarioDeTi.getId(), estagiarioDeTi.getCargaHorariaSemanal(), estagiarioDeTi.getPausa(), "Estagiário de Ti");
 
         String sqlParaCriarRegistroNaTabelaDeTarefasConcluidas = "insert into erptaref (c_idparti, c_desctaref) values (?, ?)";
-        for(String tarefa : estagiarioDeTi.getTarefasConcluidas()) {
+        for (String tarefa : estagiarioDeTi.getTarefasConcluidas()) {
             jdbcTemplate.update(sqlParaCriarRegistroNaTabelaDeTarefasConcluidas, estagiarioDeTi.getId(), tarefa);
         }
     }

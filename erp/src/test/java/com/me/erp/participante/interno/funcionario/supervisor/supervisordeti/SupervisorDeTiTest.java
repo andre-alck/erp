@@ -1,4 +1,4 @@
-package com.me.erp.participante.interno.funcionario.ti;
+package com.me.erp.participante.interno.funcionario.supervisor.supervisordeti;
 
 import com.me.erp.builders.DesenvolvedorBuilder;
 import com.me.erp.builders.EstagiarioDeTiBuilder;
@@ -8,7 +8,7 @@ import com.me.erp.participante.interno.funcionario.clt.desenvolvedor.Desenvolved
 import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
 import com.me.erp.participante.interno.funcionario.supervisor.DemissaoInvalidaException;
 import com.me.erp.participante.interno.funcionario.supervisor.PromocaoInvalidaException;
-import com.me.erp.participante.interno.funcionario.supervisor.supervisordeti.SupervisorDeTi;
+
 import com.me.erp.participante.interno.funcionario.ti.atividadestinivelsenior.AtividadesTiNivelSenior;
 import com.me.erp.participante.interno.funcionario.ti.atividadestinivelsenior.AtividadesTiNivelSeniorImpl;
 import com.me.erp.participante.interno.funcionario.ti.atividadestinivelsenior.Relatorio;
