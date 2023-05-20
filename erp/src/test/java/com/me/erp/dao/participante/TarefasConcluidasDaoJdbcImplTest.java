@@ -15,42 +15,42 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class TarefasConcluidasDaoJdbcImplTest {
 
-    @Autowired
-    TarefasConcluidasDaoJdbcImpl tarefasConcluidasDaoJdbc;
+  @Autowired TarefasConcluidasDaoJdbcImpl tarefasConcluidasDaoJdbc;
 
-    @Autowired
-    TarefasConcluidasDaoTestHelperJdbcImpl tarefasConcluidasDaoTestHelperJdbc;
+  @Autowired TarefasConcluidasDaoTestHelperJdbcImpl tarefasConcluidasDaoTestHelperJdbc;
 
-    @Autowired
-    DaoTestHelperJdbcImpl daoTestHelperJdbc;
+  @Autowired DaoTestHelperJdbcImpl daoTestHelperJdbc;
 
-    @BeforeEach
-    void setup() {
-        daoTestHelperJdbc.cleanUp();
-    }
+  @BeforeEach
+  void setup() {
+    daoTestHelperJdbc.cleanUp();
+  }
 
-    @Test
-    void dadoTarefasConcluidasDaoJdbcImplQuandoTestadoMetodoResgataPorIdComNenhumRegistroNoBancoDeDadosEntaoDeveVerificarSeQuantidadeDeTarefasEZero() {
-        // acao
-        Optional<List<String>> possivelListaDeTarefas = tarefasConcluidasDaoJdbc.resgataPorId("inexistente");
+  @Test
+  void
+      dadoTarefasConcluidasDaoJdbcImplQuandoTestadoMetodoResgataPorIdComNenhumRegistroNoBancoDeDadosEntaoDeveVerificarSeQuantidadeDeTarefasEZero() {
+    // acao
+    Optional<List<String>> possivelListaDeTarefas =
+        tarefasConcluidasDaoJdbc.resgataPorId("inexistente");
 
-        // verificacao
-        assertTrue(possivelListaDeTarefas.get().isEmpty());
-    }
+    // verificacao
+    assertTrue(possivelListaDeTarefas.get().isEmpty());
+  }
 
-    @Test
-    void dadoTarefasConcluidasDaoJdbcImplQuandoTestadoMetodoResgataPorIdComDoisRegistrosNoBancoDeDadosEntaoDeveExistirDuasTarefas() {
-        // preparacao
-        String id = "757.857.8475-98";
-        tarefasConcluidasDaoTestHelperJdbc.criaRegistroDeTarefaConcluidaRegistrandoParticipante(id, "descricao");
+  @Test
+  void
+      dadoTarefasConcluidasDaoJdbcImplQuandoTestadoMetodoResgataPorIdComDoisRegistrosNoBancoDeDadosEntaoDeveExistirDuasTarefas() {
+    // preparacao
+    String id = "757.857.8475-98";
+    tarefasConcluidasDaoTestHelperJdbc.criaRegistroDeTarefaConcluidaRegistrandoParticipante(
+        id, "descricao");
 
-        // acao
-        Optional<List<String>> possivelListaDeTarefas = tarefasConcluidasDaoJdbc.resgataPorId(id);
+    // acao
+    Optional<List<String>> possivelListaDeTarefas = tarefasConcluidasDaoJdbc.resgataPorId(id);
 
-        // verificacao
-        int quantidadeEsperada = 2;
-        int quantidadeRecebida = possivelListaDeTarefas.get().size();
-        assertEquals(quantidadeEsperada, quantidadeRecebida);
-    }
-
+    // verificacao
+    int quantidadeEsperada = 2;
+    int quantidadeRecebida = possivelListaDeTarefas.get().size();
+    assertEquals(quantidadeEsperada, quantidadeRecebida);
+  }
 }
