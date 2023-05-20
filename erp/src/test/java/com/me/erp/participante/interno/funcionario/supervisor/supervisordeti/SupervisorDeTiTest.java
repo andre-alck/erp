@@ -37,17 +37,18 @@ class SupervisorDeTiTest {
     }
 
     @Test
-    void dadoSupervisorDeTiQuandoTestadoMetodoPromoverComEstagiarioDeTiEntaoDeveAtribuirPromocaoAsTarefasConcluidas() {
+    void dadoSupervisorDeTiQuandoTestadoMetodoPromoverComSupervisorDeTiEntaoDeveLancarExcecaoPromocaoInvalidaException() {
         // preparacao
-        SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
-        EstagiarioDeTi estagiarioDeTi = estagiarioDeTiBuilder.agora();
+        SupervisorDeTi supervisorDeTi1 = supervisorDeTiBuilder.agora();
+        SupervisorDeTi supervisorDeTi2 = supervisorDeTiBuilder.agora();
 
         // acao
-        supervisorDeTi.promover(estagiarioDeTi);
+        PromocaoInvalidaException exception = assertThrows(PromocaoInvalidaException.class, () -> supervisorDeTi1.promover(supervisorDeTi2));
 
         // verificacao
-        List<String> tarefasConcluidas = List.of(estagiarioDeTi.getId() + " promovido.");
-        assertEquals(tarefasConcluidas, supervisorDeTi.getTarefasConcluidas());
+        String mensagemEsperada = "Funcionário não é Estagiário de TI.";
+        String mensagemRecebida = exception.getMessage();
+        assertEquals(mensagemEsperada, mensagemRecebida);
     }
 
     @Test
@@ -60,49 +61,9 @@ class SupervisorDeTiTest {
         PromocaoInvalidaException exception = assertThrows(PromocaoInvalidaException.class, () -> supervisorDeTi.promover(desenvolvedor));
 
         // verificacao
-
-        assertEquals("Funcionário não é Estagiário de TI.", exception.getMessage());
-    }
-
-    @Test
-    void dadoSupervisorDeTiQuandoTestadoMetodoPromoverComSupervisorDeTiEntaoDeveLancarExcecaoPromocaoInvalidaException() {
-        // preparacao
-        SupervisorDeTi supervisorDeTi1 = supervisorDeTiBuilder.agora();
-        SupervisorDeTi supervisorDeTi2 = supervisorDeTiBuilder.agora();
-
-        // acao
-        PromocaoInvalidaException exception = assertThrows(PromocaoInvalidaException.class, () -> supervisorDeTi1.promover(supervisorDeTi2));
-
-        // verificacao
-        assertEquals("Funcionário não é Estagiário de TI.", exception.getMessage());
-    }
-
-    @Test
-    void dadoSupervisorDeTiQuandoTestadoMetodoDemitirComEstagiarioDeTiEntaoDeveAtribuirDemissaoAsTarefasConcluidas() {
-        // preparacao
-        SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
-        EstagiarioDeTi estagiarioDeTi = estagiarioDeTiBuilder.agora();
-
-        // acao
-        supervisorDeTi.demitir(estagiarioDeTi);
-
-        // verificacao
-        List<String> tarefasConcluidas = List.of(estagiarioDeTi.getId() + " demitido.");
-        assertEquals(tarefasConcluidas, supervisorDeTi.getTarefasConcluidas());
-    }
-
-    @Test
-    void dadoSupervisorDeTiQuandoTestadoMetodoDemitirComDesenvolvedorEntaoDeveAtribuirDemissaoAsTarefasConcluidas() {
-        // preparacao
-        SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
-        Desenvolvedor desenvolvedor = desenvolvedorBuilder.agora();
-
-        // acao
-        supervisorDeTi.demitir(desenvolvedor);
-
-        // verificacao
-        List<String> tarefasConcluidas = List.of(desenvolvedor.getId() + " demitido.");
-        assertEquals(tarefasConcluidas, supervisorDeTi.getTarefasConcluidas());
+        String mensagemEsperada = "Funcionário não é Estagiário de TI.";
+        String mensagemRecebida = exception.getMessage();
+        assertEquals(mensagemEsperada, mensagemRecebida);
     }
 
     @Test
@@ -115,7 +76,54 @@ class SupervisorDeTiTest {
         DemissaoInvalidaException exception = assertThrows(DemissaoInvalidaException.class, () -> supervisorDeTi1.demitir(supervisorDeTi2));
 
         // verificacao
-        assertEquals("Funcionário não é Estagiário de TI ou Desenvolvedor.", exception.getMessage());
+        String mensagemEsperada = "Funcionário não é Estagiário de TI ou Desenvolvedor.";
+        String mensagemRecebida = exception.getMessage();
+        assertEquals(mensagemEsperada, mensagemRecebida);
+    }
+
+    @Test
+    void dadoSupervisorDeTiQuandoTestadoMetodoPromoverComEstagiarioDeTiEntaoDeveAtribuirPromocaoAsTarefasConcluidas() {
+        // preparacao
+        SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
+        EstagiarioDeTi estagiarioDeTi = estagiarioDeTiBuilder.agora();
+
+        // acao
+        supervisorDeTi.promover(estagiarioDeTi);
+
+        // verificacao
+        List<String> tarefasConcluidasEsperadas = List.of(estagiarioDeTi.getId() + " promovido.");
+        List<String> tarefasConcluidasRecebidas = supervisorDeTi.getTarefasConcluidas();
+        assertEquals(tarefasConcluidasEsperadas, tarefasConcluidasRecebidas);
+    }
+
+    @Test
+    void dadoSupervisorDeTiQuandoTestadoMetodoProgramarEntaoDeveRetornarDocumentacaoNivelSr() {
+        // preparacao
+        SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
+
+        // acao
+        String result = supervisorDeTi.programar();
+
+        // verificacao
+        String programacaoEsperada = "Programação Nível SR.";
+        String programacaoRecebida = result;
+        assertEquals(programacaoEsperada, programacaoRecebida);
+    }
+
+    @Test
+    void dadoSupervisorDeTiQuandoTestadoMetodoResolverChamadosComMenosUmChamadoEntaoDeveRetornarZero() {
+        // preparacao
+        SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
+
+        int quantidadeInvalida = -1;
+
+        // acao
+        int result = supervisorDeTi.resolverChamados(quantidadeInvalida);
+
+        // verificacao
+        int quantidadeDeChamadosResolvidosEsperada = 0;
+        int quantidadeDeChamadosResolvidosRecebida = result;
+        assertEquals(quantidadeDeChamadosResolvidosEsperada, quantidadeDeChamadosResolvidosRecebida);
     }
 
     @Test
@@ -134,51 +142,53 @@ class SupervisorDeTiTest {
     }
 
     @Test
-    void dadoSupervisorDeTiQuandoTestadoMetodoResolverChamadosComMenosUmChamadoEntaoDeveRetornarZero() {
-        // preparacao
-        SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
-
-        final int quantidadeDeChamados = -1;
-        final int quantidadeEsperada = 0;
-
-        // acao
-        int quantidadeDeChamadosResolvidos = supervisorDeTi.resolverChamados(quantidadeDeChamados);
-
-        // verificacao
-        assertEquals(quantidadeEsperada, quantidadeDeChamadosResolvidos);
-    }
-
-    //
-    @Test
     void dadoSupervisorDeTiQuandoTestadoMetodoResolverChamadosComQuantidadesAceitaveisEntaoDeveRetornarTalQuantidade() {
         // preparacao
         SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
 
-        List<Integer> quantidadeDeChamados = List.of(1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
-        List<Integer> quantidadeDeChamadosResolvidosIndividualmente = new ArrayList<>();
+        List<Integer> umMonteDeQuantidadeDeChamados = List.of(1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
+        List<Integer> umMonteDeQuantidadeDeChamadosResolvidos = new ArrayList<>();
 
         // acao
-        for (int quantidade : quantidadeDeChamados) {
-            int quantidadeDeChamadosResolvidos = supervisorDeTi.resolverChamados(quantidade);
-            quantidadeDeChamadosResolvidosIndividualmente.add(quantidadeDeChamadosResolvidos);
+        for (int certaQuantidadeDeChamados : umMonteDeQuantidadeDeChamados) {
+            int quantidadeDeChamadosResolvidos = supervisorDeTi.resolverChamados(certaQuantidadeDeChamados);
+            umMonteDeQuantidadeDeChamadosResolvidos.add(quantidadeDeChamadosResolvidos);
         }
 
         // verificacao
-        assertEquals(quantidadeDeChamadosResolvidosIndividualmente, quantidadeDeChamados);
+        List<Integer> quantidadeDeChamadosResolvidosEsperada = umMonteDeQuantidadeDeChamados;
+        List<Integer> quantidadeDeChamadosResolvidosRecebida = umMonteDeQuantidadeDeChamadosResolvidos;
+        assertEquals(quantidadeDeChamadosResolvidosEsperada, quantidadeDeChamadosResolvidosRecebida);
     }
 
     @Test
-    void dadoSupervisorDeTiQuandoTestadoMetodoProgramarEntaoDeveRetornarDocumentacaoNivelSr() {
+    void dadoSupervisorDeTiQuandoTestadoMetodoDemitirComDesenvolvedorEntaoDeveAtribuirDemissaoAsTarefasConcluidas() {
         // preparacao
         SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
-
-        final String PROGRAMACAO = "Programação Nível SR.";
+        Desenvolvedor desenvolvedor = desenvolvedorBuilder.agora();
 
         // acao
-        String programacao = supervisorDeTi.programar();
+        supervisorDeTi.demitir(desenvolvedor);
 
         // verificacao
-        assertEquals(PROGRAMACAO, programacao);
+        List<String> tarefasConcluidasEsperadas = List.of(desenvolvedor.getId() + " demitido.");
+        List<String> tarefasConcluidasRecebidas = supervisorDeTi.getTarefasConcluidas();
+        assertEquals(tarefasConcluidasEsperadas, tarefasConcluidasRecebidas);
+    }
+
+    @Test
+    void dadoSupervisorDeTiQuandoTestadoMetodoDemitirComEstagiarioDeTiEntaoDeveAtribuirDemissaoAsTarefasConcluidas() {
+        // preparacao
+        SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
+        EstagiarioDeTi estagiarioDeTi = estagiarioDeTiBuilder.agora();
+
+        // acao
+        supervisorDeTi.demitir(estagiarioDeTi);
+
+        // verificacao
+        List<String> tarefasConcluidasEsperadas = List.of(estagiarioDeTi.getId() + " demitido.");
+        List<String> tarefasConcluidasRecebidas = supervisorDeTi.getTarefasConcluidas();
+        assertEquals(tarefasConcluidasEsperadas, tarefasConcluidasRecebidas);
     }
 
     @Test
@@ -186,16 +196,17 @@ class SupervisorDeTiTest {
         // preparacao
         SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
 
-        final String comId = supervisorDeTi.getId();
-        final String somenteComPontoFinal = ".";
-        Relatorio relatorio = new Relatorio(comId, somenteComPontoFinal);
-        final String resultadoEsperado = "Por favor, acrescente detalhes ao seu relatório.";
+        String comIdRegular = supervisorDeTi.getId();
+        String sendoSomenteComPontoFinal = ".";
+        Relatorio relatorio = new Relatorio(comIdRegular, sendoSomenteComPontoFinal);
 
         // acao
-        String resultado = supervisorDeTi.gerarRelatorio(relatorio);
+        String result = supervisorDeTi.gerarRelatorio(relatorio);
 
         // verificacao
-        assertEquals(resultado, resultadoEsperado);
+        String mensagemEsperada = "Por favor, acrescente detalhes ao seu relatório.";
+        String mensagemRecebida = result;
+        assertEquals(mensagemEsperada, mensagemRecebida);
     }
 
     @Test
@@ -203,16 +214,17 @@ class SupervisorDeTiTest {
         // preparacao
         SupervisorDeTi supervisorDeTi = supervisorDeTiBuilder.agora();
 
-        final String comId = supervisorDeTi.getId();
-        final String comDezPontosFinais = "..........";
-        Relatorio relatorio = new Relatorio(comId, comDezPontosFinais);
-        final String resultadoEsperado = supervisorDeTi.getId() + ": " + comDezPontosFinais;
+        String comIdRegular = supervisorDeTi.getId();
+        String comDezPontosFinais = "..........";
+        Relatorio relatorio = new Relatorio(comIdRegular, comDezPontosFinais);
 
         // acao
-        String resultado = supervisorDeTi.gerarRelatorio(relatorio);
+        String result = supervisorDeTi.gerarRelatorio(relatorio);
 
         // verificacao
-        assertEquals(resultado, resultadoEsperado);
+        String mensagemEsperada = supervisorDeTi.getId() + ": " + comDezPontosFinais;
+        String mensagemRecebida = result;
+        assertEquals(mensagemEsperada, mensagemRecebida);
     }
 
     @Test
@@ -223,12 +235,13 @@ class SupervisorDeTiTest {
         final String comId = supervisorDeTi.getId();
         final String comOnzePontosFinais = "...........";
         Relatorio relatorio = new Relatorio(comId, comOnzePontosFinais);
-        final String resultadoEsperado = supervisorDeTi.getId() + ": " + comOnzePontosFinais;
 
         // acao
-        String resultado = supervisorDeTi.gerarRelatorio(relatorio);
+        String result = supervisorDeTi.gerarRelatorio(relatorio);
 
         // verificacao
-        assertEquals(resultado, resultadoEsperado);
+        String mensagemEsperada = supervisorDeTi.getId() + ": " + comOnzePontosFinais;
+        String mensagemRecebida = result;
+        assertEquals(mensagemEsperada, mensagemRecebida);
     }
 }
