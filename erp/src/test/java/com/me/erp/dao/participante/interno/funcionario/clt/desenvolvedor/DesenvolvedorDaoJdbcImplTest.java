@@ -1,14 +1,14 @@
-package com.me.erp.dao.participante.interno.funcionario.supervisor.supervisordeti;
+package com.me.erp.dao.participante.interno.funcionario.clt.desenvolvedor;
 
-import static com.me.erp.builders.SupervisorDeTiBuilder.umSupervisorDeTi;
+import static com.me.erp.builders.DesenvolvedorBuilder.umDesenvolvedor;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.me.erp.builders.SupervisorDeTiBuilder;
+import com.me.erp.builders.DesenvolvedorBuilder;
 import com.me.erp.dao.participante.daotesthelper.DaoTestHelperJdbcImpl;
-import com.me.erp.dao.participante.interno.funcionario.supervisor.supervisordeti.supervisordetihelper.SupervisorDeTiDaoTestHelperJdbcImpl;
+import com.me.erp.dao.participante.interno.funcionario.clt.desenvolvedor.desenvolvedorhelper.DesenvolvedorDaoTestHelperJdbcImpl;
 import com.me.erp.participante.interno.Credenciais;
-import com.me.erp.participante.interno.funcionario.supervisor.supervisordeti.SupervisorDeTi;
+import com.me.erp.participante.interno.funcionario.clt.desenvolvedor.Desenvolvedor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Optional;
@@ -19,21 +19,21 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.EmptyResultDataAccessException;
 
 @SpringBootTest
-public class SupervisorDeTiDaoJdbcImplTest {
+public class DesenvolvedorDaoJdbcImplTest {
 
-  @Autowired SupervisorDeTiDaoJdbcImpl supervisorDeTiDaoJdbc;
+  @Autowired DesenvolvedorDaoJdbcImpl desenvolvedorDaoJdbc;
 
-  @Autowired SupervisorDeTiDaoTestHelperJdbcImpl supervisorDeTiDaoTestHelperJdbc;
+  @Autowired DesenvolvedorDaoTestHelperJdbcImpl desenvolvedorDaoTestHelperJdbc;
 
   @Autowired DaoTestHelperJdbcImpl daoTestHelperJdbc;
 
-  SupervisorDeTiBuilder builder;
+  DesenvolvedorBuilder builder;
 
   @BeforeEach
   void setup() {
     String cpf = "53576485768";
     builder =
-        umSupervisorDeTi()
+        umDesenvolvedor()
             .comId(cpf)
             .comOcupacao("Ocupação")
             .comVencimento(0)
@@ -47,7 +47,7 @@ public class SupervisorDeTiDaoJdbcImplTest {
 
   @Test
   void
-      dadoSupervisorDeTiJdbcDaoQuandoTestadoMetodoResgataPorIdComNenhumRegistroNoBancoDeDadosEntaoDeveLancarEmptyResultDataAccessException() {
+      dadoDesenvolvedorDaoTestHelperJdbcImplQuandoTestadoMetodoResgataPorIdComNenhumRegistroNoBancoDeDadosEntaoDeveLancarEmptyResultDataAccessException() {
     // preparacao
     String queNaoExisteNoBancoDeDados = "inexistente";
 
@@ -55,7 +55,7 @@ public class SupervisorDeTiDaoJdbcImplTest {
     EmptyResultDataAccessException exception =
         assertThrows(
             EmptyResultDataAccessException.class,
-            () -> supervisorDeTiDaoJdbc.resgataPorId(queNaoExisteNoBancoDeDados));
+            () -> desenvolvedorDaoJdbc.resgataPorId(queNaoExisteNoBancoDeDados));
 
     // verificacao
     String mensagemEsperada = "Incorrect result size: expected 1, actual 0";
@@ -65,22 +65,22 @@ public class SupervisorDeTiDaoJdbcImplTest {
 
   @Test
   void
-      dadoSupervisorDeTiJdbcDaoQuandoTestadoMetodoResgataPorIdComUmRegistroNoBancoDeDadosEntaoDeveExistirUmSupervisorDeTi() {
+      dadoDesenvolvedorDaoTestHelperJdbcImplQuandoTestadoMetodoResgataPorIdComUmRegistroNoBancoDeDadosEntaoDeveExistirUmEstagiarioDeTi() {
     // preparacao
-    SupervisorDeTi supervisorDeTi = builder.comTarefasConcluidas(Arrays.asList("T1", "T2")).agora();
+    Desenvolvedor desenvolvedor = builder.comTarefasConcluidas(Arrays.asList("T1", "T2")).agora();
 
-    String queExisteNoBancoDeDados = supervisorDeTi.getId();
+    String queExisteNoBancoDeDados = desenvolvedor.getId();
 
     // acao
-    supervisorDeTiDaoTestHelperJdbc.criaRegistroDeSupervisorDeTi(supervisorDeTi);
-    Optional<SupervisorDeTi> possivelSupervisorDeTi =
-        supervisorDeTiDaoJdbc.resgataPorId(queExisteNoBancoDeDados);
+    desenvolvedorDaoTestHelperJdbc.criaRegistroDeDesenvolvedor(desenvolvedor);
+    Optional<Desenvolvedor> possivelDesenvolvedor =
+        desenvolvedorDaoJdbc.resgataPorId(queExisteNoBancoDeDados);
 
     // verificacao
-    SupervisorDeTi supervisorDeTiDaBaseDeDados = possivelSupervisorDeTi.get();
+    Desenvolvedor desenvolvedorDaBaseDeDados = possivelDesenvolvedor.get();
     int quantidadeDeTarefasConcluidasEsperada = 2;
     int quantidadeDeTarefasConcluidaRecebida =
-        supervisorDeTiDaBaseDeDados.getTarefasConcluidas().size();
+        desenvolvedorDaBaseDeDados.getTarefasConcluidas().size();
     assertEquals(quantidadeDeTarefasConcluidasEsperada, quantidadeDeTarefasConcluidaRecebida);
   }
 }
