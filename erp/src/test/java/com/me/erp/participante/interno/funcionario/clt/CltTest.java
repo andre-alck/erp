@@ -1,22 +1,21 @@
 package com.me.erp.participante.interno.funcionario.clt;
 
-import com.me.erp.builders.CltMockBuilder;
-import com.me.erp.participante.interno.Credenciais;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import static com.me.erp.builders.CltMockBuilder.umClt;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import com.me.erp.builders.CltMockBuilder;
+import com.me.erp.participante.interno.Credenciais;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class CltTest {
     CltMockBuilder builder;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         builder = umClt().comId("408.529.908-55").comOcupacao("Ocupação").comVencimento(2000).comTarefasConcluidas(new ArrayList<>()).comCredenciais(new Credenciais()).comPerfil(new Credenciais()).comCargaHorariaSemanal(2400).comPausa(90);
     }
 
@@ -39,25 +38,7 @@ class CltTest {
     }
 
     @Test
-    void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComComDezPerguntasENenhumaRespostaEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
-        // preparacao
-        Clt clt = builder.agora();
-
-        int comDezPerguntas = 10;
-        int eNenhumaResposta = 0;
-        Contribuicao contribuicao = new Contribuicao(comDezPerguntas, eNenhumaResposta);
-
-        // acao
-        ContribuicaoInvalidaException exception = assertThrows(ContribuicaoInvalidaException.class, () -> clt.participarDeReuniao(contribuicao));
-
-        // verificacao
-        String mensagemEsperada = "Quantidade de respostas é menor do que uma.";
-        String mensagemRecebida = exception.getMessage();
-        assertEquals(mensagemEsperada, mensagemRecebida);
-    }
-
-    @Test
-    void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComUmaPerguntaEUmaRespostaEPontuacaoMenorDoQueCincoEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
+    void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComUmaPerguntaEUmaRespostaEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
         // preparacao
         Clt clt = builder.agora();
 
@@ -75,7 +56,44 @@ class CltTest {
     }
 
     @Test
-    void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComQuatroPerguntasEUmaRespostaEPontuacaoIgualACincoEntaoDeveAtribuirContribuicaoAsTarefasConcluidas() {
+    void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComComCincoPerguntasENenhumaRespostaEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
+        // preparacao
+        Clt clt = builder.agora();
+
+        int comCincoPerguntas = 5;
+        int masComNenhumaResposta = 0;
+        Contribuicao contribuicao = new Contribuicao(comCincoPerguntas, masComNenhumaResposta);
+
+        // acao
+        ContribuicaoInvalidaException exception = assertThrows(ContribuicaoInvalidaException.class, () -> clt.participarDeReuniao(contribuicao));
+
+        // verificacao
+        String mensagemEsperada = "Quantidade de respostas é menor do que uma.";
+        String mensagemRecebida = exception.getMessage();
+        assertEquals(mensagemEsperada, mensagemRecebida);
+    }
+
+    @Test
+    void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComComNenhumaPerguntaECincoRespostasEntaoDeveLancarExcecaoContribuicaoInvalidaException() {
+        // preparacao
+        Clt clt = builder.agora();
+
+        int comNenhumaPergunta = 0;
+        int masComCincoRespostas = 5;
+        Contribuicao contribuicao = new Contribuicao(comNenhumaPergunta, masComCincoRespostas);
+
+        // acao
+        ContribuicaoInvalidaException exception = assertThrows(ContribuicaoInvalidaException.class, () -> clt.participarDeReuniao(contribuicao));
+
+        // verificacao
+        String mensagemEsperada = "Quantidade de perguntas é menor do que uma.";
+        String mensagemRecebida = exception.getMessage();
+        assertEquals(mensagemEsperada, mensagemRecebida);
+    }
+
+
+    @Test
+    void dadoCltQuandoTestadoMetodoParticiparDeReuniaoComQuatroPerguntasEUmaRespostaEntaoDeveAtribuirContribuicaoAsTarefasConcluidas() {
         // preparacao
         Clt clt = builder.agora();
 
@@ -87,8 +105,10 @@ class CltTest {
         clt.participarDeReuniao(contribuicao);
 
         // verificacao
+        String contribuicaoEsperada = contribuicao.toString();
         List<String> tarefasConcluidas = clt.getTarefasConcluidas();
-        assertEquals(tarefasConcluidas.get(0), contribuicao.toString());
+        String contribuicaoRecebida = tarefasConcluidas.get(0).toString();
+        assertEquals(contribuicaoEsperada, contribuicaoRecebida);
     }
 
     @Test
@@ -105,10 +125,8 @@ class CltTest {
 
         // verificacao
         String contribuicaoEsperada = contribuicao.toString();
-
         List<String> tarefasConcluidas = clt.getTarefasConcluidas();
-        String contribuicaoRecebida = tarefasConcluidas.get(0);
-
-        assertEquals(contribuicaoRecebida, contribuicaoEsperada);
+        String contribuicaoRecebida = tarefasConcluidas.get(0).toString();
+        assertEquals(contribuicaoEsperada, contribuicaoRecebida);
     }
 }

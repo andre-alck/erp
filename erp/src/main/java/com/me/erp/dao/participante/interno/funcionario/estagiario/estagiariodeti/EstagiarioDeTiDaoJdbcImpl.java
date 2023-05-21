@@ -1,17 +1,16 @@
 package com.me.erp.dao.participante.interno.funcionario.estagiario.estagiariodeti;
 
+import static com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTiFactory.daBaseDeDados;
+
 import com.me.erp.dao.Dao;
 import com.me.erp.dao.participante.TarefasConcluidasDaoJdbcImpl;
 import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
+import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
-import java.util.Optional;
-
-import static com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTiFactory.daBaseDeDados;
 
 @Component
 public class EstagiarioDeTiDaoJdbcImpl implements Dao<EstagiarioDeTi> {

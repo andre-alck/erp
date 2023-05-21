@@ -3,40 +3,39 @@ package com.me.erp.participante.interno.funcionario.estagiario;
 import java.time.LocalDateTime;
 
 public class Documentacao {
-    private String id;
-    private int quantidadeDePaginas;
-    private LocalDateTime criacao;
+  private String id;
+  private int quantidadeDePaginas;
+  private LocalDateTime criacao;
 
-    public Documentacao(String id, int quantidadeDePaginas, LocalDateTime criacao) {
-        this.id = id;
-        this.quantidadeDePaginas = quantidadeDePaginas;
-        this.criacao = criacao;
-    }
+  public Documentacao(String id, int quantidadeDePaginas, LocalDateTime criacao) {
+    this.id = id;
+    this.quantidadeDePaginas = quantidadeDePaginas;
+    this.criacao = criacao;
+  }
 
-    public Documentacao() {
-    }
+  public Documentacao() {}
 
-    public String getId() {
-        return id;
-    }
+  public String getId() {
+    return id;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public void setId(String id) {
+    this.id = id;
+  }
 
-    public int getQuantidadeDePaginas() {
-        return quantidadeDePaginas;
-    }
+  public int getQuantidadeDePaginas() {
+    return quantidadeDePaginas;
+  }
 
-    public void setQuantidadeDePaginas(int quantidadeDePaginas) {
-        this.quantidadeDePaginas = quantidadeDePaginas;
-    }
+  public void setQuantidadeDePaginas(int quantidadeDePaginas) {
+    this.quantidadeDePaginas = quantidadeDePaginas;
+  }
 
-    public LocalDateTime getCriacao() {
-        return criacao;
-    }
+  public LocalDateTime getCriacao() {
+    return criacao;
+  }
 
-    public void setCriacao(LocalDateTime criacao) {
-        this.criacao = criacao;
-    }
+  public void setCriacao(LocalDateTime criacao) {
+    this.criacao = criacao;
+  }
 }
