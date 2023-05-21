@@ -48,10 +48,14 @@ class EstagiarioDeTiDaoJdbcImplTest {
   @Test
   void
       dadoEstagiarioDeTiJdbcDaoQuandoTestadoMetodoResgataPorIdComNenhumRegistroNoBancoDeDadosEntaoDeveLancarEmptyResultDataAccessException() {
+    // preparacao
+    String queNaoExisteNoBancoDeDados = "inexistente";
+
     // acao
     EmptyResultDataAccessException exception =
         assertThrows(
-            EmptyResultDataAccessException.class, () -> estagiarioDeTiJdbcDao.resgataPorId("id"));
+            EmptyResultDataAccessException.class,
+            () -> estagiarioDeTiJdbcDao.resgataPorId(queNaoExisteNoBancoDeDados));
 
     // verificacao
     String mensagemEsperada = "Incorrect result size: expected 1, actual 0";
@@ -63,18 +67,20 @@ class EstagiarioDeTiDaoJdbcImplTest {
   void
       dadoEstagiarioDeTiJdbcDaoQuandoTestadoMetodoResgataPorIdComUmRegistroNoBancoDeDadosEntaoDeveExistirUmEstagiarioDeTi() {
     // preparacao
-    EstagiarioDeTi estagiarioDeTi =
-        builder.comTarefasConcluidas(Arrays.asList("tarefa 1", "tarefa 2")).agora();
+    EstagiarioDeTi estagiarioDeTi = builder.comTarefasConcluidas(Arrays.asList("T1", "T2")).agora();
+
+    String queExisteNoBancoDeDados = estagiarioDeTi.getId();
 
     // acao
     estagiarioDeTiDaoTestAuxJdbc.criaRegistroDeEstagiarioDeTi(estagiarioDeTi);
     Optional<EstagiarioDeTi> possivelEstagiarioDeTi =
-        estagiarioDeTiJdbcDao.resgataPorId(estagiarioDeTi.getId());
+        estagiarioDeTiJdbcDao.resgataPorId(queExisteNoBancoDeDados);
 
     // verificacao
     EstagiarioDeTi estagiarioDeTiDaBaseDeDados = possivelEstagiarioDeTi.get();
-    int quantidadeDeTarefasConcluidasEsperadas = 2;
-    int quantidadeDeTarefasConcluidas = estagiarioDeTiDaBaseDeDados.getTarefasConcluidas().size();
-    assertEquals(quantidadeDeTarefasConcluidasEsperadas, quantidadeDeTarefasConcluidas);
+    int quantidadeDeTarefasConcluidasEsperada = 2;
+    int quantidadeDeTarefasConcluidaRecebida =
+        estagiarioDeTiDaBaseDeDados.getTarefasConcluidas().size();
+    assertEquals(quantidadeDeTarefasConcluidasEsperada, quantidadeDeTarefasConcluidaRecebida);
   }
 }
