@@ -29,4 +29,11 @@ public class TarefasConcluidasDaoJdbcImpl implements Dao<List<String>> {
 
     return Optional.ofNullable(tarefas);
   }
+
+  @Override
+  public void registraNovaTarefa(String id, String tarefa) {
+    String sql = "insert into erptaref(c_idparti, c_desctaref) values (?, ?)";
+
+    jdbcTemplate.update(sql, id, tarefa);
+  }
 }

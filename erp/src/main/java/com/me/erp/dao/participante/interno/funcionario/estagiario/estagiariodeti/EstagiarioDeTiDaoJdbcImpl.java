@@ -61,4 +61,11 @@ public class EstagiarioDeTiDaoJdbcImpl implements Dao<EstagiarioDeTi> {
 
         return Optional.ofNullable(estagiarioDeTi);
     }
+
+    @Override
+    public void registraNovaTarefa(String id, String tarefa) {
+        String sql = "insert into erptaref(c_idparti, c_desctaref) values (?, ?)";
+
+        jdbcTemplate.update(sql, id, tarefa);
+    }
 }
