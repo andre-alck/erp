@@ -31,17 +31,11 @@ public class TarefasConcluidasDaoTestHelperJdbcImpl implements TarefasConcluidas
   }
 
   @Override
-  public void criaRegistroDeTarefaConcluidaComParticipanteExistente(String id, String descricao) {
-    String sqlParaCriarPrimeiroRegistroNaTabelaDeTarefas =
-        "insert into erptaref (c_idparti, c_desctaref) values ('"
-            + id
-            + "', 'descricao da tarefa 1');";
-    jdbcTemplate.update(sqlParaCriarPrimeiroRegistroNaTabelaDeTarefas);
-
-    String sqlParaCriarSegundoRegistroNaTabelaDeTarefas =
-        "insert into erptaref (c_idparti, c_desctaref) values ('"
-            + id
-            + "', 'descricao da tarefa 2');";
-    jdbcTemplate.update(sqlParaCriarSegundoRegistroNaTabelaDeTarefas);
+  public void criaRegistroDeParticipante(String id) {
+    String sqlParaCriarRegistroNaTabelaDeParticipantes =
+            "insert into erpparti (c_idparti, c_ocupparti, n_vencparti) values ('"
+                    + id
+                    + "', 'ocupacao', 0);";
+    jdbcTemplate.update(sqlParaCriarRegistroNaTabelaDeParticipantes);
   }
 }

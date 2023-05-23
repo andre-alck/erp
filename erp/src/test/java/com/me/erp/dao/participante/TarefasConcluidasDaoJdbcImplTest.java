@@ -1,7 +1,6 @@
 package com.me.erp.dao.participante;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.me.erp.dao.participante.daotesthelper.DaoTestHelperJdbcImpl;
 import com.me.erp.dao.participante.tarefasconcluidashelper.TarefasConcluidasDaoTestHelperJdbcImpl;
@@ -57,5 +56,20 @@ class TarefasConcluidasDaoJdbcImplTest {
     int quantidadeDeTarefasConcluidasEsperada = 2;
     int quantidadeDeTarefasConcluidasRecebida = possivelListaDeTarefas.get().size();
     assertEquals(quantidadeDeTarefasConcluidasEsperada, quantidadeDeTarefasConcluidasRecebida);
+  }
+
+  @Test
+  void dadoTarefasConcluidasDaoJdbcImplQuandoTestadoMetodoRegistraNovaTarefaEntaoDeveExistirUmaTarefa() {
+    // preparacao
+    String id = "participante";
+    tarefasConcluidasDaoTestHelperJdbc.criaRegistroDeParticipante(id);
+
+    // acao
+    tarefasConcluidasDaoJdbc.registraNovaTarefa(id, "T1");
+
+    // verificacao
+    Optional<List<String>> opt = tarefasConcluidasDaoJdbc.resgataPorId(id);
+    List<String> result = opt.get();
+    assertFalse(result.isEmpty());
   }
 }
