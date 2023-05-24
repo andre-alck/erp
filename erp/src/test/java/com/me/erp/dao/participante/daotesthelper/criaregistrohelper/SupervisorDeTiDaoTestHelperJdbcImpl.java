@@ -1,4 +1,4 @@
-package com.me.erp.dao.participante.interno.funcionario.supervisor.supervisordeti.supervisordetihelper;
+package com.me.erp.dao.participante.daotesthelper.criaregistrohelper;
 
 import com.me.erp.participante.interno.funcionario.supervisor.supervisordeti.SupervisorDeTi;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,12 +6,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SupervisorDeTiDaoTestHelperJdbcImpl implements SupervisorDeTiDaoTestHelper {
+public class SupervisorDeTiDaoTestHelperJdbcImpl
+    implements CriaRegistroDaoTestHelper<SupervisorDeTi> {
 
   @Autowired private JdbcTemplate jdbcTemplate;
 
   @Override
-  public void criaRegistroDeSupervisorDeTi(SupervisorDeTi supervisorDeTi) {
+  public void cria(SupervisorDeTi supervisorDeTi) {
     String sqlParaCriarRegistroNaTabelaDeParticipantes =
         "insert into erpparti (c_idparti, c_ocupparti, n_vencparti) values (?, ?, ?)";
     jdbcTemplate.update(

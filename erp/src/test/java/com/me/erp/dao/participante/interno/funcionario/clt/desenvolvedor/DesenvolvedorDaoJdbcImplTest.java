@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.me.erp.builders.DesenvolvedorBuilder;
-import com.me.erp.dao.participante.daotesthelper.DaoTestHelperJdbcImpl;
-import com.me.erp.dao.participante.interno.funcionario.clt.desenvolvedor.desenvolvedorhelper.DesenvolvedorDaoTestHelperJdbcImpl;
+import com.me.erp.dao.participante.daotesthelper.criaregistrohelper.DesenvolvedorDaoTestHelperJdbcImpl;
+import com.me.erp.dao.participante.daotesthelper.deletaregistroshelper.DeletaRegistrosDaoTestHelperJdbcImpl;
 import com.me.erp.participante.interno.Credenciais;
 import com.me.erp.participante.interno.funcionario.clt.desenvolvedor.Desenvolvedor;
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class DesenvolvedorDaoJdbcImplTest {
 
   @Autowired DesenvolvedorDaoTestHelperJdbcImpl desenvolvedorDaoTestHelperJdbc;
 
-  @Autowired DaoTestHelperJdbcImpl daoTestHelperJdbc;
+  @Autowired DeletaRegistrosDaoTestHelperJdbcImpl daoTestHelperJdbc;
 
   DesenvolvedorBuilder builder;
 
@@ -72,7 +72,7 @@ public class DesenvolvedorDaoJdbcImplTest {
     String queExisteNoBancoDeDados = desenvolvedor.getId();
 
     // acao
-    desenvolvedorDaoTestHelperJdbc.criaRegistroDeDesenvolvedor(desenvolvedor);
+    desenvolvedorDaoTestHelperJdbc.cria(desenvolvedor);
     Optional<Desenvolvedor> possivelDesenvolvedor =
         desenvolvedorDaoJdbc.resgataPorId(queExisteNoBancoDeDados);
 

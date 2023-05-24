@@ -128,7 +128,7 @@ class CltTest {
     // verificacao
     String contribuicaoEsperada = contribuicao.toString();
     List<String> tarefasConcluidas = clt.getTarefasConcluidas();
-    String contribuicaoRecebida = tarefasConcluidas.get(0).toString();
+    String contribuicaoRecebida = tarefasConcluidas.get(0);
     assertEquals(contribuicaoEsperada, contribuicaoRecebida);
   }
 
@@ -148,7 +148,7 @@ class CltTest {
     // verificacao
     String contribuicaoEsperada = contribuicao.toString();
     List<String> tarefasConcluidas = clt.getTarefasConcluidas();
-    String contribuicaoRecebida = tarefasConcluidas.get(0).toString();
+    String contribuicaoRecebida = tarefasConcluidas.get(0);
     assertEquals(contribuicaoEsperada, contribuicaoRecebida);
   }
 }

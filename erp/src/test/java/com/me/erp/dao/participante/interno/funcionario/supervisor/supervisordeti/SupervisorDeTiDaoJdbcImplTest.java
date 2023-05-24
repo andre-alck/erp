@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.me.erp.builders.SupervisorDeTiBuilder;
-import com.me.erp.dao.participante.daotesthelper.DaoTestHelperJdbcImpl;
-import com.me.erp.dao.participante.interno.funcionario.supervisor.supervisordeti.supervisordetihelper.SupervisorDeTiDaoTestHelperJdbcImpl;
+import com.me.erp.dao.participante.daotesthelper.criaregistrohelper.SupervisorDeTiDaoTestHelperJdbcImpl;
+import com.me.erp.dao.participante.daotesthelper.deletaregistroshelper.DeletaRegistrosDaoTestHelperJdbcImpl;
 import com.me.erp.participante.interno.Credenciais;
 import com.me.erp.participante.interno.funcionario.supervisor.supervisordeti.SupervisorDeTi;
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class SupervisorDeTiDaoJdbcImplTest {
 
   @Autowired SupervisorDeTiDaoTestHelperJdbcImpl supervisorDeTiDaoTestHelperJdbc;
 
-  @Autowired DaoTestHelperJdbcImpl daoTestHelperJdbc;
+  @Autowired DeletaRegistrosDaoTestHelperJdbcImpl daoTestHelperJdbc;
 
   SupervisorDeTiBuilder builder;
 
@@ -72,7 +72,7 @@ public class SupervisorDeTiDaoJdbcImplTest {
     String queExisteNoBancoDeDados = supervisorDeTi.getId();
 
     // acao
-    supervisorDeTiDaoTestHelperJdbc.criaRegistroDeSupervisorDeTi(supervisorDeTi);
+    supervisorDeTiDaoTestHelperJdbc.cria(supervisorDeTi);
     Optional<SupervisorDeTi> possivelSupervisorDeTi =
         supervisorDeTiDaoJdbc.resgataPorId(queExisteNoBancoDeDados);
 
