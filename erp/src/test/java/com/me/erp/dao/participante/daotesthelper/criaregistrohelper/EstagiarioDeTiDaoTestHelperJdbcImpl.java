@@ -1,48 +1,47 @@
-package com.me.erp.dao.participante.interno.funcionario.supervisor.supervisordeti.supervisordetihelper;
+package com.me.erp.dao.participante.daotesthelper.criaregistrohelper;
 
-import com.me.erp.dao.participante.daotesthelper.CriaRegistroDaoTestHelper;
-import com.me.erp.participante.interno.funcionario.supervisor.supervisordeti.SupervisorDeTi;
+import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SupervisorDeTiDaoTestHelperJdbcImpl
-    implements CriaRegistroDaoTestHelper<SupervisorDeTi> {
+public class EstagiarioDeTiDaoTestHelperJdbcImpl
+    implements CriaRegistroDaoTestHelper<EstagiarioDeTi> {
 
   @Autowired private JdbcTemplate jdbcTemplate;
 
   @Override
-  public void cria(SupervisorDeTi supervisorDeTi) {
+  public void cria(EstagiarioDeTi estagiarioDeTi) {
     String sqlParaCriarRegistroNaTabelaDeParticipantes =
         "insert into erpparti (c_idparti, c_ocupparti, n_vencparti) values (?, ?, ?)";
     jdbcTemplate.update(
         sqlParaCriarRegistroNaTabelaDeParticipantes,
-        supervisorDeTi.getId(),
-        supervisorDeTi.getOcupacao(),
-        supervisorDeTi.getVencimento());
+        estagiarioDeTi.getId(),
+        estagiarioDeTi.getOcupacao(),
+        estagiarioDeTi.getVencimento());
 
     String sqlParaCriarRegistroNaTabelaDeParticipantesInternos =
         "insert into erpinter (c_idparti, c_senhinter) values (?, ?)";
     jdbcTemplate.update(
         sqlParaCriarRegistroNaTabelaDeParticipantesInternos,
-        supervisorDeTi.getId(),
-        supervisorDeTi.getCredenciais().getSenha());
+        estagiarioDeTi.getId(),
+        estagiarioDeTi.getCredenciais().getSenha());
 
     String sqlParaCriarRegistroNaTabelaDeFuncionarios =
         "insert into erpfunci (c_idparti, n_cargfunci, n_pausfunci, c_tipofunci) values (?, ?, ?, ?)";
     jdbcTemplate.update(
         sqlParaCriarRegistroNaTabelaDeFuncionarios,
-        supervisorDeTi.getId(),
-        supervisorDeTi.getCargaHorariaSemanal(),
-        supervisorDeTi.getPausa(),
-        "Supervisor de Ti");
+        estagiarioDeTi.getId(),
+        estagiarioDeTi.getCargaHorariaSemanal(),
+        estagiarioDeTi.getPausa(),
+        "Estagiário de Ti");
 
     String sqlParaCriarRegistroNaTabelaDeTarefasConcluidas =
         "insert into erptaref (c_idparti, c_desctaref) values (?, ?)";
-    for (String tarefa : supervisorDeTi.getTarefasConcluidas()) {
+    for (String tarefa : estagiarioDeTi.getTarefasConcluidas()) {
       jdbcTemplate.update(
-          sqlParaCriarRegistroNaTabelaDeTarefasConcluidas, supervisorDeTi.getId(), tarefa);
+          sqlParaCriarRegistroNaTabelaDeTarefasConcluidas, estagiarioDeTi.getId(), tarefa);
     }
   }
 }

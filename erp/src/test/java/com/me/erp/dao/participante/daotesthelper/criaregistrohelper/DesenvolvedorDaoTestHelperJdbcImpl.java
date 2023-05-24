@@ -1,6 +1,5 @@
-package com.me.erp.dao.participante.interno.funcionario.clt.desenvolvedor.desenvolvedorhelper;
+package com.me.erp.dao.participante.daotesthelper.criaregistrohelper;
 
-import com.me.erp.dao.participante.daotesthelper.CriaRegistroDaoTestHelper;
 import com.me.erp.participante.interno.funcionario.clt.desenvolvedor.Desenvolvedor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

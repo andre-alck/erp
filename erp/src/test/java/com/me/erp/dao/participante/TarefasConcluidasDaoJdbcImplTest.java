@@ -1,9 +1,16 @@
 package com.me.erp.dao.participante;
 
+import static com.me.erp.builders.EstagiarioDeTiBuilder.umEstagiarioDeTi;
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.me.erp.dao.participante.daotesthelper.DeletaRegistrosDaoTestHelperJdbcImpl;
-import com.me.erp.dao.participante.tarefasconcluidashelper.TarefasConcluidasDaoTestHelperJdbcImpl;
+import com.me.erp.builders.EstagiarioDeTiBuilder;
+import com.me.erp.dao.participante.daotesthelper.criaregistrohelper.EstagiarioDeTiDaoTestHelperJdbcImpl;
+import com.me.erp.dao.participante.daotesthelper.criaregistrohelper.TarefasConcluidasDaoTestHelperJdbcImpl;
+import com.me.erp.dao.participante.daotesthelper.criaregistrohelper.TarefasConcluidasDto;
+import com.me.erp.dao.participante.daotesthelper.deletaregistroshelper.DeletaRegistrosDaoTestHelperJdbcImpl;
+import com.me.erp.participante.interno.Credenciais;
+import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,11 +25,24 @@ class TarefasConcluidasDaoJdbcImplTest {
 
   @Autowired TarefasConcluidasDaoTestHelperJdbcImpl tarefasConcluidasDaoTestHelperJdbc;
 
-  @Autowired
-  DeletaRegistrosDaoTestHelperJdbcImpl daoTestHelperJdbc;
+  @Autowired EstagiarioDeTiDaoTestHelperJdbcImpl estagiarioDeTiDaoTestHelperJdbc;
+
+  @Autowired DeletaRegistrosDaoTestHelperJdbcImpl daoTestHelperJdbc;
+
+  EstagiarioDeTiBuilder builder;
 
   @BeforeEach
   void setup() {
+    String cpf = "53576485768";
+    builder =
+        umEstagiarioDeTi()
+            .comId(cpf)
+            .comOcupacao("Ocupação")
+            .comVencimento(0)
+            .comTarefasConcluidas(new ArrayList<>())
+            .comCredenciais(new Credenciais(cpf, "123"))
+            .comCargaHorariaSemanal(1950)
+            .comPausa(0);
     daoTestHelperJdbc.cleanUp();
   }
 
@@ -45,31 +65,35 @@ class TarefasConcluidasDaoJdbcImplTest {
   void
       dadoTarefasConcluidasDaoJdbcImplQuandoTestadoMetodoResgataPorIdComDoisRegistrosNoBancoDeDadosEntaoDeveExistirDuasTarefas() {
     // preparacao
-    String queExisteNoBancoDeDados = "757.857.8475-98";
-    tarefasConcluidasDaoTestHelperJdbc.criaRegistroDeTarefaConcluidaRegistrandoParticipante(
-        queExisteNoBancoDeDados, "T1");
+    EstagiarioDeTi estagiarioDeTi = builder.agora();
+    estagiarioDeTiDaoTestHelperJdbc.cria(estagiarioDeTi);
+
+    TarefasConcluidasDto tarefasConcluidasDto =
+        new TarefasConcluidasDto(estagiarioDeTi.getId(), List.of("T1"));
+    tarefasConcluidasDaoTestHelperJdbc.cria(tarefasConcluidasDto);
 
     // acao
     Optional<List<String>> possivelListaDeTarefas =
-        tarefasConcluidasDaoJdbc.resgataPorId(queExisteNoBancoDeDados);
+        tarefasConcluidasDaoJdbc.resgataPorId(estagiarioDeTi.getId());
 
     // verificacao
-    int quantidadeDeTarefasConcluidasEsperada = 2;
+    int quantidadeDeTarefasConcluidasEsperada = 1;
     int quantidadeDeTarefasConcluidasRecebida = possivelListaDeTarefas.get().size();
     assertEquals(quantidadeDeTarefasConcluidasEsperada, quantidadeDeTarefasConcluidasRecebida);
   }
 
   @Test
-  void dadoTarefasConcluidasDaoJdbcImplQuandoTestadoMetodoRegistraNovaTarefaEntaoDeveExistirUmaTarefa() {
+  void
+      dadoTarefasConcluidasDaoJdbcImplQuandoTestadoMetodoRegistraNovaTarefaEntaoDeveExistirUmaTarefa() {
     // preparacao
-    String id = "participante";
-    tarefasConcluidasDaoTestHelperJdbc.criaRegistroDeParticipante(id);
+    EstagiarioDeTi estagiarioDeTi = builder.agora();
+    estagiarioDeTiDaoTestHelperJdbc.cria(estagiarioDeTi);
 
     // acao
-    tarefasConcluidasDaoJdbc.registraNovaTarefa(id, "T1");
+    tarefasConcluidasDaoJdbc.registraNovaTarefa(estagiarioDeTi.getId(), "T1");
 
     // verificacao
-    Optional<List<String>> opt = tarefasConcluidasDaoJdbc.resgataPorId(id);
+    Optional<List<String>> opt = tarefasConcluidasDaoJdbc.resgataPorId(estagiarioDeTi.getId());
     List<String> result = opt.get();
     assertFalse(result.isEmpty());
   }

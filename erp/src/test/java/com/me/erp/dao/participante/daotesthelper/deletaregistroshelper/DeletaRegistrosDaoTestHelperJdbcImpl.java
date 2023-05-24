@@ -1,4 +1,4 @@
-package com.me.erp.dao.participante.daotesthelper;
+package com.me.erp.dao.participante.daotesthelper.deletaregistroshelper;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
