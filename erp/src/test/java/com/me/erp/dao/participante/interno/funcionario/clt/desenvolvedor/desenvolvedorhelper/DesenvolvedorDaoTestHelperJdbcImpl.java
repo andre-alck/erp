@@ -1,17 +1,19 @@
 package com.me.erp.dao.participante.interno.funcionario.clt.desenvolvedor.desenvolvedorhelper;
 
+import com.me.erp.dao.participante.daotesthelper.CriaRegistroDaoTestHelper;
 import com.me.erp.participante.interno.funcionario.clt.desenvolvedor.Desenvolvedor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DesenvolvedorDaoTestHelperJdbcImpl implements DesenvolvedorDaoTestHelper {
+public class DesenvolvedorDaoTestHelperJdbcImpl
+    implements CriaRegistroDaoTestHelper<Desenvolvedor> {
 
   @Autowired private JdbcTemplate jdbcTemplate;
 
   @Override
-  public void criaRegistroDeDesenvolvedor(Desenvolvedor desenvolvedor) {
+  public void cria(Desenvolvedor desenvolvedor) {
     String sqlParaCriarRegistroNaTabelaDeParticipantes =
         "insert into erpparti (c_idparti, c_ocupparti, n_vencparti) values (?, ?, ?)";
     jdbcTemplate.update(

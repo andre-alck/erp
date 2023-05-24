@@ -2,7 +2,7 @@ package com.me.erp.controller.participante.interno.funcionario.estagiario.estagi
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.me.erp.dao.participante.daotesthelper.DaoTestHelperJdbcImpl;
+import com.me.erp.dao.participante.daotesthelper.DeletaRegistrosDaoTestHelperJdbcImpl;
 import com.me.erp.dao.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTiDaoJdbcImpl;
 import com.me.erp.participante.interno.Credenciais;
 import com.me.erp.participante.interno.funcionario.dto.FuncionarioDocumentacaoDto;
@@ -30,7 +30,7 @@ public class EstagiarioDeTiControllerTest {
 
   @Autowired private EstagiarioDeTiDaoJdbcImpl estagiarioDeTiDaoJdbc;
 
-  @Autowired private DaoTestHelperJdbcImpl daoTestHelperJdbc;
+  @Autowired private DeletaRegistrosDaoTestHelperJdbcImpl daoTestHelperJdbc;
 
   @Disabled
   @Test

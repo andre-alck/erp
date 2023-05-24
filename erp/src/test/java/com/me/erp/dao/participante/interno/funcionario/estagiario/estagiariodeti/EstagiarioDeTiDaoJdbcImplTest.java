@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.me.erp.builders.EstagiarioDeTiBuilder;
-import com.me.erp.dao.participante.daotesthelper.DaoTestHelperJdbcImpl;
+import com.me.erp.dao.participante.daotesthelper.DeletaRegistrosDaoTestHelperJdbcImpl;
 import com.me.erp.dao.participante.interno.funcionario.estagiario.estagiariodeti.estagiariodetihelper.EstagiarioDeTiDaoTestHelperJdbcImpl;
 import com.me.erp.participante.interno.Credenciais;
 import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
@@ -25,7 +25,7 @@ class EstagiarioDeTiDaoJdbcImplTest {
 
   @Autowired EstagiarioDeTiDaoTestHelperJdbcImpl estagiarioDeTiDaoTestAuxJdbc;
 
-  @Autowired DaoTestHelperJdbcImpl daoTestHelperJdbc;
+  @Autowired DeletaRegistrosDaoTestHelperJdbcImpl daoTestHelperJdbc;
 
   EstagiarioDeTiBuilder builder;
 
@@ -72,7 +72,7 @@ class EstagiarioDeTiDaoJdbcImplTest {
     String queExisteNoBancoDeDados = estagiarioDeTi.getId();
 
     // acao
-    estagiarioDeTiDaoTestAuxJdbc.criaRegistroDeEstagiarioDeTi(estagiarioDeTi);
+    estagiarioDeTiDaoTestAuxJdbc.cria(estagiarioDeTi);
     Optional<EstagiarioDeTi> possivelEstagiarioDeTi =
         estagiarioDeTiJdbcDao.resgataPorId(queExisteNoBancoDeDados);
 

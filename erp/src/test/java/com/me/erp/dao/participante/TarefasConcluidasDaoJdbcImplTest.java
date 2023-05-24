@@ -2,7 +2,7 @@ package com.me.erp.dao.participante;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.me.erp.dao.participante.daotesthelper.DaoTestHelperJdbcImpl;
+import com.me.erp.dao.participante.daotesthelper.DeletaRegistrosDaoTestHelperJdbcImpl;
 import com.me.erp.dao.participante.tarefasconcluidashelper.TarefasConcluidasDaoTestHelperJdbcImpl;
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +18,8 @@ class TarefasConcluidasDaoJdbcImplTest {
 
   @Autowired TarefasConcluidasDaoTestHelperJdbcImpl tarefasConcluidasDaoTestHelperJdbc;
 
-  @Autowired DaoTestHelperJdbcImpl daoTestHelperJdbc;
+  @Autowired
+  DeletaRegistrosDaoTestHelperJdbcImpl daoTestHelperJdbc;
 
   @BeforeEach
   void setup() {

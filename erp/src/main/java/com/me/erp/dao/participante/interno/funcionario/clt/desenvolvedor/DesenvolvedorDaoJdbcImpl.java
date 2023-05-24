@@ -64,10 +64,10 @@ public class DesenvolvedorDaoJdbcImpl implements Dao<Desenvolvedor> {
     return Optional.ofNullable(desenvolvedor);
   }
 
-    @Override
-    public void registraNovaTarefa(String id, String tarefa) {
-        String sql = "insert into erptaref(c_idparti, c_desctaref) values (?, ?)";
+  @Override
+  public void registraNovaTarefa(String id, String tarefa) {
+    String sql = "insert into erptaref(c_idparti, c_desctaref) values (?, ?)";
 
-        jdbcTemplate.update(sql, id, tarefa);
-    }
+    jdbcTemplate.update(sql, id, tarefa);
+  }
 }

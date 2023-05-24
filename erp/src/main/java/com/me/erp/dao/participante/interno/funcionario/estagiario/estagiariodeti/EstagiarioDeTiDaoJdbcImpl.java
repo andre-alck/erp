@@ -15,13 +15,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class EstagiarioDeTiDaoJdbcImpl implements Dao<EstagiarioDeTi> {
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+  @Autowired private JdbcTemplate jdbcTemplate;
 
-    @Autowired
-    private TarefasConcluidasDaoJdbcImpl tarefasConcluidasDaoJdbc;
+  @Autowired private TarefasConcluidasDaoJdbcImpl tarefasConcluidasDaoJdbc;
 
-    private RowMapper<EstagiarioDeTi> rowMapper = (rs, rowNum) -> {
+  private RowMapper<EstagiarioDeTi> rowMapper =
+      (rs, rowNum) -> {
         String id = rs.getString("c_idparti");
         String ocupacao = rs.getString("c_ocupparti");
         double vencimento = rs.getDouble("n_vencparti");
@@ -29,15 +28,18 @@ public class EstagiarioDeTiDaoJdbcImpl implements Dao<EstagiarioDeTi> {
         double cargaHorariaSemanal = rs.getDouble("n_cargfunci");
         double pausa = rs.getDouble("n_pausfunci");
 
-        Optional<List<String>> possivelTarefasConcluidas = tarefasConcluidasDaoJdbc.resgataPorId(id);
+        Optional<List<String>> possivelTarefasConcluidas =
+            tarefasConcluidasDaoJdbc.resgataPorId(id);
         List<String> tarefasConcluidas = possivelTarefasConcluidas.get();
 
-        return daBaseDeDados(id, ocupacao, vencimento, tarefasConcluidas, senha, cargaHorariaSemanal, pausa);
-    };
+        return daBaseDeDados(
+            id, ocupacao, vencimento, tarefasConcluidas, senha, cargaHorariaSemanal, pausa);
+      };
 
-    @Override
-    public Optional<EstagiarioDeTi> resgataPorId(String id) {
-        String sql = """
+  @Override
+  public Optional<EstagiarioDeTi> resgataPorId(String id) {
+    String sql =
+        """
                         SELECT
                             erpparti.c_idparti,
                             erpparti.c_ocupparti,
@@ -57,15 +59,15 @@ public class EstagiarioDeTiDaoJdbcImpl implements Dao<EstagiarioDeTi> {
                                 AND erpfunci.c_tipofunci = "Estagiário de Ti"
                 """;
 
-        EstagiarioDeTi estagiarioDeTi = jdbcTemplate.queryForObject(sql, rowMapper, id);
+    EstagiarioDeTi estagiarioDeTi = jdbcTemplate.queryForObject(sql, rowMapper, id);
 
-        return Optional.ofNullable(estagiarioDeTi);
-    }
+    return Optional.ofNullable(estagiarioDeTi);
+  }
 
-    @Override
-    public void registraNovaTarefa(String id, String tarefa) {
-        String sql = "insert into erptaref(c_idparti, c_desctaref) values (?, ?)";
+  @Override
+  public void registraNovaTarefa(String id, String tarefa) {
+    String sql = "insert into erptaref(c_idparti, c_desctaref) values (?, ?)";
 
-        jdbcTemplate.update(sql, id, tarefa);
-    }
+    jdbcTemplate.update(sql, id, tarefa);
+  }
 }

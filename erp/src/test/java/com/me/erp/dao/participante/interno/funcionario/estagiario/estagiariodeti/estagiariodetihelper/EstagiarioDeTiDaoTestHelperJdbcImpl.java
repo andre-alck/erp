@@ -1,27 +1,19 @@
 package com.me.erp.dao.participante.interno.funcionario.estagiario.estagiariodeti.estagiariodetihelper;
 
+import com.me.erp.dao.participante.daotesthelper.CriaRegistroDaoTestHelper;
 import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class EstagiarioDeTiDaoTestHelperJdbcImpl implements EstagiarioDeTiDaoTestHelper {
+public class EstagiarioDeTiDaoTestHelperJdbcImpl
+    implements CriaRegistroDaoTestHelper<EstagiarioDeTi> {
 
   @Autowired private JdbcTemplate jdbcTemplate;
 
   @Override
-  public void deletaRegistrosDeEstagiarioDeTi() {
-    List<String> queries =
-        List.of("delete from erpfunci", "delete from erpinter", "delete from erpparti");
-    for (String query : queries) {
-      jdbcTemplate.update(query);
-    }
-  }
-
-  @Override
-  public void criaRegistroDeEstagiarioDeTi(EstagiarioDeTi estagiarioDeTi) {
+  public void cria(EstagiarioDeTi estagiarioDeTi) {
     String sqlParaCriarRegistroNaTabelaDeParticipantes =
         "insert into erpparti (c_idparti, c_ocupparti, n_vencparti) values (?, ?, ?)";
     jdbcTemplate.update(

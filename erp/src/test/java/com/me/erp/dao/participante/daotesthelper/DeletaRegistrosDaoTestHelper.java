@@ -1,5 +1,5 @@
 package com.me.erp.dao.participante.daotesthelper;
 
-public interface DaoTestHelper {
+public interface DeletaRegistrosDaoTestHelper {
   void cleanUp();
 }
