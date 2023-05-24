@@ -65,9 +65,9 @@ public class EstagiarioDeTiDaoJdbcImpl implements Dao<EstagiarioDeTi> {
   }
 
   @Override
-  public void registraNovaTarefa(String id, String tarefa) {
+  public void registraNovaTarefa(String idDoParticipanteExistente, String tarefa) {
     String sql = "insert into erptaref(c_idparti, c_desctaref) values (?, ?)";
 
-    jdbcTemplate.update(sql, id, tarefa);
+    jdbcTemplate.update(sql, idDoParticipanteExistente, tarefa);
   }
 }

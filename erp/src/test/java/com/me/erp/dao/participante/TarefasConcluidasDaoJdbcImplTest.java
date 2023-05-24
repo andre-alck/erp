@@ -65,20 +65,21 @@ class TarefasConcluidasDaoJdbcImplTest {
   void
       dadoTarefasConcluidasDaoJdbcImplQuandoTestadoMetodoResgataPorIdComDoisRegistrosNoBancoDeDadosEntaoDeveExistirDuasTarefas() {
     // preparacao
-    EstagiarioDeTi estagiarioDeTi = builder.agora();
-    estagiarioDeTiDaoTestHelperJdbc.cria(estagiarioDeTi);
+    EstagiarioDeTi registroDeEstagiarioDeTi = builder.agora();
+    estagiarioDeTiDaoTestHelperJdbc.cria(registroDeEstagiarioDeTi);
 
-    TarefasConcluidasDto tarefasConcluidasDto =
-        new TarefasConcluidasDto(estagiarioDeTi.getId(), List.of("T1"));
-    tarefasConcluidasDaoTestHelperJdbc.cria(tarefasConcluidasDto);
+    TarefasConcluidasDto registroDeTarefasConcluidasDoEstagiarioDeTi =
+        new TarefasConcluidasDto(registroDeEstagiarioDeTi.getId(), List.of("T1"));
+    tarefasConcluidasDaoTestHelperJdbc.cria(registroDeTarefasConcluidasDoEstagiarioDeTi);
 
     // acao
-    Optional<List<String>> possivelListaDeTarefas =
-        tarefasConcluidasDaoJdbc.resgataPorId(estagiarioDeTi.getId());
+    Optional<List<String>> possivelListaDeTarefasConcluidas =
+        tarefasConcluidasDaoJdbc.resgataPorId(registroDeEstagiarioDeTi.getId());
 
     // verificacao
+    List<String> tarefasConcluidasDaBaseDeDados = possivelListaDeTarefasConcluidas.get();
     int quantidadeDeTarefasConcluidasEsperada = 1;
-    int quantidadeDeTarefasConcluidasRecebida = possivelListaDeTarefas.get().size();
+    int quantidadeDeTarefasConcluidasRecebida = tarefasConcluidasDaBaseDeDados.size();
     assertEquals(quantidadeDeTarefasConcluidasEsperada, quantidadeDeTarefasConcluidasRecebida);
   }
 
@@ -86,15 +87,19 @@ class TarefasConcluidasDaoJdbcImplTest {
   void
       dadoTarefasConcluidasDaoJdbcImplQuandoTestadoMetodoRegistraNovaTarefaEntaoDeveExistirUmaTarefa() {
     // preparacao
-    EstagiarioDeTi estagiarioDeTi = builder.agora();
-    estagiarioDeTiDaoTestHelperJdbc.cria(estagiarioDeTi);
+    EstagiarioDeTi registroDeEstagiarioDeTi = builder.agora();
+    estagiarioDeTiDaoTestHelperJdbc.cria(registroDeEstagiarioDeTi);
+
+    String idDoParticipanteExistente = registroDeEstagiarioDeTi.getId();
+    String tarefa = "T1";
 
     // acao
-    tarefasConcluidasDaoJdbc.registraNovaTarefa(estagiarioDeTi.getId(), "T1");
+    tarefasConcluidasDaoJdbc.registraNovaTarefa(idDoParticipanteExistente, tarefa);
+    Optional<List<String>> possivelListaDeTarefasConcluidas =
+            tarefasConcluidasDaoJdbc.resgataPorId(registroDeEstagiarioDeTi.getId());
 
     // verificacao
-    Optional<List<String>> opt = tarefasConcluidasDaoJdbc.resgataPorId(estagiarioDeTi.getId());
-    List<String> result = opt.get();
-    assertFalse(result.isEmpty());
+    boolean isPossivelListaDeTarefasConcluidasVazia = possivelListaDeTarefasConcluidas.isEmpty();
+    assertFalse(isPossivelListaDeTarefasConcluidasVazia);
   }
 }

@@ -25,8 +25,7 @@ public class SupervisorDeTiDaoJdbcImplTest {
 
   @Autowired SupervisorDeTiDaoTestHelperJdbcImpl supervisorDeTiDaoTestHelperJdbc;
 
-  @Autowired
-  DeletaRegistrosDaoTestHelperJdbcImpl daoTestHelperJdbc;
+  @Autowired DeletaRegistrosDaoTestHelperJdbcImpl daoTestHelperJdbc;
 
   SupervisorDeTiBuilder builder;
 
