@@ -29,6 +29,10 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
+        
+    - name: List Files
+      run: ls ../../erp/
+      
     - name: Build with Maven
       run: mvn -B package --file ../../erp/pom.xml
 
