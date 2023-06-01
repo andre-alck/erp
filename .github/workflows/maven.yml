@@ -29,6 +29,9 @@ jobs:
                   distribution: "temurin"
                   cache: maven
 
+            - name: Initialize MySQL
+              run: sudo systemctl start mysql.service
+
             - name: Build with Maven
               run: mvn -B package --file erp/pom.xml
 
