@@ -32,6 +32,9 @@ jobs:
             - name: Initialize MySQL
               run: sudo systemctl start mysql.service
 
+            - name: Create Database erp
+              run: mysql -uroot -proot -e 'CREATE DATABASE IF NOT EXISTS erp;'
+
             - name: Build with Maven
               run: mvn -B package --file erp/pom.xml
 
