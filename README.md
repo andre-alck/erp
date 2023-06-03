@@ -22,6 +22,7 @@ Para praticar as seguintes competências:
 -   Clean Code
 -   Git
 -   GitHub
+-   Github Actions
 
 **3. Who?**
 
