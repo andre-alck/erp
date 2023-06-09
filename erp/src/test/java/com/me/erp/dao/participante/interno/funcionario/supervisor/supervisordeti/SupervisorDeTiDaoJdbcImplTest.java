@@ -1,16 +1,17 @@
 package com.me.erp.dao.participante.interno.funcionario.supervisor.supervisordeti;
 
 import static com.me.erp.builders.SupervisorDeTiBuilder.umSupervisorDeTi;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.me.erp.builders.SupervisorDeTiBuilder;
+import com.me.erp.dao.participante.TarefasConcluidasDaoJdbcImpl;
 import com.me.erp.dao.participante.daotesthelper.criaregistrohelper.SupervisorDeTiDaoTestHelperJdbcImpl;
 import com.me.erp.dao.participante.daotesthelper.deletaregistroshelper.DeletaRegistrosDaoTestHelperJdbcImpl;
 import com.me.erp.participante.interno.Credenciais;
 import com.me.erp.participante.interno.funcionario.supervisor.supervisordeti.SupervisorDeTi;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,6 +25,9 @@ public class SupervisorDeTiDaoJdbcImplTest {
   @Autowired SupervisorDeTiDaoJdbcImpl supervisorDeTiDaoJdbc;
 
   @Autowired SupervisorDeTiDaoTestHelperJdbcImpl supervisorDeTiDaoTestHelperJdbc;
+
+  @Autowired
+  TarefasConcluidasDaoJdbcImpl tarefasConcluidasDaoJdbc;
 
   @Autowired DeletaRegistrosDaoTestHelperJdbcImpl daoTestHelperJdbc;
 
@@ -82,5 +86,25 @@ public class SupervisorDeTiDaoJdbcImplTest {
     int quantidadeDeTarefasConcluidaRecebida =
         supervisorDeTiDaBaseDeDados.getTarefasConcluidas().size();
     assertEquals(quantidadeDeTarefasConcluidasEsperada, quantidadeDeTarefasConcluidaRecebida);
+  }
+
+  @Test
+  void
+  dadoSupervisorDeTiDaoJdbcImplQuandoTestadoMetodoRegistraNovaTarefaEntaoDeveExistirUmaTarefa() {
+    // preparacao
+    SupervisorDeTi registroDeSupervisorDeTi = builder.agora();
+    supervisorDeTiDaoTestHelperJdbc.cria(registroDeSupervisorDeTi);
+
+    String idDoSupervisorDeti = registroDeSupervisorDeTi.getId();
+    String tarefa = "T1";
+
+    // acao
+    supervisorDeTiDaoJdbc.registraNovaTarefa(idDoSupervisorDeti, tarefa);
+    Optional<List<String>> possivelListaDeTarefasConcluidas =
+            tarefasConcluidasDaoJdbc.resgataPorId(idDoSupervisorDeti);
+
+    // verificacao
+    boolean isPossivelListaDeTarefasConcluidasVazia = possivelListaDeTarefasConcluidas.isEmpty();
+    assertFalse(isPossivelListaDeTarefasConcluidasVazia);
   }
 }
