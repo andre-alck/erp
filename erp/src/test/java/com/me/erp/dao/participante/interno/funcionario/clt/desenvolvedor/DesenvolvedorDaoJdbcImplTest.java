@@ -1,16 +1,17 @@
 package com.me.erp.dao.participante.interno.funcionario.clt.desenvolvedor;
 
 import static com.me.erp.builders.DesenvolvedorBuilder.umDesenvolvedor;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.me.erp.builders.DesenvolvedorBuilder;
+import com.me.erp.dao.participante.TarefasConcluidasDaoJdbcImpl;
 import com.me.erp.dao.participante.daotesthelper.criaregistrohelper.DesenvolvedorDaoTestHelperJdbcImpl;
 import com.me.erp.dao.participante.daotesthelper.deletaregistroshelper.DeletaRegistrosDaoTestHelperJdbcImpl;
 import com.me.erp.participante.interno.Credenciais;
 import com.me.erp.participante.interno.funcionario.clt.desenvolvedor.Desenvolvedor;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,6 +25,8 @@ public class DesenvolvedorDaoJdbcImplTest {
   @Autowired DesenvolvedorDaoJdbcImpl desenvolvedorDaoJdbc;
 
   @Autowired DesenvolvedorDaoTestHelperJdbcImpl desenvolvedorDaoTestHelperJdbc;
+
+  @Autowired TarefasConcluidasDaoJdbcImpl tarefasConcluidasDaoJdbc;
 
   @Autowired DeletaRegistrosDaoTestHelperJdbcImpl daoTestHelperJdbc;
 
@@ -47,7 +50,7 @@ public class DesenvolvedorDaoJdbcImplTest {
 
   @Test
   void
-      dadoDesenvolvedorDaoTestHelperJdbcImplQuandoTestadoMetodoResgataPorIdComNenhumRegistroNoBancoDeDadosEntaoDeveLancarEmptyResultDataAccessException() {
+      dadoDesenvolvedorDaoJdbcImplQuandoTestadoMetodoResgataPorIdComNenhumRegistroNoBancoDeDadosEntaoDeveLancarEmptyResultDataAccessException() {
     // preparacao
     String queNaoExisteNoBancoDeDados = "inexistente";
 
@@ -65,7 +68,7 @@ public class DesenvolvedorDaoJdbcImplTest {
 
   @Test
   void
-      dadoDesenvolvedorDaoTestHelperJdbcImplQuandoTestadoMetodoResgataPorIdComUmRegistroNoBancoDeDadosEntaoDeveExistirUmEstagiarioDeTi() {
+      dadoDesenvolvedorDaoJdbcImplQuandoTestadoMetodoResgataPorIdComUmRegistroNoBancoDeDadosEntaoDeveExistirUmEstagiarioDeTi() {
     // preparacao
     Desenvolvedor desenvolvedor = builder.comTarefasConcluidas(Arrays.asList("T1", "T2")).agora();
 
@@ -82,5 +85,25 @@ public class DesenvolvedorDaoJdbcImplTest {
     int quantidadeDeTarefasConcluidaRecebida =
         desenvolvedorDaBaseDeDados.getTarefasConcluidas().size();
     assertEquals(quantidadeDeTarefasConcluidasEsperada, quantidadeDeTarefasConcluidaRecebida);
+  }
+
+  @Test
+  void
+  dadoDesenvolvedorDaoJdbcImplQuandoTestadoMetodoRegistraNovaTarefaEntaoDeveExistirUmaTarefa() {
+    // preparacao
+    Desenvolvedor registroDeDesenvolvedor = builder.agora();
+    desenvolvedorDaoTestHelperJdbc.cria(registroDeDesenvolvedor);
+
+    String idDoDesenvolvedor = registroDeDesenvolvedor.getId();
+    String tarefa = "T1";
+
+    // acao
+    desenvolvedorDaoJdbc.registraNovaTarefa(idDoDesenvolvedor, tarefa);
+    Optional<List<String>> possivelListaDeTarefasConcluidas =
+            tarefasConcluidasDaoJdbc.resgataPorId(idDoDesenvolvedor);
+
+    // verificacao
+    boolean isPossivelListaDeTarefasConcluidasVazia = possivelListaDeTarefasConcluidas.isEmpty();
+    assertFalse(isPossivelListaDeTarefasConcluidasVazia);
   }
 }

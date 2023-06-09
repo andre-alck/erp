@@ -50,7 +50,7 @@ class EstagiarioDeTiDaoJdbcImplTest {
 
   @Test
   void
-      dadoEstagiarioDeTiJdbcDaoQuandoTestadoMetodoResgataPorIdComNenhumRegistroNoBancoDeDadosEntaoDeveLancarEmptyResultDataAccessException() {
+      dadoEstagiarioDeTiDaoJdbcImplQuandoTestadoMetodoResgataPorIdComNenhumRegistroNoBancoDeDadosEntaoDeveLancarEmptyResultDataAccessException() {
     // preparacao
     String queNaoExisteNoBancoDeDados = "inexistente";
 
@@ -68,7 +68,7 @@ class EstagiarioDeTiDaoJdbcImplTest {
 
   @Test
   void
-  dadoEstagiarioDeTiJdbcDaoQuandoTestadoMetodoResgataPorIdComUmRegistroNoBancoDeDadosEntaoDeveExistirUmEstagiarioDeTi() {
+  dadoEstagiarioDeTiDaoJdbcImplQuandoTestadoMetodoResgataPorIdComUmRegistroNoBancoDeDadosEntaoDeveExistirUmEstagiarioDeTi() {
     // preparacao
     EstagiarioDeTi estagiarioDeTi = builder.comTarefasConcluidas(Arrays.asList("T1", "T2")).agora();
 
@@ -89,7 +89,7 @@ class EstagiarioDeTiDaoJdbcImplTest {
 
   @Test
   void
-  dadoestagiarioDeTiJdbcDaoQuandoTestadoMetodoRegistraNovaTarefaEntaoDeveExistirUmaTarefa() {
+  dadoEstagiarioDeTiDaoJdbcImplQuandoTestadoMetodoRegistraNovaTarefaEntaoDeveExistirUmaTarefa() {
     // preparacao
     EstagiarioDeTi registroDeEstagiarioDeTi = builder.agora();
     estagiarioDeTiDaoTestAuxJdbc.cria(registroDeEstagiarioDeTi);
@@ -100,7 +100,7 @@ class EstagiarioDeTiDaoJdbcImplTest {
     // acao
    estagiarioDeTiJdbcDao.registraNovaTarefa(idDoEstagiarioDeTi, tarefa);
     Optional<List<String>> possivelListaDeTarefasConcluidas =
-            tarefasConcluidasDaoJdbc.resgataPorId(registroDeEstagiarioDeTi.getId());
+            tarefasConcluidasDaoJdbc.resgataPorId(idDoEstagiarioDeTi);
 
     // verificacao
     boolean isPossivelListaDeTarefasConcluidasVazia = possivelListaDeTarefasConcluidas.isEmpty();

@@ -96,7 +96,7 @@ class TarefasConcluidasDaoJdbcImplTest {
     // acao
     tarefasConcluidasDaoJdbc.registraNovaTarefa(idDoParticipanteExistente, tarefa);
     Optional<List<String>> possivelListaDeTarefasConcluidas =
-            tarefasConcluidasDaoJdbc.resgataPorId(registroDeEstagiarioDeTi.getId());
+        tarefasConcluidasDaoJdbc.resgataPorId(registroDeEstagiarioDeTi.getId());
 
     // verificacao
     boolean isPossivelListaDeTarefasConcluidasVazia = possivelListaDeTarefasConcluidas.isEmpty();
