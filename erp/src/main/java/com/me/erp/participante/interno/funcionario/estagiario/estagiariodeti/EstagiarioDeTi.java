@@ -4,6 +4,7 @@ import com.me.erp.dao.Dao;
 import com.me.erp.participante.interno.funcionario.estagiario.Documentacao;
 import com.me.erp.participante.interno.funcionario.estagiario.Estagiario;
 import com.me.erp.participante.interno.funcionario.ti.atividadestiniveljunior.AtividadesTiNivelJunior;
+import java.util.Optional;
 
 public class EstagiarioDeTi extends Estagiario {
 
@@ -28,5 +29,13 @@ public class EstagiarioDeTi extends Estagiario {
   public void documentar(Documentacao documentacao) {
     super.documentar(documentacao);
     dao.registraNovaTarefa(this.getId(), documentacao.toString());
+  }
+
+  public Optional<EstagiarioDeTi> resgataPorId(String id) {
+    return dao.resgataPorId(id);
+  }
+
+  public void registraNovaTarefa(String idDoParticipanteExistente, String tarefa) {
+    dao.registraNovaTarefa(idDoParticipanteExistente, tarefa);
   }
 }
