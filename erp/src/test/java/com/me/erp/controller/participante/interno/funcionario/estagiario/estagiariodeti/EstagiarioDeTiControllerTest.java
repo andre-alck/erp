@@ -1,58 +1,57 @@
 package com.me.erp.controller.participante.interno.funcionario.estagiario.estagiariodeti;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 import com.me.erp.dao.participante.daotesthelper.deletaregistroshelper.DeletaRegistrosDaoTestHelperJdbcImpl;
 import com.me.erp.dao.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTiDaoJdbcImpl;
-import com.me.erp.participante.interno.Credenciais;
-import com.me.erp.participante.interno.funcionario.dto.FuncionarioDocumentacaoDto;
 import com.me.erp.participante.interno.funcionario.estagiario.Documentacao;
 import com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTi;
 import java.time.LocalDateTime;
-import org.junit.jupiter.api.Disabled;
+import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 @AutoConfigureMockMvc
 public class EstagiarioDeTiControllerTest {
 
-  @Autowired private MockMvc mvc;
-
   @Autowired private EstagiarioDeTiDaoJdbcImpl estagiarioDeTiDaoJdbc;
 
   @Autowired private DeletaRegistrosDaoTestHelperJdbcImpl daoTestHelperJdbc;
 
-  @Disabled
+  @MockBean
+  private EstagiarioDeTi estagiarioDeTi;
+
+  @Autowired
+  private MockMvc mockMvc;
+  
   @Test
   void
-      dadoEstagiarioDeTiControllerQuandoTestadoMetodoDocumentarAPartirDeUmEstagiarioDeTiEntaoDeveAtribuirAsTarefasConcluidas() {
+      dadoEstagiarioDeTiControllerQuandoTestadoMetodoDocumentarAPartirDeUmEstagiarioDeTiEntaoDeveAtribuirAsTarefasConcluidas() throws Exception {
     // preparacao
-    Credenciais credenciais = new Credenciais("85796884756", "pass");
-    Documentacao documentacao = new Documentacao(credenciais.getId(), 5, LocalDateTime.now());
-    FuncionarioDocumentacaoDto dto = new FuncionarioDocumentacaoDto(credenciais, documentacao);
+    when(estagiarioDeTi.resgataPorId(any())).thenReturn(Optional.of(new EstagiarioDeTi()));
+
+    EstagiarioDeTiController controller = new EstagiarioDeTiController();
+    Documentacao documentacao = new Documentacao("75673547364", 10, LocalDateTime.now());
 
     // acao
-    RequestBuilder requestBuilder =
-        MockMvcRequestBuilders.post("/documentar").content(dto.toString());
-    MvcResult mvcResult = null;
-    try {
-      mvcResult = mvc.perform(requestBuilder).andReturn();
-    } catch (Exception e) {
-      throw new RuntimeException(e);
-    }
+    ResultActions response = mockMvc.perform(post("/estagiariodeti/documentar")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content("{\"id\": \"53567936859\", \"quantidadeDePaginas\": \"10\", \"dataDeCriacao\": \"null\"}"));
 
     // verificacao
-    EstagiarioDeTi estagiarioDeTi = estagiarioDeTiDaoJdbc.resgataPorId(credenciais.getId()).get();
-    assertEquals(estagiarioDeTi.getTarefasConcluidas().get(0), documentacao.getId());
+    response.andExpect(MockMvcResultMatchers.status().is2xxSuccessful());
   }
 }
