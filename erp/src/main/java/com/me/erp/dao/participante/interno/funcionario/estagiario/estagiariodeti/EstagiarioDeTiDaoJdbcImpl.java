@@ -19,7 +19,7 @@ public class EstagiarioDeTiDaoJdbcImpl implements Dao<EstagiarioDeTi> {
 
   @Autowired private TarefasConcluidasDaoJdbcImpl tarefasConcluidasDaoJdbc;
 
-  private RowMapper<EstagiarioDeTi> rowMapper =
+  private final RowMapper<EstagiarioDeTi> rowMapper =
       (rs, rowNum) -> {
         String id = rs.getString("c_idparti");
         String ocupacao = rs.getString("c_ocupparti");

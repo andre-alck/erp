@@ -12,9 +12,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class TarefasConcluidasDaoJdbcImpl implements Dao<List<String>> {
 
+  private final RowMapper<String> rowMapper = (rs, rowNum) -> rs.getString("c_desctaref");
   @Autowired JdbcTemplate jdbcTemplate;
-
-  private RowMapper<String> rowMapper = (rs, rowNum) -> rs.getString("c_desctaref");
 
   @Override
   public Optional<List<String>> resgataPorId(String id) {

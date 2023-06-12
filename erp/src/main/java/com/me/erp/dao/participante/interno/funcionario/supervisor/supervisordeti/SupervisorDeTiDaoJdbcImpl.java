@@ -19,7 +19,7 @@ public class SupervisorDeTiDaoJdbcImpl implements Dao<SupervisorDeTi> {
 
   @Autowired private TarefasConcluidasDaoJdbcImpl tarefasConcluidasDaoJdbc;
 
-  private RowMapper<SupervisorDeTi> rowMapper =
+  private final RowMapper<SupervisorDeTi> rowMapper =
       (rs, rowNum) -> {
         String id = rs.getString("c_idparti");
         String ocupacao = rs.getString("c_ocupparti");

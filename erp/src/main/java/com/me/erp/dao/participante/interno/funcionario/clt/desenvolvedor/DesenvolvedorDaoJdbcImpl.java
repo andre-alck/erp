@@ -19,7 +19,7 @@ public class DesenvolvedorDaoJdbcImpl implements Dao<Desenvolvedor> {
 
   @Autowired private TarefasConcluidasDaoJdbcImpl tarefasConcluidasDaoJdbc;
 
-  private RowMapper<Desenvolvedor> rowMapper =
+  private final RowMapper<Desenvolvedor> rowMapper =
       (rs, rowNum) -> {
         String id = rs.getString("c_idparti");
         String ocupacao = rs.getString("c_ocupparti");
