@@ -1,22 +1,23 @@
 package com.me.erp.participante.interno.funcionario.estagiario.estagiariodeti;
 
-import com.me.erp.dao.Dao;
+import com.me.erp.dao.participante.interno.funcionario.estagiario.estagiariodeti.EstagiarioDeTiDaoJdbcImpl;
 import com.me.erp.participante.interno.funcionario.estagiario.Documentacao;
 import com.me.erp.participante.interno.funcionario.estagiario.Estagiario;
 import com.me.erp.participante.interno.funcionario.ti.atividadestiniveljunior.AtividadesTiNivelJunior;
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class EstagiarioDeTi extends Estagiario {
 
   private AtividadesTiNivelJunior atividadesTiNivelJunior;
 
-  private Dao dao;
+
+  @Autowired
+  private EstagiarioDeTiDaoJdbcImpl dao;
 
   public EstagiarioDeTi() {}
-
-  public EstagiarioDeTi(AtividadesTiNivelJunior atividadesTiNivelJunior) {
-    this.atividadesTiNivelJunior = atividadesTiNivelJunior;
-  }
 
   public void setAtividadesTiNivelJunior(AtividadesTiNivelJunior atividadesTiNivelJunior) {
     this.atividadesTiNivelJunior = atividadesTiNivelJunior;
